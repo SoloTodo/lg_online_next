@@ -1,9 +1,39 @@
-import App, { Container } from 'next/app'
 import React from 'react'
-import withReduxStore from '../lib/with-redux-store'
 import { Provider } from 'react-redux'
+import App, { Container } from 'next/app'
+import withReduxStore from '../lib/with-redux-store'
+import {apiSettings} from '../react-utils/settings'
+import {fetchJson} from '../react-utils/utils'
+import {loadRequiredProducts} from "../redux/actions";
 
 class MyApp extends App {
+  static async getInitialProps(appContext) {
+    const promises = [];
+    const dispatch = appContext.ctx.reduxStore.dispatch;
+
+    // Retrieve bundle
+    let bundleUrl = `${apiSettings.endpoint}resources/?`;
+
+    for (const requiredResource of ['currencies', 'stores', 'categories']) {
+      bundleUrl += `names=${requiredResource}&`;
+    }
+
+    promises.push(fetchJson(bundleUrl));
+
+    // Retrieve required products
+
+    promises.push(loadRequiredProducts(dispatch));
+
+    const promiseValues = await Promise.all(promises);
+    const bundle = promiseValues[0];
+    dispatch({
+      type: 'addBundle',
+      apiResourceObjects: bundle
+    });
+
+    return {}
+  }
+
   render () {
     const { Component, pageProps, reduxStore } = this.props;
     return (

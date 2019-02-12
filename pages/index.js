@@ -1,28 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { startClock, serverRenderClock } from '../redux/actions'
-import Examples from '../components/examples'
+
+import "../styles.scss"
 
 class Index extends React.Component {
-  static getInitialProps ({ reduxStore, req }) {
-    const isServer = !!req;
-    reduxStore.dispatch(serverRenderClock(isServer));
-
-    return {}
-  }
-
-  componentDidMount () {
-    const { dispatch } = this.props;
-    this.timer = startClock(dispatch)
-  }
-
-  componentWillUnmount () {
-    clearInterval(this.timer)
-  }
-
   render () {
-    return <Examples />
+    return <ul>
+      {Object.keys(this.props.apiResourceObjects).map(apiResourceObject =>
+        <li key={apiResourceObject}>{apiResourceObject}</li>
+      )}
+    </ul>
   }
 }
 
-export default connect()(Index)
+function mapStateToProps(state) {
+  return {
+    apiResourceObjects: state.apiResourceObjects
+  }
+}
+
+export default connect(mapStateToProps)(Index)

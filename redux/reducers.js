@@ -1,32 +1,12 @@
-// REDUCERS
-import {actionTypes} from "./actions";
-
 export const exampleInitialState = {
-  lastUpdate: 0,
-  light: false,
-  count: 0
+  apiResourceObjects: {},
+  loadedBundle: false
 };
 
-export const reducer = (state = exampleInitialState, action) => {
-  switch (action.type) {
-    case actionTypes.TICK:
-      return Object.assign({}, state, {
-        lastUpdate: action.ts,
-        light: !!action.light
-      });
-    case actionTypes.INCREMENT:
-      return Object.assign({}, state, {
-        count: state.count + 1
-      });
-    case actionTypes.DECREMENT:
-      return Object.assign({}, state, {
-        count: state.count - 1
-      });
-    case actionTypes.RESET:
-      return Object.assign({}, state, {
-        count: exampleInitialState.count
-      });
-    default:
-      return state
+export function productEntriesReducer(state=null, action) {
+  if (action.type === 'setProductEntries') {
+    return action.productEntries
   }
-};
+
+  return state
+}

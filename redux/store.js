@@ -1,9 +1,20 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
-import {exampleInitialState, reducer} from './reducers'
+import {exampleInitialState, productEntriesReducer} from './reducers'
 
-export function initializeStore (initialState = exampleInitialState) {
+import {
+  apiResourceObjectsReducer, loadedBundleReducer
+} from "../react-utils/redux-utils";
+
+
+export function initializeStore(initialState=exampleInitialState) {
+  const reducer = combineReducers({
+    apiResourceObjects: apiResourceObjectsReducer,
+    loadedBundle: loadedBundleReducer,
+    productEntries: productEntriesReducer,
+  });
+
   return createStore(
     reducer,
     initialState,
