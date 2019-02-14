@@ -6,10 +6,19 @@ import {apiSettings} from '../react-utils/settings'
 import {fetchJson} from '../react-utils/utils'
 import {loadRequiredProducts} from "../redux/actions";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../styles.scss"
+import "../fonts.scss"
+
 class MyApp extends App {
   static async getInitialProps(appContext) {
     const promises = [];
-    const dispatch = appContext.ctx.reduxStore.dispatch;
+    const reduxStore = appContext.ctx.reduxStore;
+    const state = reduxStore.getState();
+
+    if (state.loadedBundle) {
+      return {}
+    }
 
     // Retrieve bundle
     let bundleUrl = `${apiSettings.endpoint}resources/?`;
@@ -22,16 +31,20 @@ class MyApp extends App {
 
     // Retrieve required products
 
-    promises.push(loadRequiredProducts(dispatch));
+    promises.push(loadRequiredProducts(reduxStore.dispatch));
 
     const promiseValues = await Promise.all(promises);
     const bundle = promiseValues[0];
-    dispatch({
+    reduxStore.dispatch({
       type: 'addBundle',
       apiResourceObjects: bundle
     });
 
     return {}
+  }
+
+  componentDidMount() {
+    console.log('App mounted');
   }
 
   render () {

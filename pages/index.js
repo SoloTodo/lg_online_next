@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import "../styles.scss"
-
 class Index extends React.Component {
   render () {
     return <ul>

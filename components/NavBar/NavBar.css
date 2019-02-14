@@ -1,0 +1,50 @@
+#navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#navbar .navbar__brand {
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+
+#navbar .nav-link {
+    color: white !important;
+}
+
+#navbar .dropdown-menu.show {
+    font-size: 14px;
+    background-color: #343a40 !important;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -1px;
+}
+
+@media(min-width: 768px) {
+    #navbar .nav-link {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    #navbar .nav-item:hover, .dropdown-item:hover {
+        background-color: #a50034;
+    }
+}
+
+#searchclear {
+    position: absolute;
+    right: 50px;
+    top: 8px;
+    bottom: 0;
+    font-size: 16px;
+    height: 16px;
+    /*margin: auto;*/
+    cursor: pointer;
+    color: #ccc;
+    z-index: 3;
+}
+
+#text-search-input:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
