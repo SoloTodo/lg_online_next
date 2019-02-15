@@ -1,3 +1,5 @@
+// Only used for development! Serverless routes are configured in now.json
+
 const express = require('express');
 const next = require('next');
 
@@ -89,6 +91,11 @@ const routes = [{
 app.prepare()
   .then(() => {
     const server = express();
+
+    server.get(`/`, (req, res) => {
+      const actualPage = '/browse';
+      app.render(req, res, actualPage)
+    });
 
     for (const route of routes) {
       server.get(`/${route.slug}`, (req, res) => {

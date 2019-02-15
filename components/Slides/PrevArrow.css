@@ -1,0 +1,8 @@
+.slick-prev.custom-arrow:before {
+    display: none !important;
+}
+
+.slick-prev.custom-arrow {
+    width: 14px;
+    height: 46px;
+}

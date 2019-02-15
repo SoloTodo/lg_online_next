@@ -3,19 +3,27 @@ import {withRouter} from 'next/router'
 import { connect } from 'react-redux'
 import {lgonlineStateToPropsUtils} from "../redux-utils";
 import NavBar from "../components/NavBar/NavBar";
+import SubcategoryMenu from '../components/SubcategoryMenu/SubcategoryMenu'
+import Carousel from "../components/Slides/Carousel";
 
 class Browse extends React.Component {
   render() {
+    const categoryId = this.props.category ? this.props.category.id : undefined;
+    const subcategory = this.props.subcategory;
+
+    const subcategoryMenu = <SubcategoryMenu categoryId={categoryId} subcategory={subcategory} />;
+
     return <React.Fragment>
       <NavBar />
 
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-
-      <h1>{this.props.category ? this.props.category.name : 'No category'}</h1>
-      <h2>{this.props.subcategory ? this.props.subcategory.title : 'No subcategory'}</h2>
+      <div id="content">
+        {this.props.isMobile && subcategoryMenu}
+        <Carousel categoryId={categoryId} subcategory={subcategory} />
+        {!this.props.isMobile && <div className="d-flex flex-row justify-content-center">
+          {subcategoryMenu}
+        </div>}
+        {/*<ProductBrowseResults location={this.props.location} categoryId={categoryId} subcategory={subcategory} />*/}
+      </div>
     </React.Fragment>
   }
 }
@@ -24,11 +32,16 @@ function mapStateToProps(state, ownProps) {
   const { section } = ownProps.router.query;
   const { importantCategories } = lgonlineStateToPropsUtils(state);
 
+  const props = {
+    isMobile: state.browser.lessThan.medium
+  };
+
   for (const category of importantCategories) {
     if (category.slug === section) {
       return {
         category,
-        subcategory: null
+        subcategory: null,
+        ...props
       }
     }
 
@@ -38,7 +51,8 @@ function mapStateToProps(state, ownProps) {
       if (subcategory.slug === section) {
         return {
           category,
-          subcategory
+          subcategory,
+          ...props
         }
       }
     }

@@ -1,0 +1,31 @@
+.subcategory_menu__title {
+    background-color: #a50034;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 50px;
+}
+
+.subcategory_menu__dropdown-container {
+    position: relative;
+}
+
+.subcategory_menu__dropdown {
+    position: absolute;
+    width: 100%;
+    background-color: #a50034;
+    z-index: 2;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.subcategory_menu__link-container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.subcategory_menu__dropdown a {
+    color: white;
+}

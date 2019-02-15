@@ -46,8 +46,7 @@ class NavBarMobileSearch extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    isMobile: false,
-    // isMobile: state.browser.lessThan.medium
+    isMobile: state.browser.lessThan.medium
   }
 }
 

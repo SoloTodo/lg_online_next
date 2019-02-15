@@ -1,4 +1,4 @@
-const isServer = typeof window === 'undefined';
+export const isServer = typeof window === 'undefined';
 
 export function isIe() {
   if (isServer) {

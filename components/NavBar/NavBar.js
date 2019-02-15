@@ -75,6 +75,8 @@ class NavBar extends React.Component {
   };
 
   render() {
+    // console.log('Rendering navbar');
+
     return <div>
       <Navbar id="navbar" color="dark" dark expand="md" fixed="top">
         <Link href="/">
@@ -100,17 +102,17 @@ class NavBar extends React.Component {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem>
-                  <Link href="/refrigeradores">
+                  <Link href="/browse?section=refrigeradores" as="/refrigeradores">
                     <a className="nav-link">Refrigeradores</a>
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link href="/lavadoras">
+                  <Link href="/browse?section=lavadoras" as="/lavadoras">
                     <a className="nav-link">Lavadoras</a>
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link href="/microondas">
+                  <Link href="/browse?section=microondas" as="/microondas">
                     <a className="nav-link">Microondas</a>
                   </Link>
                 </DropdownItem>
@@ -119,42 +121,42 @@ class NavBar extends React.Component {
             }
             {!this.props.isMedium &&
             <NavItem>
-              <Link href="/refrigeradores">
+              <Link href="/browse?section=refrigeradores" as="/refrigeradores">
                 <a className="nav-link">Refrigeradores</a>
               </Link>
             </NavItem>
             }
             {!this.props.isMedium &&
             <NavItem>
-              <Link as="/browse?categorySlug=lavadoras" href="/lavadoras">
+              <Link href="/browse?section=lavadoras" as="/lavadoras">
                 <a className="nav-link">Lavadoras</a>
               </Link>
             </NavItem>
             }
             {!this.props.isMedium &&
             <NavItem>
-              <Link href="/microondas">
+              <Link href="/browse?section=microondas" as="/microondas">
                 <a className="nav-link">Microondas</a>
               </Link>
             </NavItem>
             }
             <NavItem>
-              <Link href="/celulares">
+              <Link href="/browse?section=celulares" as="/celulares">
                 <a className="nav-link">Smartphones</a>
               </Link>
             </NavItem>
             <NavItem>
-              <Link href="/audio">
+              <Link href="/browse?section=audio" as="/audio">
                 <a className="nav-link">Audio</a>
               </Link>
             </NavItem>
             <NavItem>
-              <Link href="/monitores">
+              <Link href="/browse?section=monitores" as="/monitores">
                 <a className="nav-link">Monitores</a>
               </Link>
             </NavItem>
             <NavItem>
-              <Link href="/proyectores">
+              <Link href="/browse?section=proyectores" as="/proyectores">
                 <a className="nav-link">Proyectores</a>
               </Link>
             </NavItem>
@@ -200,10 +202,8 @@ class NavBar extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    isMediumOrLarger: true,
-    isMedium: false
-    // isMediumOrLarger: state.browser.greaterThan.small,
-    // isMedium: state.browser.is.medium
+    isMediumOrLarger: state.browser.greaterThan.small,
+    isMedium: state.browser.is.medium
   }
 }
 

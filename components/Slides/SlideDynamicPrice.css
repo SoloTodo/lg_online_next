@@ -1,0 +1,148 @@
+.dynamic-banner {
+    position: relative;
+    cursor: pointer;
+    height: 400px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dynamic-banner__price {
+    position: absolute;
+    color: #c5053e;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dynamic-banner__buy-button {
+    position: absolute;
+    color: white;
+    font-weight: normal;
+    background-color: #c6053a;
+}
+
+.dynamic-banner__buy-button:hover {
+    background-color: #91052b;
+}
+
+.dynamic-banner__buy-button__label {
+    padding-left: 20px;
+    font-size: 30px;
+}
+
+.dynamic-banner__price-sign {
+    font-size: 30px;
+}
+
+@media(max-width: 575px) {
+    .dynamic-banner__price {
+        left: 124px;
+        top: 74px;
+        font-size: 24px;
+    }
+
+    .dynamic-banner__buy-button {
+        left: 125px;
+        top: 110px;
+        width: 102px;
+        height: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .dynamic-banner__buy-button__label {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .dynamic-banner__price-sign {
+        font-size: 15px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767px) {
+    .dynamic-banner__price {
+        left: 25px;
+        top: 203px;
+        font-size: 32px;
+    }
+
+    .dynamic-banner__buy-button {
+        left: 24px;
+        top: 257px;
+        width: 140px;
+        height: 28px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .dynamic-banner__buy-button__label {
+        font-size: 20px;
+    }
+
+    .dynamic-banner__price-sign {
+        font-size: 20px;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 991px) {
+    .dynamic-banner__price {
+        left: 34px;
+        top: 201px;
+        font-size: 36px;
+    }
+
+    .dynamic-banner__buy-button {
+        left: 34px;
+        top: 268px;
+        width: 148px;
+        height: 30px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .dynamic-banner__buy-button__label {
+        font-size: 22px;
+    }
+
+    .dynamic-banner__price-sign {
+        font-size: 18px;
+    }
+}
+
+@media(min-width: 992px) and (max-width: 1199px) {
+    .dynamic-banner__price {
+        top: 172px;
+        left: 54px;
+        font-size: 48px;
+    }
+
+    .dynamic-banner__buy-button {
+        top: 251px;
+        left: 54px;
+        width: 205px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .dynamic-banner__price-sign {
+        font-size: 30px;
+    }
+}
+
+@media(min-width: 1200px) {
+    .dynamic-banner__price {
+        left: 40px;
+        top: 167px;
+        font-size: 48px;
+    }
+
+    .dynamic-banner__buy-button {
+        left: 40px;
+        top: 247px;
+        width: 205px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .dynamic-banner__price-sign {
+        font-size: 30px;
+    }
+}
