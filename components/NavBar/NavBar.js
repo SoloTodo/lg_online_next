@@ -79,7 +79,7 @@ class NavBar extends React.Component {
 
     return <div>
       <Navbar id="navbar" color="dark" dark expand="md" fixed="top">
-        <Link href="/">
+        <Link href="/browse" as="/">
           <a className="navbar__brand">
             <img src="/static/img/logo.png" alt="LG Logo" width="80" height="35" />
           </a>

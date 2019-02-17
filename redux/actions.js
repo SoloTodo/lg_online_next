@@ -2,6 +2,7 @@ import {fetchJson} from '../react-utils/utils'
 import {isIe} from "../utils";
 import desiredProducts from "../products";
 import {settings} from '../settings';
+import {apiSettings} from "../react-utils/settings";
 
 export const actionTypes = {
   TICK: 'TICK',
@@ -31,6 +32,21 @@ export const decrementCount = () => dispatch => {
 
 export const resetCount = () => dispatch => {
   return dispatch({ type: actionTypes.RESET })
+};
+
+export const loadRequiredResources = resources => dispatch => {
+  let bundleUrl = `${apiSettings.endpoint}resources/?`;
+
+  for (const requiredResource of resources) {
+    bundleUrl += `names=${requiredResource}&`;
+  }
+
+  return fetchJson(bundleUrl).then(bundle => {
+    dispatch({
+      type: 'addBundle',
+      apiResourceObjects: bundle
+    });
+  });
 };
 
 export const loadRequiredProducts = dispatch => {
@@ -65,7 +81,7 @@ export const loadRequiredProducts = dispatch => {
     for (const rawProductEntries of values) {
       for (const productEntry of rawProductEntries.results) {
         const entities = productEntry.entities
-          .filter(entity => entity.active_registry.cell_monthly_payment === null)
+          .filter(entity => entity.active_registry.cell_monthly_payment === null);
         if (!entities.length) {
           continue
         }

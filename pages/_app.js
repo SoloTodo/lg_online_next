@@ -3,10 +3,9 @@ import { Provider } from 'react-redux'
 import App, { Container } from 'next/app'
 import Head from 'next/head'
 import {calculateResponsiveState} from 'redux-responsive'
+import {ApiResourceObject} from "../react-utils/ApiResource";
 import withReduxStore from '../lib/with-redux-store'
-import {apiSettings} from '../react-utils/settings'
-import {fetchJson} from '../react-utils/utils'
-import {loadRequiredProducts} from "../redux/actions";
+import {loadRequiredProducts, loadRequiredResources} from "../redux/actions";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -15,40 +14,43 @@ import "../fonts.scss"
 
 class MyApp extends App {
   static async getInitialProps(appContext) {
-    const promises = [];
     const reduxStore = appContext.ctx.reduxStore;
     const state = reduxStore.getState();
+
+    console.log('Getting initial props');
 
     if (state.loadedBundle) {
       return {}
     }
 
-    // Retrieve bundle
-    let bundleUrl = `${apiSettings.endpoint}resources/?`;
+    const promises = [
+      reduxStore.dispatch(loadRequiredResources(['currencies', 'stores', 'categories'])),
+      reduxStore.dispatch(loadRequiredProducts)
+    ];
 
-    for (const requiredResource of ['currencies', 'stores', 'categories']) {
-      bundleUrl += `names=${requiredResource}&`;
-    }
-
-    promises.push(fetchJson(bundleUrl));
-
-    // Retrieve required products
-
-    promises.push(loadRequiredProducts(reduxStore.dispatch));
-
-    const promiseValues = await Promise.all(promises);
-    const bundle = promiseValues[0];
-    reduxStore.dispatch({
-      type: 'addBundle',
-      apiResourceObjects: bundle
-    });
-
-    return {}
+    return Promise.all(promises)
   }
 
   componentDidMount() {
     const store = this.props.reduxStore;
     store.dispatch(calculateResponsiveState(window));
+
+    const {apiResourceObjects, productEntries} = store.getState();
+
+    const hydratedProductEntries = productEntries.map(productEntry => {
+      const entities = productEntry.entities.map(entity => new ApiResourceObject(entity, apiResourceObjects));
+
+      return {
+        ...productEntry,
+        product: new ApiResourceObject(productEntry.product, apiResourceObjects),
+        entities
+      }
+    });
+
+    store.dispatch({
+      type: 'setProductEntries',
+      productEntries: hydratedProductEntries
+    })
   }
 
   render () {

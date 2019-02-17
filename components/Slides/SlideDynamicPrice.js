@@ -17,6 +17,8 @@ class SlideDynamicPrice extends React.Component {
       event_category: 'Banners',
       event_label: productEntry.product.name,
     });
+
+    this.props.onClick()
   };
 
   render() {
@@ -26,26 +28,6 @@ class SlideDynamicPrice extends React.Component {
       return null
     }
 
-    let imageToDisplay = null;
-
-    const conversionTuple = [
-      [575, this.props.extraSmall],
-      [767, this.props.small],
-      [991, this.props.medium],
-      [1199, this.props.large],
-    ];
-
-    for (const entry of conversionTuple) {
-      if (window.innerWidth <= entry[0]) {
-        imageToDisplay = entry[1];
-        break;
-      }
-    }
-
-    if (!imageToDisplay) {
-      imageToDisplay = this.props.infinity
-    }
-
     const priceDisplayEntity = this.props.forcedPriceStoreId ?
         productEntry.entities.filter(entity => entity.store.id === this.props.forcedPriceStoreId)[0] :
         productEntry.entities[0];
@@ -53,6 +35,8 @@ class SlideDynamicPrice extends React.Component {
     if (!priceDisplayEntity) {
       return null
     }
+
+    console.log(priceDisplayEntity);
 
     const price = priceDisplayEntity.activeRegistry.offer_price;
     const formattedPrice = this.props.priceFormatter(price).replace('$ ', '');
@@ -68,9 +52,21 @@ class SlideDynamicPrice extends React.Component {
         } :
         this.props.desktopHref || `/${categoryMetadata.slug}?product=${productEntry.product.id}`;
 
-    return <Link to={linkTo} onClick={evt => this.handleClick(productEntry)} className="d-flex flex-row justify-content-center w-100">
-      <div className={`dynamic-banner ${this.props.className}`} onClick={this.props.onClick}>
-        <RetinaImage src={imageToDisplay} />
+    return <Link href={linkTo}>
+      <div className={`dynamic-banner ${this.props.className} d-flex flex-row justify-content-center w-100`} onClick={evt => this.handleClick(productEntry)}>
+        <picture>
+          <source media="(max-width: 575px)"
+                  srcSet={`${this.props.extraSmall[0]}, ${this.props.extraSmall[1]} 2x`} />
+          <source media="(max-width: 767px)"
+                  srcSet={`${this.props.small[0]}`} />
+          <source media="(max-width: 991px)"
+                  srcSet={`${this.props.medium[0]}`} />
+          <source media="(max-width: 1199px)"
+                  srcSet={`${this.props.large[0]}`} />
+          <source media="(max-width: 10000px)"
+                  srcSet={`${this.props.infinity[0]}`} />
+          <img src={this.props.extraSmall[0]} />
+        </picture>
         <div className="dynamic-banner__price"><span className="dynamic-banner__price-sign">$</span>{formattedPrice}</div>
         <div className="dynamic-banner__buy-button d-flex flex-row align-items-center justify-content-center">
           <span>Comprar</span>
