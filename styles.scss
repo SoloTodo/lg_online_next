@@ -19,3 +19,55 @@ body {
     background-color: #f5f5f5;
   }
 }
+
+
+.product-detail-desktop__pricing-table {
+    margin-top: 10px;
+    flex-grow: 1;
+}
+
+.product-detail-desktop__pricing-table-row {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    color: #777;
+    padding: 0 0 0 10px;
+}
+
+.product-detail-desktop__pricing-table-row:hover, .product-detail-desktop__pricing-table-row:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-detail-desktop__pricing-table-row__store {
+    flex-basis: 140px;
+    flex-grow: 1;
+}
+
+.product-detail-desktop__pricing-table-row__price {
+    flex-basis: 140px;
+    flex-grow: 1;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.product-detail-desktop__pricing-table-row__buy-button {
+    flex-basis: 140px;
+    flex-grow: 1;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.product-detail-desktop__pricing-table-row.first {
+    border: 1px solid #a50034;
+}
+
+.product-detail-desktop__pricing-table-row.first .product-detail-desktop__pricing-table-row__store, .product-detail-desktop__pricing-table-row.first .product-detail-desktop__pricing-table-row__price {
+    color: #a50034;
+    /*font-weight: bold;*/
+}
+
+.product-detail-desktop__pricing-table-row.first .product-detail-desktop__pricing-table-row__buy-button {
+    background-color: #a50034;
+    color: white;
+}

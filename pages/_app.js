@@ -1,23 +1,46 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import App, { Container } from 'next/app'
-import Head from 'next/head'
 import {calculateResponsiveState} from 'redux-responsive'
-import {ApiResourceObject} from "../react-utils/ApiResource";
 import withReduxStore from '../lib/with-redux-store'
 import {loadRequiredProducts, loadRequiredResources} from "../redux/actions";
+import LgOnlineHead from "../components/LgOnlineHead";
+import {settings} from '../settings';
+import {isServer} from '../react-utils/utils'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-image-gallery/styles/css/image-gallery.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick-theme.scss';
 import "../styles.scss"
 import "../fonts.scss"
 
+
 class MyApp extends App {
+  constructor(props) {
+    super(props);
+
+    if (!isServer) {
+      console.log('Called constructor');
+      // Facebook pixel
+
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function()
+      {n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}
+      ;
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', settings.facebookId);
+    }
+  }
+
   static async getInitialProps(appContext) {
     const reduxStore = appContext.ctx.reduxStore;
     const state = reduxStore.getState();
-
-    console.log('Getting initial props');
 
     if (state.loadedBundle) {
       return {}
@@ -32,34 +55,17 @@ class MyApp extends App {
   }
 
   componentDidMount() {
+    // Re-render on frontend due to varying window sizes
+
     const store = this.props.reduxStore;
     store.dispatch(calculateResponsiveState(window));
-
-    const {apiResourceObjects, productEntries} = store.getState();
-
-    const hydratedProductEntries = productEntries.map(productEntry => {
-      const entities = productEntry.entities.map(entity => new ApiResourceObject(entity, apiResourceObjects));
-
-      return {
-        ...productEntry,
-        product: new ApiResourceObject(productEntry.product, apiResourceObjects),
-        entities
-      }
-    });
-
-    store.dispatch({
-      type: 'setProductEntries',
-      productEntries: hydratedProductEntries
-    })
   }
 
   render () {
     const { Component, pageProps, reduxStore } = this.props;
     return (
       <Container>
-        <Head>
-          <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0" />
-        </Head>
+        <LgOnlineHead />
 
         <Provider store={reduxStore}>
           <Component {...pageProps} />

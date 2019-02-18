@@ -1,11 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import RetinaImage from 'react-retina-image';
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
 
 import './SlideDynamicPrice.css'
 import Link from 'next/link';
 import { withRouter } from 'next/router'
+import {listToObject} from '../../react-utils/utils';
 import {settings} from "../../settings";
 
 class SlideDynamicPrice extends React.Component {
@@ -36,12 +36,11 @@ class SlideDynamicPrice extends React.Component {
       return null
     }
 
-    console.log(priceDisplayEntity);
-
-    const price = priceDisplayEntity.activeRegistry.offer_price;
+    const price = priceDisplayEntity.active_registry.offer_price;
     const formattedPrice = this.props.priceFormatter(price).replace('$ ', '');
 
-    const categoryMetadata = settings.categoriesMetadata[productEntry.product.category.id];
+    const category = this.props.categoriesDict[productEntry.product.category];
+    const categoryMetadata = settings.categoriesMetadata[category.id];
 
     const linkTo = this.props.isMobile ?
         {
@@ -79,12 +78,13 @@ class SlideDynamicPrice extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   const matchingProductEntry = state.productEntries.filter(productEntry => productEntry.product.id === ownProps.productId)[0];
-  const {priceFormatter} = lgonlineStateToPropsUtils(state);
+  const { priceFormatter, categories} = lgonlineStateToPropsUtils(state);
 
   return {
     productEntry: matchingProductEntry,
     priceFormatter,
-    isMobile: state.browser.lessThan.medium
+    isMobile: state.browser.lessThan.medium,
+    categoriesDict: listToObject(categories, 'url')
   }
 }
 

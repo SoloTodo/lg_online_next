@@ -1,0 +1,186 @@
+.product-detail-mobile {
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    /*border-bottom: 1px solid #9d0c3c;*/
+}
+
+.product-detail-mobile__picture-name-price {
+    flex-basis: 140px;
+    flex-grow: 1;
+}
+
+.product-detail-mobile__axes-specs-button {
+    flex-basis: 220px;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.product-detail-mobile__product_title {
+    font-weight: bold;
+    text-align: center;
+    color: #7e7e7e;
+    font-size: 24px;
+    line-height: 1;
+    margin-top: 10px;
+}
+
+.product-detail-mobile__product_name {
+    color: #acacac;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-detail-mobile__price-label {
+    color: #9d0c3c;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.product-detail-mobile__price-label-from {
+    font-size: 12px;
+    padding-right: 5px;
+}
+
+.product-detail-mobile__main_specs_title {
+    font-weight: bold;
+}
+
+.product-detail-mobile__main_specs ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.product-detail-mobile__main_specs ul li::before {
+  content: "\2022";
+  color: #9d0c3c;
+  display: inline-block;
+  width: 1em;
+}
+
+.product-detail-mobile__back-button, .product-detail-mobile__back-button:hover {
+    text-decoration: none;
+}
+
+.product-detail-mobile__back-label {
+    background-color: #313e47;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.product-detail-mobile__back-arrow {
+    background-color: #b2234e;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+.product-detail-mobile__pricing-slogan {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: #b2244e;
+}
+
+.product-detail-mobile__pricing-from {
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.product-detail-mobile__pricing-from__label {
+    color: #666;
+    font-family: LG Smart Light,sans-serif;
+    line-height: 1;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.product-detail-mobile__pricing-from__symbol {
+    color: #a50034;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 2px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.product-detail-mobile__pricing-from__value {
+    color: #a50034;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 1;
+}
+
+.product-detail-mobile__pricing-table-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.product-detail-mobile__pricing-table-row {
+    display: block;
+    width: 100%;
+    /*padding-top: 20px;*/
+    font-size: 14px;
+    color: #777;
+    padding-left: 10px;
+}
+
+.product-detail-mobile__pricing-table-row:hover, .product-detail-mobile__pricing-table-row:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-detail-mobile__pricing-table-row__store {
+    flex-basis: 140px;
+    flex-grow: 1;
+}
+
+.product-detail-mobile__pricing-table-row__price {
+    flex-basis: 140px;
+    flex-grow: 1;
+}
+
+.product-detail-mobile__pricing-table-row__buy-button {
+    flex-basis: 180px;
+    flex-grow: 1;
+    padding: 5px 10px;
+
+}
+
+.product-detail-mobile__pricing-table-row.first {
+    border: 1px solid #a50034;
+}
+
+.product-detail-mobile__pricing-table-row.first .product-detail-mobile__pricing-table-row__store, .product-detail-mobile__pricing-table-row.first .product-detail-mobile__pricing-table-row__price {
+    color: #a50034;
+    font-weight: bold;
+}
+
+.product-detail-mobile__pricing-table-row.first .product-detail-mobile__pricing-table-row__buy-button {
+    background-color: #a50034;
+    color: white;
+}
+
+.product-detail-mobile__whatsapp-share {
+    background-color: #a50034;
+    color: white;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.product-detail-mobile__whatsapp-share-icon {
+    font-size: 28px;
+    margin-right: 5px;
+}
+
+.product-detail-mobile__whatsapp-share-label {
+    font-size: 18px;
+    font-weight: bold;
+}

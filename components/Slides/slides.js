@@ -2,13 +2,6 @@ import React from 'react'
 import SlideDynamicPrice from "./SlideDynamicPrice";
 import SlideStaticImage from "./SlideStaticImage";
 
-import tv_43UK6200_350 from '../../static/img/slides/tv_43UK6200_350.jpg';
-import tv_43UK6200_350_hidpi from '../../static/img/slides/tv_43UK6200_350_hdpi.jpg';
-import tv_43UK6200_540 from '../../static/img/slides/tv_43UK6200_540.jpg';
-import tv_43UK6200_720 from '../../static/img/slides/tv_43UK6200_720.jpg';
-import tv_43UK6200_960 from '../../static/img/slides/tv_43UK6200_960.jpg';
-import tv_43UK6200_1140 from '../../static/img/slides/tv_43UK6200_1140.jpg';
-
 // import tv_55UK6550_350 from '../../static/img/slides/tv_55UK6550_350.jpg';
 // import tv_55UK6550_350_hidpi from '../../static/img/slides/tv_55UK6550_350_hdpi.jpg';
 // import tv_55UK6550_540 from '../../static/img/slides/tv_55UK6550_540.jpg';
@@ -22,13 +15,6 @@ import tv_43UK6200_1140 from '../../static/img/slides/tv_43UK6200_1140.jpg';
 // import tv_OLED55B8_720 from '../../static/img/slides/tv_OLED55B8_720.jpg';
 // import tv_OLED55B8_960 from '../../static/img/slides/tv_OLED55B8_960.jpg';
 // import tv_OLED55B8_1140 from '../../static/img/slides/tv_OLED55B8_1140.jpg';
-
-import proj_350 from '../../static/img/slides/proj_350.jpg';
-import proj_350_hdpi from '../../static/img/slides/proj_350_hdpi.jpg';
-import proj_540 from '../../static/img/slides/proj_540.jpg';
-import proj_720 from '../../static/img/slides/proj_720.jpg';
-import proj_960 from '../../static/img/slides/proj_960.jpg';
-import proj_1140 from '../../static/img/slides/proj_1140.jpg';
 
 // import ref_LS65SXN_350 from '../../static/img/slides/ref_LS65SXN_350.jpg';
 // import ref_LS65SXN_350_hdpi from '../../static/img/slides/ref_LS65SXN_350_hdpi.jpg';
@@ -58,69 +44,6 @@ import proj_1140 from '../../static/img/slides/proj_1140.jpg';
 // import wm_WT16DSB_960 from '../../static/img/slides/wm_WT16DSB_960.jpg';
 // import wm_WT16DSB_1140 from '../../static/img/slides/wm_WT16DSB_1140.jpg';
 
-import mc_G7_350 from '../../static/img/slides/mc_G7_350.jpg';
-import mc_G7_350_hdpi from '../../static/img/slides/mc_G7_350_hdpi.jpg';
-import mc_G7_540 from '../../static/img/slides/mc_G7_540.jpg';
-import mc_G7_720 from '../../static/img/slides/mc_G7_720.jpg';
-import mc_G7_960 from '../../static/img/slides/mc_G7_960.jpg';
-import mc_G7_1140 from '../../static/img/slides/mc_G7_1140.jpg';
-
-import mc_Q7_350 from '../../static/img/slides/mc_Q7_350.jpg';
-import mc_Q7_350_hdpi from '../../static/img/slides/mc_Q7_350_hdpi.jpg';
-import mc_Q7_540 from '../../static/img/slides/mc_Q7_540.jpg';
-import mc_Q7_720 from '../../static/img/slides/mc_Q7_720.jpg';
-import mc_Q7_960 from '../../static/img/slides/mc_Q7_960.jpg';
-import mc_Q7_1140 from '../../static/img/slides/mc_Q7_1140.jpg';
-
-import mc_Q_STYLUS_350 from '../../static/img/slides/mc_Q_STYLUS_350.jpg';
-import mc_Q_STYLUS_350_hdpi from '../../static/img/slides/mc_Q_STYLUS_350_hdpi.jpg';
-import mc_Q_STYLUS_540 from '../../static/img/slides/mc_Q_STYLUS_540.jpg';
-import mc_Q_STYLUS_720 from '../../static/img/slides/mc_Q_STYLUS_720.jpg';
-import mc_Q_STYLUS_960 from '../../static/img/slides/mc_Q_STYLUS_960.jpg';
-import mc_Q_STYLUS_1140 from '../../static/img/slides/mc_Q_STYLUS_1140.jpg';
-
-import mon_350 from '../../static/img/slides/mon_350.jpg';
-import mon_350_hdpi from '../../static/img/slides/mon_350_hdpi.jpg';
-import mon_540 from '../../static/img/slides/mon_540.jpg';
-import mon_720 from '../../static/img/slides/mon_720.jpg';
-import mon_960 from '../../static/img/slides/mon_960.jpg';
-import mon_1140 from '../../static/img/slides/mon_1140.jpg';
-
-import audio_CJ45_350 from '../../static/img/slides/audio_CJ45_350.jpg';
-import audio_CJ45_350_hdpi from '../../static/img/slides/audio_CJ45_350_hdpi.jpg';
-import audio_CJ45_540 from '../../static/img/slides/audio_CJ45_540.jpg';
-import audio_CJ45_720 from '../../static/img/slides/audio_CJ45_720.jpg';
-import audio_CJ45_960 from '../../static/img/slides/audio_CJ45_960.jpg';
-import audio_CJ45_1140 from '../../static/img/slides/audio_CJ45_1140.jpg';
-
-import audio_OK55_350 from '../../static/img/slides/audio_OK55_350.jpg';
-import audio_OK55_350_hdpi from '../../static/img/slides/audio_OK55_350_hdpi.jpg';
-import audio_OK55_540 from '../../static/img/slides/audio_OK55_540.jpg';
-import audio_OK55_720 from '../../static/img/slides/audio_OK55_720.jpg';
-import audio_OK55_960 from '../../static/img/slides/audio_OK55_960.jpg';
-import audio_OK55_1140 from '../../static/img/slides/audio_OK55_1140.jpg';
-
-import audio_OK75_350 from '../../static/img/slides/audio_OK75_350.jpg';
-import audio_OK75_350_hdpi from '../../static/img/slides/audio_OK75_350_hdpi.jpg';
-import audio_OK75_540 from '../../static/img/slides/audio_OK75_540.jpg';
-import audio_OK75_720 from '../../static/img/slides/audio_OK75_720.jpg';
-import audio_OK75_960 from '../../static/img/slides/audio_OK75_960.jpg';
-import audio_OK75_1140 from '../../static/img/slides/audio_OK75_1140.jpg';
-
-import oven_MH8236GIR_350 from '../../static/img/slides/oven_MH8236GIR_350.jpg';
-import oven_MH8236GIR_350_hdpi from '../../static/img/slides/oven_MH8236GIR_350_hdpi.jpg';
-import oven_MH8236GIR_540 from '../../static/img/slides/oven_MH8236GIR_540.jpg';
-import oven_MH8236GIR_720 from '../../static/img/slides/oven_MH8236GIR_720.jpg';
-import oven_MH8236GIR_960 from '../../static/img/slides/oven_MH8236GIR_960.jpg';
-import oven_MH8236GIR_1140 from '../../static/img/slides/oven_MH8236GIR_1140.jpg';
-
-import neochef_350 from '../../static/img/slides/neochef_350.jpg';
-import neochef_350_hdpi from '../../static/img/slides/neochef_350_hdpi.jpg';
-import neochef_540 from '../../static/img/slides/neochef_540.jpg';
-import neochef_720 from '../../static/img/slides/neochef_720.jpg';
-import neochef_960 from '../../static/img/slides/neochef_960.jpg';
-import neochef_1140 from '../../static/img/slides/neochef_1140.jpg';
-
 // import p05_350 from "../Landings/InstantPartySummer/img/05_350.jpg";
 // import p05_350_hdpi from "../Landings/InstantPartySummer/img/05_350_hdpi.jpg";
 // import p05_540 from "../Landings/InstantPartySummer/img/05_540.jpg";
@@ -142,11 +65,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={51189}
-        extraSmall={[tv_43UK6200_350, tv_43UK6200_350_hidpi]}
-        small={[tv_43UK6200_540]}
-        medium={[tv_43UK6200_720]}
-        large={[tv_43UK6200_960]}
-        infinity={[tv_43UK6200_1140]}
+        extraSmall={['/static/img/slides/tv_43UK6200_350.jpg', '/static/img/slides/tv_43UK6200_350_hidpi.jpg']}
+        small={['/static/img/slides/tv_43UK6200_540.jpg']}
+        medium={['/static/img/slides/tv_43UK6200_720.jpg']}
+        large={['/static/img/slides/tv_43UK6200_960.jpg']}
+        infinity={['/static/img/slides/tv_43UK6200_1140.jpg']}
     />
   },
   // Paris10Cuotas_55UK6550,
@@ -238,11 +161,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={42845}
-        extraSmall={[proj_350, proj_350_hdpi]}
-        small={[proj_540]}
-        medium={[proj_720]}
-        large={[proj_960]}
-        infinity={[proj_1140]}
+        extraSmall={['/static/img/slides/proj_350.jpg', '/static/img/slides/proj_350_hdpi.jpg']}
+        small={['/static/img/slides/proj_540.jpg']}
+        medium={['/static/img/slides/proj_720.jpg']}
+        large={['/static/img/slides/proj_960.jpg']}
+        infinity={['/static/img/slides/proj_1140.jpg']}
     />
   },
   // {
@@ -309,11 +232,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={48268}
-        extraSmall={[mc_G7_350, mc_G7_350_hdpi]}
-        small={[mc_G7_540]}
-        medium={[mc_G7_720]}
-        large={[mc_G7_960]}
-        infinity={[mc_G7_1140]}
+        extraSmall={['/static/img/slides/mc_G7_350.jpg', '/static/img/slides/mc_G7_350_hdpi.jpg']}
+        small={['/static/img/slides/mc_G7_540.jpg']}
+        medium={['/static/img/slides/mc_G7_720.jpg']}
+        large={['/static/img/slides/mc_G7_960.jpg']}
+        infinity={['/static/img/slides/mc_G7_1140.jpg']}
     />
   },
   {
@@ -323,11 +246,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={48274}
-        extraSmall={[mc_Q7_350, mc_Q7_350_hdpi]}
-        small={[mc_Q7_540]}
-        medium={[mc_Q7_720]}
-        large={[mc_Q7_960]}
-        infinity={[mc_Q7_1140]}
+        extraSmall={['/static/img/slides/mc_Q7_350.jpg', '/static/img/slides/mc_Q7_350_hdpi.jpg']}
+        small={['/static/img/slides/mc_Q7_540.jpg']}
+        medium={['/static/img/slides/mc_Q7_720.jpg']}
+        large={['/static/img/slides/mc_Q7_960.jpg']}
+        infinity={['/static/img/slides/mc_Q7_1140.jpg']}
     />
   },
   {
@@ -337,11 +260,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={48277}
-        extraSmall={[mc_Q_STYLUS_350, mc_Q_STYLUS_350_hdpi]}
-        small={[mc_Q_STYLUS_540]}
-        medium={[mc_Q_STYLUS_720]}
-        large={[mc_Q_STYLUS_960]}
-        infinity={[mc_Q_STYLUS_1140]}
+        extraSmall={['/static/img/slides/mc_Q_STYLUS_350.jpg', '/static/img/slides/mc_Q_STYLUS_350_hdpi.jpg']}
+        small={['/static/img/slides/mc_Q_STYLUS_540.jpg']}
+        medium={['/static/img/slides/mc_Q_STYLUS_720.jpg']}
+        large={['/static/img/slides/mc_Q_STYLUS_960.jpg']}
+        infinity={['/static/img/slides/mc_Q_STYLUS_1140.jpg']}
     />
   },
   {
@@ -351,11 +274,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={37125}
-        extraSmall={[mon_350, mon_350_hdpi]}
-        small={[mon_540]}
-        medium={[mon_720]}
-        large={[mon_960]}
-        infinity={[mon_1140]}
+        extraSmall={['/static/img/slides/mon_350.jpg', '/static/img/slides/mon_350_hdpi.jpg']}
+        small={['/static/img/slides/mon_540.jpg']}
+        medium={['/static/img/slides/mon_720.jpg']}
+        large={['/static/img/slides/mon_960.jpg']}
+        infinity={['/static/img/slides/mon_1140.jpg']}
     />
   },
   {
@@ -365,11 +288,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={36116}
-        extraSmall={[audio_CJ45_350, audio_CJ45_350_hdpi]}
-        small={[audio_CJ45_540]}
-        medium={[audio_CJ45_720]}
-        large={[audio_CJ45_960]}
-        infinity={[audio_CJ45_1140]}
+        extraSmall={['/static/img/slides/audio_CJ45_350.jpg', '/static/img/slides/audio_CJ45_350_hdpi.jpg']}
+        small={['/static/img/slides/audio_CJ45_540.jpg']}
+        medium={['/static/img/slides/audio_CJ45_720.jpg']}
+        large={['/static/img/slides/audio_CJ45_960.jpg']}
+        infinity={['/static/img/slides/audio_CJ45_1140.jpg']}
     />
   },
   {
@@ -379,11 +302,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={45944}
-        extraSmall={[audio_OK75_350, audio_OK75_350_hdpi]}
-        small={[audio_OK75_540]}
-        medium={[audio_OK75_720]}
-        large={[audio_OK75_960]}
-        infinity={[audio_OK75_1140]}
+        extraSmall={['/static/img/slides/audio_OK75_350.jpg', '/static/img/slides/audio_OK75_350_hdpi.jpg']}
+        small={['/static/img/slides/audio_OK75_540.jpg']}
+        medium={['/static/img/slides/audio_OK75_720.jpg']}
+        large={['/static/img/slides/audio_OK75_960.jpg']}
+        infinity={['/static/img/slides/audio_OK75_1140.jpg']}
     />
   },
   {
@@ -393,11 +316,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={45942}
-        extraSmall={[audio_OK55_350, audio_OK55_350_hdpi]}
-        small={[audio_OK55_540]}
-        medium={[audio_OK55_720]}
-        large={[audio_OK55_960]}
-        infinity={[audio_OK55_1140]}
+        extraSmall={['/static/img/slides/audio_OK55_350.jpg', '/static/img/slides/audio_OK55_350_hdpi.jpg']}
+        small={['/static/img/slides/audio_OK55_540.jpg']}
+        medium={['/static/img/slides/audio_OK55_720.jpg']}
+        large={['/static/img/slides/audio_OK55_960.jpg']}
+        infinity={['/static/img/slides/audio_OK55_1140.jpg']}
     />
   },
   {
@@ -407,11 +330,11 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={40738}
-        extraSmall={[oven_MH8236GIR_350, oven_MH8236GIR_350_hdpi]}
-        small={[oven_MH8236GIR_540]}
-        medium={[oven_MH8236GIR_720]}
-        large={[oven_MH8236GIR_960]}
-        infinity={[oven_MH8236GIR_1140]}
+        extraSmall={['/static/img/slides/oven_MH8236GIR_350.jpg', '/static/img/slides/oven_MH8236GIR_350_hdpi.jpg']}
+        small={['/static/img/slides/oven_MH8236GIR_540.jpg']}
+        medium={['/static/img/slides/oven_MH8236GIR_720.jpg']}
+        large={['/static/img/slides/oven_MH8236GIR_960.jpg']}
+        infinity={['/static/img/slides/oven_MH8236GIR_1140.jpg']}
     />
   },
 ]

@@ -1,0 +1,116 @@
+.product-browse-selected-result {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.product-browse-selected-result__inner {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+}
+
+.product-browse-selected-result__first-line {
+    font-weight: bold;
+    font-size: 36px;
+    color: #7e7e7e;
+    text-align: center;
+}
+
+.product-browse-selected-result__second-line {
+    text-align: center;
+    color: #acacac;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.product-browse-selected-result__specs {
+
+}
+
+.product-browse-selected-result__specs ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #666;
+}
+
+.product-browse-selected-result__specs ul li::before {
+  content: "\2022";
+  color: #9d0c3c;
+  display: inline-block;
+  width: 1em;
+}
+
+.product-browse-selected-result__price-from {
+    font-family: "LG Smart Light", sans-serif;
+    line-height: 1;
+    color: #666;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.product-browse-selected-result__price-sign {
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 5px;
+    color: #b2234e;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.product-browse-selected-result__price-value {
+    font-size: 72px;
+    color: #a50034;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.product-browse-selected-result__slogan {
+    font-size: 18px;
+    font-weight: 700;
+    color: #b2244e;
+    margin-bottom: 10px;
+}
+
+.product-detail-desktop__close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+}
+
+.product-browse-selected-result .image-gallery  {
+    width: 100%;
+}
+
+.product-detail-desktop__more-information a {
+    color: #333;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.product-detail-desktop__more-information-symbol {
+    font-size: 24px;
+}
+
+.product-detail-desktop__pricing-table-row.highlighted, .product-detail-desktop__pricing-table-row.highlighted:hover {
+    background-color: black;
+    color: white;
+}
+
+.product-detail-desktop__pricing-table-row.highlighted .product-detail-desktop__pricing-table-row__price {
+    color: #b2244e;
+    font-weight: bold;
+}
+
+.product-detail-mobile__pricing-table-row.highlighted, .product-detail-mobile__pricing-table-row.highlighted:hover {
+    background-color: black;
+    color: white;
+}
+
+.product-detail-mobile__pricing-table-row.highlighted .product-detail-mobile__pricing-table-row__price {
+    color: #b2244e;
+    font-weight: bold;
+}

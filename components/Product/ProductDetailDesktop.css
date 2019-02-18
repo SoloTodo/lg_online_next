@@ -1,0 +1,106 @@
+.product-detail-desktop {
+    background-color: white;
+}
+
+.product-detail-desktop-container {
+    background-color: white;
+}
+
+.product-detail-desktop__product-title {
+    font-weight: bold;
+    font-size: 36px;
+    color: #7e7e7e;
+    text-align: center;
+}
+
+.product-detail-desktop__product-name {
+    text-align: center;
+    color: #acacac;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.product-detail-desktop__pricing-from {
+    color: #666;
+}
+
+.product-detail-desktop__pricing-from__label {
+    font-family: "LG Smart Light", sans-serif;
+    line-height: 1;
+    color: #666;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.product-detail-desktop__pricing-from__symbol {
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 5px;
+    color: #b2234e;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.product-detail-desktop__pricing-from__value {
+    font-size: 72px;
+    color: #a50034;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.product-detail-desktop__main-specs-title {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.product-detail-desktop__main-specs ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.product-detail-desktop__main-specs ul li::before {
+  content: "\2022";
+  color: #9d0c3c;
+  display: inline-block;
+  width: 1em;
+}
+
+.product-detail-desktop__slogan {
+    font-size: 18px;
+    font-weight: 700;
+    color: #b2244e;
+    margin-bottom: 10px;
+}
+
+.inpage_selector_info, .flix-sub-headline, .fl1xcarousel-wrapper, .flix-top-module-wrap {
+    display: none;
+}
+
+.product-detail-desktop__back-button, .product-detail-desktop__back-button:hover {
+    text-decoration: none;
+}
+
+.product-detail-desktop__back-label {
+    background-color: #313e47;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.product-detail-desktop__back-arrow {
+    background-color: #b2234e;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+.product-detail-desktop__endbar {
+    width: 58px;
+    height: 3px;
+    background-color: #b2234e;
+    margin-top: 10px;
+}

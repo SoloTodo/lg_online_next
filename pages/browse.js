@@ -1,19 +1,27 @@
 import React from 'react';
+import Head from 'next/head';
 import {withRouter} from 'next/router'
 import { connect } from 'react-redux'
 import {lgonlineStateToPropsUtils} from "../redux-utils";
 import NavBar from "../components/NavBar/NavBar";
 import SubcategoryMenu from '../components/SubcategoryMenu/SubcategoryMenu'
 import Carousel from "../components/Slides/Carousel";
+import ProductBrowseResults from "../components/Product/ProductBrowseResults";
+import {withLgOnlineTracker} from "../utils";
 
 class Browse extends React.Component {
   render() {
-    const categoryId = this.props.category ? this.props.category.id : undefined;
+    const category = this.props.category;
+    const categoryId = category ? category.id : undefined;
     const subcategory = this.props.subcategory;
 
     const subcategoryMenu = <SubcategoryMenu categoryId={categoryId} subcategory={subcategory} />;
 
     return <React.Fragment>
+      <Head>
+        {this.props.title && <title key="title">{this.props.title} - LG Online</title>}
+      </Head>
+
       <NavBar />
 
       <div id="content">
@@ -22,7 +30,7 @@ class Browse extends React.Component {
         {!this.props.isMobile && <div className="d-flex flex-row justify-content-center">
           {subcategoryMenu}
         </div>}
-        {/*<ProductBrowseResults location={this.props.location} categoryId={categoryId} subcategory={subcategory} />*/}
+        <ProductBrowseResults categoryId={categoryId} subcategory={subcategory} />
       </div>
     </React.Fragment>
   }
@@ -41,6 +49,7 @@ function mapStateToProps(state, ownProps) {
       return {
         category,
         subcategory: null,
+        title: category.name,
         ...props
       }
     }
@@ -52,13 +61,26 @@ function mapStateToProps(state, ownProps) {
         return {
           category,
           subcategory,
+          title: subcategory.title,
           ...props
         }
       }
     }
   }
 
-  return {}
+  return {
+    ...props,
+    title: 'Cotiza todos tus productos LG en un sólo lugar'
+  }
 }
 
-export default withRouter(connect(mapStateToProps)(Browse));
+function mapPropsToGAField(props) {
+  return {
+    category: props.category,
+    subcategory: props.subcategory,
+    pageTitle: props.title
+  }
+}
+
+const TrackedBrowse = withLgOnlineTracker(Browse, mapPropsToGAField);
+export default withRouter(connect(mapStateToProps)(TrackedBrowse));

@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import prevArrow from "../../static/img/slides/arrow-prev.png"
 
 import './PrevArrow.css'
 
@@ -10,7 +9,7 @@ export default class PrevArrow extends Component {
     return <button
       className={`${className} custom-arrow`}
       onClick={onClick}>
-      <img src={prevArrow} alt="prevArrow" />
+      <img src="/static/img/slides/arrow-prev.png" alt="prevArrow" />
     </button>
   }
 }
