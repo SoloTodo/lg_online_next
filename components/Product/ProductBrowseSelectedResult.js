@@ -10,6 +10,7 @@ import {fetchJson, listToObject} from "../../react-utils/utils";
 import Link from 'next/link';
 import { withRouter } from 'next/router';
 import LeadLink from "../LeadLink";
+import ProductPricingTable from "./ProductPricingTable";
 
 class ProductBrowseSelectedResult extends React.Component {
   constructor(props) {
@@ -111,20 +112,7 @@ class ProductBrowseSelectedResult extends React.Component {
             </div>
             <span className="product-browse-selected-result__slogan">COMPARA, ENAMÓRATE Y ¡LLÉVATELO!</span>
 
-            <div className="product-detail-desktop__pricing-table">
-              {entitiesToDisplay.map((entity, idx) => <LeadLink
-                href={entity.external_url}
-                entity={entity}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={entity.id}
-                className={classNames('product-detail-desktop__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
-                <div className="product-detail-desktop__pricing-table-row__store">{this.props.storesDict[entity.store].name}</div>
-                <div className="product-detail-desktop__pricing-table-row__price">{this.props.priceFormatter(entity.active_registry.offer_price)}</div>
-                <div className="product-detail-desktop__pricing-table-row__buy-button">COMPRAR <i
-                  className="fas fa-arrow-circle-right ml-2">&nbsp;</i></div>
-              </LeadLink>)}
-            </div>
+            <ProductPricingTable entities={productEntry.entities} />
 
             <div className="d-flex flex-column align-items-center">
               <div className="product-detail-desktop__endbar">&nbsp;</div>
@@ -132,7 +120,7 @@ class ProductBrowseSelectedResult extends React.Component {
 
             <div className="mt-auto">&nbsp;</div>
             <div className="product-detail-desktop__more-information mt-2 mb-2 align-self-end">
-              <Link href={linkTo}>
+              <Link href={`/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}`} as={`/products/${productEntry.product.id}-${productEntry.product.slug}`}>
                 <a className="d-flex flex-row align-items-center">
                   <span className="product-detail-desktop__more-information-symbol">
                     <i className="fas fa-plus-circle">&nbsp;</i>

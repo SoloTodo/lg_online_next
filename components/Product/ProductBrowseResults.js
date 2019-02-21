@@ -31,8 +31,6 @@ class ProductBrowseResults extends React.Component {
   }
 
   componentUpdate() {
-    const scrollToComponent = require("react-scroll-to-component");
-
     if (this.props.isMobile) {
       return
     }
@@ -49,44 +47,55 @@ class ProductBrowseResults extends React.Component {
     if (!matchingEntry) {
       return
     }
+      setTimeout(() => {
+        this.setState({
+          selectedProductEntry: matchingEntry
+        }, () => {
+          if (process.browser) {
+            const scrollToComponent = require("react-scroll-to-component");
 
-    setTimeout(() => {
-      this.setState({
-        selectedProductEntry: matchingEntry
-      }, () => {
-        scrollToComponent(this.SelectedResultContainer, {offset: -80, align: 'top'});
-      });
-    }, 1000)
+            scrollToComponent(this.SelectedResultContainer, {
+              offset: -80,
+              align: 'top'
+            });
+          }
+        });
+      }, 1000)
   }
 
   handleWtbClick = (evt, productEntry) => {
-    const scrollToComponent = require("react-scroll-to-component");
+    if (process.browser) {
+      const scrollToComponent = require("react-scroll-to-component");
 
-    evt.preventDefault();
+      evt.preventDefault();
 
-    const category = this.props.categoriesDict[productEntry.product.category];
+      const category = this.props.categoriesDict[productEntry.product.category];
 
-    window.gtag('event', 'Expand', {
-      send_to: settings.googleAnalyticsId,
-      dimension1: productEntry.product.name,
-      dimension2: category.name,
-      event_category: 'Cells',
-      event_label: productEntry.product.name,
-    });
+      window.gtag('event', 'Expand', {
+        send_to: settings.googleAnalyticsId,
+        dimension1: productEntry.product.name,
+        dimension2: category.name,
+        event_category: 'Cells',
+        event_label: productEntry.product.name,
+      });
 
-    this.setState({
-      selectedProductEntry: productEntry
-    }, () => {
-      if (productEntry) {
-        scrollToComponent(this.SelectedResultContainer, {offset: -70, align: 'top'});
-      }
-    });
+      this.setState({
+        selectedProductEntry: productEntry
+      }, () => {
+        if (productEntry) {
+          scrollToComponent(this.SelectedResultContainer, {
+            offset: -70,
+            align: 'top'
+          });
+        }
+      });
+    }
   };
 
   closeCard = () => {
     const category = this.props.categoriesDict[
       this.state.selectedProductEntry.product.category
-    ];
+      ];
 
     window.gtag('event', 'Collapse', {
       send_to: settings.googleAnalyticsId,
@@ -149,11 +158,11 @@ class ProductBrowseResults extends React.Component {
     }
 
     const cells = groupedProductEntries.map(group => <ProductBrowseResult
-        key={group.key}
-        productEntries={group.productEntries}
-        onWtbClick={this.handleWtbClick}
-        highlightedStoreId={this.props.highlightedStoreId}
-        hrefSuffix={this.props.hrefSuffix}
+      key={group.key}
+      productEntries={group.productEntries}
+      onWtbClick={this.handleWtbClick}
+      highlightedStoreId={this.props.highlightedStoreId}
+      hrefSuffix={this.props.hrefSuffix}
     />);
 
     for (let i = 0; i < 0; i++) {
@@ -180,11 +189,11 @@ class ProductBrowseResults extends React.Component {
         let targetPosition = rowSize * parseInt(selectedProductEntryIndex / rowSize, 10) + rowSize;
 
         const selectedResult = <ProductBrowseSelectedResult
-            key="selected_result"
-            productEntry={selectedProductEntry}
-            onDismiss={this.closeCard}
-            highlightedStoreId={this.props.highlightedStoreId}
-            ref={(div) => {this.SelectedResultContainer = div;}}
+          key="selected_result"
+          productEntry={selectedProductEntry}
+          onDismiss={this.closeCard}
+          highlightedStoreId={this.props.highlightedStoreId}
+          ref={(div) => {this.SelectedResultContainer = div;}}
         />;
 
         cells.splice(targetPosition, 0, selectedResult)

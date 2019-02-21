@@ -1,5 +1,5 @@
 import React from 'react';
-import {fetchJson} from "../react-utils/utils";
+import {fetchJson} from "../../react-utils/utils";
 import ImageGallery from "react-image-gallery";
 import {connect} from 'react-redux';
 

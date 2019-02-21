@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
-import {withRouter} from 'next/router'
+import Router, {withRouter} from 'next/router'
 import Link from 'next/link'
 import {
   Collapse,
@@ -69,9 +69,7 @@ class NavBar extends React.Component {
 
   handleSearchFormSubmit = evt => {
     evt.preventDefault();
-
-    const newRoute = `/search/?search=${encodeURIComponent(this.state.searchText)}`;
-    this.props.history.push(newRoute);
+    Router.push(`/search?search=${encodeURIComponent(this.state.searchText)}`);
   };
 
   render() {

@@ -15,8 +15,10 @@ const MobileView = props => {
   return <div className="browse-result-mobile">
     <div className="d-flex flex-row">
       <div className="browse-result-mobile__picture-name-price">
-        <Link to={props.linkTo}>
-          <img src={`${props.selectedProductEntry.product.url}picture/?width=660&height=660`} className="img-fluid" alt={props.selectedProductEntry.product.name} />
+        <Link href={props.linkTo} as={props.linkAs}>
+          <a>
+            <img src={`${props.selectedProductEntry.product.url}picture/?width=660&height=660`} className="img-fluid" alt={props.selectedProductEntry.product.name} />
+          </a>
         </Link>
       </div>
       <div className="browse-result-mobile__axes-specs-button d-flex flex-column">
@@ -48,11 +50,13 @@ const MobileView = props => {
           <span>${props.formattedPrice}</span>
         </div>
       </div>
-      <Link to={props.linkTo} className="browse-result-mobile__wtb-button d-flex flex-row">
-        <div className="browse-result-mobile__wtb-label">DONDE COMPRAR</div>
-        <div className="browse-result-mobile__wtb-arrow d-flex flex-row justify-content-center align-items-center">
-          <i className="fas fa-arrow-circle-right">&nbsp;</i>
-        </div>
+      <Link href={props.linkTo} as={props.linkAs}>
+        <a className="browse-result-mobile__wtb-button d-flex flex-row">
+          <div className="browse-result-mobile__wtb-label">DONDE COMPRAR</div>
+          <div className="browse-result-mobile__wtb-arrow d-flex flex-row justify-content-center align-items-center">
+            <i className="fas fa-arrow-circle-right">&nbsp;</i>
+          </div>
+        </a>
       </Link>
     </div>
   </div>
@@ -62,8 +66,10 @@ const DesktopView = props => {
   return <div className="browse-result-desktop">
     <div className="browse-result-desktop__inner d-flex flex-column">
       <div className="browse-result-desktop__picture text-center">
-        <Link href={props.linkTo}>
+        <Link href={props.linkTo} as={props.linkAs}>
+          <a>
           <img src={`${props.selectedProductEntry.product.url}picture/?width=270&height=270`} className="img-fluid" alt={props.selectedProductEntry.product.name} onClick={evt => props.onWtbClick(evt, props.selectedProductEntry)} />
+          </a>
         </Link>
       </div>
 
@@ -96,13 +102,13 @@ const DesktopView = props => {
           </div>
       </div>
     </div>
-    <Link href={props.linkTo}>
-      <div onClick={evt => props.onWtbClick(evt, props.selectedProductEntry)} className="browse-result-desktop__wtb-button align-self-end d-flex flex-row">
+    <Link href={props.linkTo} as={props.linkAs}>
+      <a onClick={evt => props.onWtbClick(evt, props.selectedProductEntry)} className="browse-result-desktop__wtb-button align-self-end d-flex flex-row">
         <div className="browse-result-desktop__wtb-label">ELIGE DONDE COMPRAR</div>
         <div className="browse-result-desktop__wtb-arrow d-flex flex-row justify-content-center align-items-center">
           <i className="fas fa-arrow-circle-right">&nbsp;</i>
         </div>
-      </div>
+      </a>
     </Link>
   </div>
 };
@@ -154,16 +160,13 @@ class ProductBrowseResult extends React.Component {
 
     const axisLabel = categoryMetadata.axisLabel;
 
-    const linkTo = {
-      pathname: `/products/${selectedProductEntry.product.id}-${selectedProductEntry.product.slug}${this.props.hrefSuffix || ''}`,
-      state: {
-        referrer: this.props.router.asPath
-      }
-    };
+    const linkAs = `/products/${selectedProductEntry.product.id}-${selectedProductEntry.product.slug}${this.props.hrefSuffix || ''}`;
+    const linkTo = `/products?product=${selectedProductEntry.product.id}&slug=${selectedProductEntry.product.slug}${ this.props.hrefSuffix || ''}`;
 
     const ViewComponent = this.props.isMobile ? MobileView : DesktopView;
     
     return <ViewComponent
+        linkAs={linkAs}
         linkTo={linkTo}
         selectedProductEntry={selectedProductEntry}
         productEntries={productEntries}

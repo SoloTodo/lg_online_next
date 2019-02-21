@@ -42,16 +42,17 @@ class SlideDynamicPrice extends React.Component {
     const category = this.props.categoriesDict[productEntry.product.category];
     const categoryMetadata = settings.categoriesMetadata[category.id];
 
-    const linkTo = this.props.isMobile ?
-        {
-          pathname: this.props.mobileHref || `/products/${productEntry.product.id}-${productEntry.product.slug}`,
-          state: {
-            referrer: this.props.location.pathname
-          }
-        } :
-        this.props.desktopHref || `/${categoryMetadata.slug}?product=${productEntry.product.id}`;
+    const linkAs = this.props.isMobile ?
+      this.props.mobileHref || `/products/${productEntry.product.id}-${productEntry.product.slug}` :
+      this.props.desktopHref || `/${categoryMetadata.slug}?product=${productEntry.product.id}`
+    ;
 
-    return <Link href={linkTo}>
+    const linkHref = this.props.isMobile ?
+      this.props.mobileHref || `/products?product=${productEntry.product.id}` :
+      this.props.desktopHref || `/browse?section=${categoryMetadata.slug}&product=${productEntry.product.id}`
+    ;
+
+    return <Link href={linkHref} as={linkAs}>
       <div className={`dynamic-banner ${this.props.className} d-flex flex-row justify-content-center w-100`} onClick={evt => this.handleClick(productEntry)}>
         <picture>
           <source media="(max-width: 575px)"
@@ -88,4 +89,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(SlideDynamicPrice))
+export default connect(mapStateToProps)(SlideDynamicPrice)

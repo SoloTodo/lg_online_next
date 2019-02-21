@@ -1,7 +1,25 @@
 {
   "version": 2,
+  "name": "lg_online",
+  "alias": [
+    "ssr.lgonline.cl"
+  ],
   "builds": [{ "src": "package.json", "use": "@now/next" }],
   "routes": [
-    { "src": "/(?<section>[^/]+)$", "dest": "/browse?section=$section" }
+    {
+      "src": "/$",
+      "dest": "/browse",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/(?<section>[^/]+)$",
+      "dest": "/browse?section=$section",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/products/(?<product>[^/]+)-(?<slug>[^/]+)$",
+      "dest": "/products?product=$product&slug=$slug",
+      "headers": { "cache-control": "s-maxage=14400" }
+    }
   ]
 }

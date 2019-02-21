@@ -65,7 +65,7 @@ export default [
     frontpageOrdering: null,
     component: <SlideDynamicPrice
         productId={51189}
-        extraSmall={['/static/img/slides/tv_43UK6200_350.jpg', '/static/img/slides/tv_43UK6200_350_hidpi.jpg']}
+        extraSmall={['/static/img/slides/tv_43UK6200_350.jpg', '/static/img/slides/tv_43UK6200_350_hdpi.jpg']}
         small={['/static/img/slides/tv_43UK6200_540.jpg']}
         medium={['/static/img/slides/tv_43UK6200_720.jpg']}
         large={['/static/img/slides/tv_43UK6200_960.jpg']}

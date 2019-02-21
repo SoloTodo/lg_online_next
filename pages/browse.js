@@ -17,9 +17,17 @@ class Browse extends React.Component {
 
     const subcategoryMenu = <SubcategoryMenu categoryId={categoryId} subcategory={subcategory} />;
 
+    const description = this.props.category ?
+      `Cotiza ${this.props.title} LG al mejor precio` :
+      'Encuentra las mejores ofertas para todos tus productos LG';
+
     return <React.Fragment>
       <Head>
-        {this.props.title && <title key="title">{this.props.title} - LG Online</title>}
+        <title key="title">{this.props.title} - LG Online</title>
+        <meta property="og:title" content={this.props.title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="/static/img/og_image.png" />
       </Head>
 
       <NavBar />
@@ -75,9 +83,20 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapPropsToGAField(props) {
+  const categoryDisplay = props.category ? props.category.name : 'Home';
+  let subcategoryDisplay = props.subcategory && props.subcategory.name;
+
+  if (!subcategoryDisplay) {
+    if (props.category) {
+      subcategoryDisplay = 'Todos'
+    } else {
+      subcategoryDisplay = 'Home'
+    }
+  }
+
   return {
-    category: props.category,
-    subcategory: props.subcategory,
+    category: categoryDisplay,
+    subcategory: subcategoryDisplay,
     pageTitle: props.title
   }
 }

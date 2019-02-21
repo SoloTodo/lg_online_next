@@ -16,7 +16,7 @@ class LeadLink extends React.Component {
       dimension1: entity.product.name,
       dimension2: category.name,
       dimension3: store.name,
-      dimension4: `${entity.product.name}|${category.name}|${entity.store.name}`,
+      dimension4: `${entity.product.name}|${category.name}|${store.name}`,
       dimension5: entity.active_registry.id,
       dimension6: this.props.origin,
       event_category: 'Leads',

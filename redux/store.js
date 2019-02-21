@@ -13,7 +13,10 @@ import {
 
 const scrollbarWidth = 50;
 
-export function initializeStore(initialState=exampleInitialState) {
+export function initializeStore(initialState=exampleInitialState, isMobile=false) {
+  const defaultInitialMediaType = isMobile ? 'extraSmall' : 'medium';
+  const initialMediaType = initialState.browser ? initialState.browser.mediaType : defaultInitialMediaType;
+
   const reducer = combineReducers({
     apiResourceObjects: apiResourceObjectsReducer,
     loadedBundle: loadedBundleReducer,
@@ -27,6 +30,8 @@ export function initializeStore(initialState=exampleInitialState) {
       browse2: 350 * 3 + scrollbarWidth - 1,
       browse3: 350 * 4 + scrollbarWidth - 1,
       browse4: 350 * 5 + scrollbarWidth - 1,
+    }, {
+      initialMediaType: isMobile ? 'extraSmall' : 'medium'
     })
   });
 

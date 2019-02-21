@@ -1,30 +1,32 @@
 import React from 'react'
+import { withRouter } from 'next/router'
+import {connect} from 'react-redux';
 import ProductDetailPictures from "./ProductDetailPictures";
 import classNames from "classnames";
 
 import './ProductDetailMobile.css'
 import ProductSpecEntries from "./ProductSpecEntries";
 import LeadLink from "../LeadLink";
+import {lgonlineStateToPropsUtils} from "../../redux-utils";
+import {listToObject} from "../../react-utils/utils";
+import {settings} from '../../settings';
 
-export default class ProductDetailMobile extends React.Component {
+class ProductDetailMobile extends React.Component {
   render() {
-    const {productEntry, bestPriceFormatted} = this.props;
+    const {productEntry, bestPriceFormatted, storesDict} = this.props;
     // const categoryMetadata = settings.categoriesMetadata[productEntry.product.category.id];
 
     // let backUrlPath = null;
     // let backMessage = null;
 
-    // if (referrer) {
-    //   backUrlPath = referrer;
-    //   backMessage = 'VOLVER'
-    // } else if (categoryMetadata) {
+    // if (categoryMetadata) {
     //   backUrlPath = `/${categoryMetadata.slug}`;
     //   backMessage = `VER MÁS ${categoryMetadata.name.toUpperCase()}`;
     // }
 
     const entitiesToDisplay = this.props.entitiesToDisplay || productEntry.entities;
 
-    let whatsAppText = `¡Mira lo que encontré! ${productEntry.product.name} a $${bestPriceFormatted} ${window.location.href}`;
+    let whatsAppText = `¡Mira lo que encontré! ${productEntry.product.name} a $${bestPriceFormatted} ${settings.domain}${this.props.router.asPath}`;
     whatsAppText = encodeURIComponent(whatsAppText);
 
     return <div className="product-detail-mobile-container">
@@ -71,7 +73,7 @@ export default class ProductDetailMobile extends React.Component {
               </div>
               <div className="product-detail-mobile__pricing-table-container">
                 {entitiesToDisplay.map((entity, idx) => <LeadLink href={entity.external_url} entity={entity} target="_blank" rel="noopener noreferrer" key={entity.id} className={classNames('product-detail-mobile__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
-                  <div className="product-detail-mobile__pricing-table-row__store">{entity.store.name}</div>
+                  <div className="product-detail-mobile__pricing-table-row__store">{storesDict[entity.store].name}</div>
                   <div className="product-detail-mobile__pricing-table-row__price">{this.props.priceFormatter(entity.active_registry.offer_price)}</div>
                   <div className="product-detail-mobile__pricing-table-row__buy-button text-center">COMPRAR <i className="fas fa-arrow-circle-right ml-2">&nbsp;</i></div>
                 </LeadLink>)}
@@ -86,3 +88,14 @@ export default class ProductDetailMobile extends React.Component {
     </div>
   }
 }
+
+function mapStateToProps(state) {
+  const {priceFormatter, stores} = lgonlineStateToPropsUtils(state);
+
+  return {
+    priceFormatter,
+    storesDict: listToObject(stores, 'url')
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(ProductDetailMobile));

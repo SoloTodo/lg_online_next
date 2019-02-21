@@ -97,6 +97,12 @@ app.prepare()
       app.render(req, res, actualPage)
     });
 
+    server.get(`/products/:id-:slug`, (req, res) => {
+      const actualPage = '/products';
+      const queryParams = { product: req.params.id, slug: req.params.slug };
+      app.render(req, res, actualPage, queryParams)
+    });
+
     for (const route of routes) {
       server.get(`/${route.slug}`, (req, res) => {
         const actualPage = '/browse';

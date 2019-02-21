@@ -22,7 +22,6 @@ class MyApp extends App {
     super(props);
 
     if (!isServer) {
-      console.log('Called constructor');
       // Facebook pixel
 
       !function(f,b,e,v,n,t,s)
