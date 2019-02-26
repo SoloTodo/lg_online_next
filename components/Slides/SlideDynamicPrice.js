@@ -4,21 +4,18 @@ import {lgonlineStateToPropsUtils} from "../../redux-utils";
 
 import './SlideDynamicPrice.css'
 import Link from 'next/link';
-import { withRouter } from 'next/router'
 import {listToObject} from '../../react-utils/utils';
 import {settings} from "../../settings";
 
 class SlideDynamicPrice extends React.Component {
   handleClick = productEntry => {
-    window.gtag('event', 'Expand', {
+    window.gtag('event', 'Click', {
       send_to: settings.googleAnalyticsId,
       dimension1: productEntry.product.name,
       dimension2: productEntry.product.category.name,
       event_category: 'Banners',
       event_label: productEntry.product.name,
     });
-
-    this.props.onClick()
   };
 
   render() {
@@ -48,12 +45,12 @@ class SlideDynamicPrice extends React.Component {
     ;
 
     const linkHref = this.props.isMobile ?
-      this.props.mobileHref || `/products?product=${productEntry.product.id}` :
+      this.props.mobileHref || `/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}` :
       this.props.desktopHref || `/browse?section=${categoryMetadata.slug}&product=${productEntry.product.id}`
     ;
 
     return <Link href={linkHref} as={linkAs}>
-      <div className={`dynamic-banner ${this.props.className} d-flex flex-row justify-content-center w-100`} onClick={evt => this.handleClick(productEntry)}>
+      <a className={`dynamic-banner ${this.props.className} d-flex flex-row justify-content-center w-100`} onClick={evt => this.handleClick(productEntry)}>
         <picture>
           <source media="(max-width: 575px)"
                   srcSet={`${this.props.extraSmall[0]}, ${this.props.extraSmall[1]} 2x`} />
@@ -72,7 +69,7 @@ class SlideDynamicPrice extends React.Component {
           <span>Comprar</span>
           <i className="fas fa-arrow-circle-right dynamic-banner__buy-button__label">&nbsp;</i>
         </div>
-      </div>
+      </a>
     </Link>
   }
 }

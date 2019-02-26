@@ -8,8 +8,20 @@ import SubcategoryMenu from '../components/SubcategoryMenu/SubcategoryMenu'
 import Carousel from "../components/Slides/Carousel";
 import ProductBrowseResults from "../components/Product/ProductBrowseResults";
 import {withLgOnlineTracker} from "../utils";
+import {loadRequiredProducts} from "../redux/actions";
 
 class Browse extends React.Component {
+  static async getInitialProps(ctx) {
+    const { req, res, query, reduxStore } = ctx;
+    const productEntries = reduxStore.getState().productEntries;
+
+    if (!productEntries) {
+      await reduxStore.dispatch(loadRequiredProducts);
+    }
+
+    return {}
+  }
+
   render() {
     const category = this.props.category;
     const categoryId = category ? category.id : undefined;

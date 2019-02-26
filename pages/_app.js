@@ -41,16 +41,19 @@ class MyApp extends App {
     const reduxStore = appContext.ctx.reduxStore;
     const state = reduxStore.getState();
 
-    if (state.loadedBundle) {
-      return {}
+    if (!state.loadedBundle) {
+      await reduxStore.dispatch(loadRequiredResources(['currencies', 'stores', 'categories']))
     }
 
-    const promises = [
-      reduxStore.dispatch(loadRequiredResources(['currencies', 'stores', 'categories'])),
-      reduxStore.dispatch(loadRequiredProducts)
-    ];
+    let pageProps = {};
 
-    return Promise.all(promises)
+    if (appContext.Component.getInitialProps) {
+      pageProps = await appContext.Component.getInitialProps(appContext.ctx)
+    }
+
+    return {
+      pageProps
+    }
   }
 
   componentDidMount() {

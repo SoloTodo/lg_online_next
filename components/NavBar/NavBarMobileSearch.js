@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
-import {withRouter} from 'next/router'
+import Router from 'next/router'
 
 import './NavBarMobileSearch.css'
 
@@ -23,7 +23,7 @@ class NavBarMobileSearch extends React.Component {
 
     const keywords = this.state.keywords;
     if (keywords.length) {
-      this.props.history.push(`/search?search=${encodeURIComponent(this.state.keywords)}`);
+      Router.push(`/search?search=${encodeURIComponent(this.state.keywords)}`);
     }
   };
 
@@ -50,4 +50,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(NavBarMobileSearch))
+export default connect(mapStateToProps)(NavBarMobileSearch)

@@ -17,8 +17,13 @@
       "headers": { "cache-control": "s-maxage=14400" }
     },
     {
-      "src": "/products/(?<product>[^/]+)-(?<slug>[^/]+)$",
+      "src": "/products/(?<product>[^/]+?)-(?<slug>[^/]+)$",
       "dest": "/products?product=$product&slug=$slug",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/products/(?<product>[^/]+?)$",
+      "dest": "/products?product=$product",
       "headers": { "cache-control": "s-maxage=14400" }
     }
   ]

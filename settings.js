@@ -10,6 +10,7 @@ export const settings = {
   facebookId: '1014408442058543',
   storeIds: [9, 18, 11, 5, 30, 60, 67, 37, 38, 61, 12, 85, 43, 23, 97, 87, 167, 86, 181, 195, 197],
   domain: 'https://ssr.lgonline.cl',
+  // domain: 'http://localhost:3000',
   categoriesMetadata: {
     11: {
       name: 'Televisores',

@@ -8,8 +8,20 @@ import Head from 'next/head';
 
 import NavBar from "../components/NavBar/NavBar";
 import {withLgOnlineTracker} from "../utils";
+import {loadRequiredProducts} from "../redux/actions";
 
 class Search extends React.Component {
+  static async getInitialProps(ctx) {
+    const { req, res, query, reduxStore } = ctx;
+    const productEntries = reduxStore.getState().productEntries;
+
+    if (!productEntries) {
+      await reduxStore.dispatch(loadRequiredProducts);
+    }
+
+    return {}
+  }
+
   render() {
     const search = this.props.router.query.search || '';
     const options = {
