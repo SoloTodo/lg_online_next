@@ -1,0 +1,68 @@
+.renuevate-body {
+    background-color: white;
+    padding: 30px 0 0 0;
+    color: #5d5d5d;
+}
+
+.renuevate-body h1 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.renuevate-body a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ff0135;
+}
+
+.renuevate-body input[type=text], .renuevate-body input[type=email], .renuevate-body input[type=number] {
+    color: #5d5d5d;
+}
+
+.renuevate-body input[type=submit] {
+    margin-right: 20px !important;
+    background-color: #ff0135 !important;
+    width: 150px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+}
+
+.renuevate-body__content {
+    max-width: 600px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.renuevate-body label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+@media(max-width: 767px) {
+    .renuevate-body h1 {
+        font-size: 20px;
+    }
+
+    .renuevate-body__submit {
+        margin-top: 10px;
+    }
+}
+
+@media(min-width: 768px) {
+    .renuevate-body h1 {
+        font-size: 24px;
+    }
+
+    .renuevate-body__submit {
+        justify-content: flex-end !important;
+    }
+}
+
+.mc-st-validator {
+    position: absolute;
+    left: -5000px;
+}
+
+.twinwash__footer {
+    background-color: #22272b;
+}

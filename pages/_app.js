@@ -15,6 +15,7 @@ import 'slick-carousel/slick/slick.scss';
 import 'slick-carousel/slick/slick-theme.scss';
 import "../styles.scss"
 import "../fonts.scss"
+import {ToastContainer} from "react-toastify";
 
 
 class MyApp extends App {
@@ -68,6 +69,8 @@ class MyApp extends App {
     return (
       <Container>
         <LgOnlineHead />
+
+        <ToastContainer />
 
         <Provider store={reduxStore}>
           <Component {...pageProps} />

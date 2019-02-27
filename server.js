@@ -88,6 +88,18 @@ const routes = [{
   }],
 }];
 
+const landings = [
+  {
+    slug: 'did'
+  },
+  {
+    slug: 'instantpartysummer'
+  },
+  {
+    slug: 'twinwash'
+  }
+];
+
 app.prepare()
   .then(() => {
     const server = express();
@@ -124,6 +136,14 @@ app.prepare()
           app.render(req, res, actualPage, queryParams)
         });
       }
+    }
+
+    for (const landing of landings) {
+      server.get(`/${landing.slug}`, (req, res) => {
+        const actualPage = '/landing';
+        const queryParams = { landing: landing.slug };
+        app.render(req, res, actualPage, queryParams)
+      });
     }
 
     server.get('*', (req, res) => {

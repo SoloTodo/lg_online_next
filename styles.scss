@@ -27,6 +27,7 @@ body {
     font-size: 18px;
 }
 
+@import '~react-toastify/dist/ReactToastify.css';
 @import './components/NavBar/NavBar.css';
 @import './components/NavBar/NavBarMobileSearch.css';
 @import './components/Product/ProductBrowseResultDesktop.css';

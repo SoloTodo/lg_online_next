@@ -8,7 +8,7 @@ import './ProductBrowseResults.css'
 import ProductBrowseSelectedResult from "./ProductBrowseSelectedResult";
 import {listToObject, isServer} from "../../react-utils/utils";
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
-import {withRouter} from "next/router";
+import Router from "next/router";
 
 
 class ProductBrowseResults extends React.Component {
@@ -17,17 +17,17 @@ class ProductBrowseResults extends React.Component {
 
     this.state = {
       selectedProductEntry: null
-    }
+    };
+
+    this.routeChangeHandler = () => this.componentUpdate();
   }
 
   componentDidMount() {
-    this.componentUpdate()
+    Router.events.on('routeChangeComplete', this.routeChangeHandler);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.router.asPath !== nextProps.router.asPath) {
-      this.componentUpdate()
-    }
+  componentWillUnmount() {
+    Router.events.off('routeChangeComplete', this.routeChangeHandler);
   }
 
   componentUpdate() {
@@ -217,4 +217,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(ProductBrowseResults))
+export default connect(mapStateToProps)(ProductBrowseResults)

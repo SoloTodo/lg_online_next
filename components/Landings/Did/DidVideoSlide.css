@@ -1,0 +1,14 @@
+.did-video-slide {
+    /*width: 210px;*/
+}
+
+.did-video-slide__caption {
+    font-weight: bold;
+    margin-top: 10px;
+    max-width: 210px;
+}
+
+.did-video-slide__caption a {
+    color: #333;
+    text-decoration: none;
+}

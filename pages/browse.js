@@ -9,6 +9,7 @@ import Carousel from "../components/Slides/Carousel";
 import ProductBrowseResults from "../components/Product/ProductBrowseResults";
 import {withLgOnlineTracker} from "../utils";
 import {loadRequiredProducts} from "../redux/actions";
+import {settings} from '../settings'
 
 class Browse extends React.Component {
   static async getInitialProps(ctx) {
@@ -39,7 +40,7 @@ class Browse extends React.Component {
         <meta property="og:title" content={this.props.title} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content="/static/img/og_image.png" />
+        <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 
       <NavBar />

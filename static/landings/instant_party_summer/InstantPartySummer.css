@@ -1,0 +1,130 @@
+.instantpartysummer__dynamic-banner .dynamic-banner__price {
+    color: white;
+}
+
+.instantpartysummer__dynamic-banner .dynamic-banner__buy-button {
+    text-transform: uppercase;
+    background-color: #c6053a;
+    font-size: 24px !important;
+    border-radius: 5px;
+}
+
+.instantpartysummer__dynamic-banner .dynamic-banner__buy-button__label {
+    display: none;
+}
+
+@media(max-width: 575px) {
+    .instantpartysummer__dynamic-banner .dynamic-banner__price {
+        left: 80px;
+        top: 285px;
+        font-size: 50px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button {
+        left: 80px;
+        top: 350px;
+        width: 160px;
+        height: 36px;
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button__label {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__price-sign {
+        font-size: 24px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767px) {
+    .instantpartysummer__dynamic-banner .dynamic-banner__price {
+        left: 30px;
+        top: 240px;
+        font-size: 60px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button {
+        left: 30px;
+        top: 320px;
+        width: 220px;
+        height: 40px;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button__label {
+        font-size: 20px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__price-sign {
+        font-size: 30px;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 991px) {
+    .instantpartysummer__dynamic-banner .dynamic-banner__price {
+        left: 34px;
+        top: 235px;
+        font-size: 62px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button {
+        left: 34px;
+        top: 320px;
+        width: 160px;
+        height: 50px;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button__label {
+        font-size: 22px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__price-sign {
+        font-size: 32px;
+    }
+}
+
+@media(min-width: 992px) and (max-width: 1199px) {
+    .instantpartysummer__dynamic-banner .dynamic-banner__price {
+        top: 240px;
+        left: 70px;
+        font-size: 48px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button {
+        top: 310px;
+        left: 70px;
+        width: 205px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__price-sign {
+        font-size: 30px;
+    }
+}
+
+@media(min-width: 1200px) {
+    .instantpartysummer__dynamic-banner .dynamic-banner__price {
+        left: 90px;
+        top: 226px;
+        font-size: 60px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__buy-button {
+        left: 90px;
+        top: 310px;
+        width: 190px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    .instantpartysummer__dynamic-banner .dynamic-banner__price-sign {
+        font-size: 30px;
+    }
+}

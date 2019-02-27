@@ -40,8 +40,8 @@ class SlideDynamicPrice extends React.Component {
     const categoryMetadata = settings.categoriesMetadata[category.id];
 
     const linkAs = this.props.isMobile ?
-      this.props.mobileHref || `/products/${productEntry.product.id}-${productEntry.product.slug}` :
-      this.props.desktopHref || `/${categoryMetadata.slug}?product=${productEntry.product.id}`
+      this.props.mobileAs || `/products/${productEntry.product.id}-${productEntry.product.slug}` :
+      this.props.desktopAs || `/${categoryMetadata.slug}?product=${productEntry.product.id}`
     ;
 
     const linkHref = this.props.isMobile ?

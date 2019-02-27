@@ -1,0 +1,10 @@
+.did-video-slide-carousel .slick-next {
+    right: -10px;
+    top: 80px;
+}
+
+.did-video-slide-carousel .slick-prev {
+    left: -10px;
+    top: 80px;
+}
+

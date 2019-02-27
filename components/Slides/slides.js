@@ -54,13 +54,13 @@ export default [
     component: <SlideDynamicPrice
         productId={45946}
         label="OK99_2"
-        desktopHref="/instantpartysummer?product=45946"
-        mobileHref="/products/45946-lg-ok99"
-        extraSmall={['/static/img/slides/p05_350.jpg', '/static/img/slides/p05_350_hdpi.jpg']}
-        small={['/static/img/slides/p05_540.jpg']}
-        medium={['/static/img/slides/p05_720.jpg']}
-        large={['/static/img/slides/p05_960.jpg']}
-        infinity={['/static/img/slides/p05_1140.jpg']}
+        desktopHref="/landing?landing=instantpartysummer&product=45946"
+        desktopAs="/instantpartysummer?product=45946"
+        extraSmall={['/static/landings/instant_party_summer/05_350.jpg', '/static/landings/instant_party_summer/05_350_hdpi.jpg']}
+        small={['/static/landings/instant_party_summer/05_540.jpg']}
+        medium={['/static/landings/instant_party_summer/05_720.jpg']}
+        large={['/static/landings/instant_party_summer/05_960.jpg']}
+        infinity={['/static/landings/instant_party_summer/05_1140.jpg']}
         className="instantpartysummer__dynamic-banner"
     />
   },
@@ -70,7 +70,6 @@ export default [
     subcategory: 'Door-in-Door',
     frontpageOrdering: null,
     component: <SlideStaticImage
-        label="TV OLED"
         desktopHref="/neobundle"
         mobileHref="/neobundle"
         extraSmall={['/static/img/slides/neochef_350.jpg', '/static/img/slides/neochef_350_hdpi.jpg']}

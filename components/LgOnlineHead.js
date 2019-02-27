@@ -22,6 +22,7 @@ export default class LgOnlineHead extends React.Component {
       <meta name="theme-color" content="#a50034" />
 
       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" />
 
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${settings.googleAnalyticsId}`}></script>
       <script dangerouslySetInnerHTML={this.setGoogleTags()} />
