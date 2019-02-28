@@ -70,8 +70,10 @@ export default [
     subcategory: 'Door-in-Door',
     frontpageOrdering: null,
     component: <SlideStaticImage
-        desktopHref="/neobundle"
-        mobileHref="/neobundle"
+        desktopHref="/landing?landing=instaviewbundle"
+        desktopAs="/instaviewbundle"
+        mobileHref="/landing?landing=instaviewbundle"
+        mobileAs="/instaviewbundle"
         extraSmall={['/static/img/slides/neochef_350.jpg', '/static/img/slides/neochef_350_hdpi.jpg']}
         small={['/static/img/slides/neochef_540.jpg']}
         medium={['/static/img/slides/neochef_720.jpg']}

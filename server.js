@@ -97,6 +97,18 @@ const landings = [
   },
   {
     slug: 'twinwash'
+  },
+  {
+    slug: 'oportunidadesdelasemana'
+  },
+  {
+    slug: 'instaviewbundle'
+  },
+  {
+    slug: 'neobundle'
+  },
+  {
+    slug: 'planperfecto'
   }
 ];
 

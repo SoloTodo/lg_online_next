@@ -1,17 +1,16 @@
 import React from 'react';
+import {withRouter} from 'next/router'
 import {withLgOnlineTracker} from "../../../utils";
 
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import ProductBrowseResults from "../../Product/ProductBrowseResults";
-import DidVideoSlideCarousel from "./DidVideoSlideCarousel";
+import NavBar from "../../NavBar/NavBar";
 import {settings} from "../../../settings";
 import Head from "next/head";
-import {withRouter} from "next/router";
-import NavBar from "../../NavBar/NavBar";
 
-class Did extends React.Component {
+class NeoChef extends React.Component {
   render() {
-    const productIds = [52895, 52892, 52934, 52896, 39205, 50059, 39206, 39883];
+    const productIds = [52893, 52895, 52892, 52934, 52896];
     const filteredProductEntries = this.props.productEntries.filter(
       productEntry => productIds.includes(productEntry.product.id)
     ).sort((a, b) => productIds.indexOf(a.product.id) - productIds.indexOf(b.product.id)
@@ -19,11 +18,11 @@ class Did extends React.Component {
 
     return <React.Fragment>
       <Head>
-        <title key="title">Promoción LG Door-in-Door - LG Online</title>
+        <title key="title">Promoción LG Bundle NeoChef</title>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${settings.domain}/did`} />
-        <meta property="og:title" content="Promoción LG Door-in-Door" />
-        <meta property="og:description" content="Encuentra las mejores ofertas en Refrigeradores Door-in-Door LG" />
+        <meta property="og:url" content={`${settings.domain}/instaviewbundle`} />
+        <meta property="og:title" content="Promoción LG Bundle NeoChef" />
+        <meta property="og:description" content="Encuentra las mejores ofertas en bundles LG" />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 
@@ -33,19 +32,19 @@ class Did extends React.Component {
         <div className="d-flex justify-content-center">
           <picture>
             <source media="(max-width: 575px)"
-                    srcSet="/static/landings/did/Did-350.png, /static/landings/did/Did-350_hdpi.png 2x" />
+                    srcSet="/static/landings/neochef/Neochef-350.jpg, /static/landings/neochef/Neochef-350-hdpi.jpg 2x" />
             <source media="(max-width: 767px)"
-                    srcSet="/static/landings/did/Did-540.png" />
+                    srcSet="/static/landings/neochef/Neochef-540.jpg" />
             <source media="(max-width: 991px)"
-                    srcSet="/static/landings/did/Did-720.png" />
+                    srcSet="/static/landings/neochef/Neochef-720.jpg" />
             <source media="(max-width: 1199px)"
-                    srcSet="/static/landings/did/Did-960.png" />
+                    srcSet="/static/landings/neochef/Neochef-960.jpg" />
             <source media="(max-width: 10000px)"
-                    srcSet="/static/landings/did/Did-1140.png" />
-            <img src="/static/landings/did/Did-350.png" />
+                    srcSet="/static/landings/neochef/Neochef-1140.jpg" />
+            <img src="/static/landings/neochef/Neochef-350.jpg" />
           </picture>
         </div>
-        <DidVideoSlideCarousel />
+
         <ProductBrowseResults filteredProductEntries={filteredProductEntries} />
       </div>
     </React.Fragment>
@@ -60,9 +59,9 @@ function mapStateToProps(state) {
 
 function mapPropsToGAField(props) {
   return {
-    pageTitle: 'Promoción LG Door-in-Door',
+    pageTitle: 'Promoción LG Bundle NeoChef',
   }
 }
 
-const TrackedDid = withLgOnlineTracker(Did, mapPropsToGAField);
-export default withRouter(connect(mapStateToProps)(TrackedDid))
+const TrackedNeoChef = withLgOnlineTracker(NeoChef, mapPropsToGAField);
+export default withRouter(connect(mapStateToProps)(TrackedNeoChef))

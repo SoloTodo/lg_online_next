@@ -10,6 +10,7 @@ import {toast} from "react-toastify";
 import ProductBrowseResults from "../../Product/ProductBrowseResults";
 
 import {Modal, ModalBody, ModalHeader} from "reactstrap";
+import NavBar from "../../NavBar/NavBar";
 
 class TwinWash extends Component {
   constructor(props) {
@@ -125,111 +126,116 @@ class TwinWash extends Component {
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 
-      <div className="content text-center">
-        <a href="#mc_embed_signup"><img src={imageToDisplay} alt="Promoción LG TwinWash" className="img-fluid" /></a>
-      </div>
+      <NavBar />
 
-      <div className="content text-center">
-        <img src={sloganToDisplay} alt="Slogan" className="img-fluid" />
-      </div>
+      <div id="content">
 
-      <ProductBrowseResults location={this.props.location} filteredProductEntries={filteredProductEntries} />
+        <div className="content text-center">
+          <a href="#mc_embed_signup"><img src={imageToDisplay} alt="Promoción LG TwinWash" className="img-fluid" /></a>
+        </div>
 
-      <div className="renuevate-body mt-3">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 renuevate-body__content">
-              <div className="text-center">
-                <img src="/static/landings/twin_wash/form-header.jpg" alt="REGISTRA TU COMPRA Y PARTICIPA POR TRES MICROONDAS LG NEOCHEF" className="img-fluid" />
+        <div className="content text-center">
+          <img src={sloganToDisplay} alt="Slogan" className="img-fluid" />
+        </div>
+
+        <ProductBrowseResults location={this.props.location} filteredProductEntries={filteredProductEntries} />
+
+        <div className="renuevate-body mt-3">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 renuevate-body__content">
+                <div className="text-center">
+                  <img src="/static/landings/twin_wash/form-header.jpg" alt="REGISTRA TU COMPRA Y PARTICIPA POR TRES MICROONDAS LG NEOCHEF" className="img-fluid" />
+                </div>
+
+                <div id="mc_embed_signup">
+                  <form
+                    action="https://www.us18.list-manage.com/subscribe/post?u=66aa9e160932049f84283045a&amp;id=d850fbb8e7"
+                    method="post" id="mc-embedded-subscribe-form"
+                    name="mc-embedded-subscribe-form" className="validate"
+                    target="_blank" noValidate onSubmit={this.handleFormSubmit}>
+                    <div id="mc_embed_signup_scroll">
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-NOMBRE">Nombre <span
+                          className="asterisk">*</span>
+                        </label>
+                        <input type="text" name="NOMBRE" value={this.state.firstName} onChange={evt => this.handleFormChange('firstName', evt.target.value)}
+                               className="required" id="mce-NOMBRE" placeholder="Ingresa tu nombre" />
+                      </div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-APELLIDO">Apellido <span
+                          className="asterisk">*</span>
+                        </label>
+                        <input type="text" name="APELLIDO" value={this.state.lastName} onChange={evt => this.handleFormChange('lastName', evt.target.value)}
+                               className="required" id="mce-APELLIDO" placeholder="Ingresa tu apellido" />
+                      </div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-EMAIL">E-mail <span
+                          className="asterisk">*</span>
+                        </label>
+                        <input type="email" name="EMAIL" value={this.state.email} onChange={evt => this.handleFormChange('email', evt.target.value)}
+                               className="required email" id="mce-EMAIL" placeholder="Ingresa tu e-mail" />
+                      </div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-RUT">RUT <span
+                          className="asterisk">*</span>
+                        </label>
+                        <input type="text" name="RUT" value={this.state.rut} onChange={evt => this.handleFormChange('rut', evt.target.value)}
+                               className="required" id="mce-RUT" placeholder="Ingresa tu RUT" />
+                      </div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-FECHA">Fecha de compra <span
+                          className="asterisk">*</span>
+                        </label>
+                        <input type="text" name="FECHA" value={this.state.purchaseDate} onChange={evt => this.handleFormChange('purchaseDate', evt.target.value)}
+                               className="required" id="mce-FECHA" placeholder="Ingresa la fecha de compra" />
+                      </div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-INVOICE">Boleta o comprobante de compra <span
+                          className="asterisk">*</span></label>
+                        <input type="file"
+                               id="mce-INVOICE"
+                               required={true}
+                               onChange={this.handleFileChange}
+                        />
+                      </div>
+                      <div id="mce-responses" className="clear">
+                        <div className="response" id="mce-error-response">&nbsp;</div>
+                        <div className="response" id="mce-success-response">&nbsp;</div>
+                      </div>
+                      <div className="clear">
+                        <input type="submit"
+                               value="Enviar »"
+                               name="subscribe"
+                               id="mc-embedded-subscribe"
+                               className="button" /></div>
+                    </div>
+
+                    <p>Promoción sujeta a las <a href="/static/landings/twin_wash/bases_twinwash.pdf">Bases Concurso LG – CAMPAÑA TWINWASH</a></p>
+
+                    <input type="hidden" name="BOLETA" value={this.state.invoiceUrl}
+                           className="required" id="mce-BOLETA" />
+                  </form>
+                </div>
+
               </div>
-
-              <div id="mc_embed_signup">
-                <form
-                  action="https://www.us18.list-manage.com/subscribe/post?u=66aa9e160932049f84283045a&amp;id=d850fbb8e7"
-                  method="post" id="mc-embedded-subscribe-form"
-                  name="mc-embedded-subscribe-form" className="validate"
-                  target="_blank" noValidate onSubmit={this.handleFormSubmit}>
-                  <div id="mc_embed_signup_scroll">
-                    <div className="mc-field-group">
-                      <label htmlFor="mce-NOMBRE">Nombre <span
-                        className="asterisk">*</span>
-                      </label>
-                      <input type="text" name="NOMBRE" value={this.state.firstName} onChange={evt => this.handleFormChange('firstName', evt.target.value)}
-                             className="required" id="mce-NOMBRE" placeholder="Ingresa tu nombre" />
-                    </div>
-                    <div className="mc-field-group">
-                      <label htmlFor="mce-APELLIDO">Apellido <span
-                        className="asterisk">*</span>
-                      </label>
-                      <input type="text" name="APELLIDO" value={this.state.lastName} onChange={evt => this.handleFormChange('lastName', evt.target.value)}
-                             className="required" id="mce-APELLIDO" placeholder="Ingresa tu apellido" />
-                    </div>
-                    <div className="mc-field-group">
-                      <label htmlFor="mce-EMAIL">E-mail <span
-                        className="asterisk">*</span>
-                      </label>
-                      <input type="email" name="EMAIL" value={this.state.email} onChange={evt => this.handleFormChange('email', evt.target.value)}
-                             className="required email" id="mce-EMAIL" placeholder="Ingresa tu e-mail" />
-                    </div>
-                    <div className="mc-field-group">
-                      <label htmlFor="mce-RUT">RUT <span
-                        className="asterisk">*</span>
-                      </label>
-                      <input type="text" name="RUT" value={this.state.rut} onChange={evt => this.handleFormChange('rut', evt.target.value)}
-                             className="required" id="mce-RUT" placeholder="Ingresa tu RUT" />
-                    </div>
-                    <div className="mc-field-group">
-                      <label htmlFor="mce-FECHA">Fecha de compra <span
-                        className="asterisk">*</span>
-                      </label>
-                      <input type="text" name="FECHA" value={this.state.purchaseDate} onChange={evt => this.handleFormChange('purchaseDate', evt.target.value)}
-                             className="required" id="mce-FECHA" placeholder="Ingresa la fecha de compra" />
-                    </div>
-                    <div className="mc-field-group">
-                      <label htmlFor="mce-INVOICE">Boleta o comprobante de compra <span
-                        className="asterisk">*</span></label>
-                      <input type="file"
-                             id="mce-INVOICE"
-                             required={true}
-                             onChange={this.handleFileChange}
-                      />
-                    </div>
-                    <div id="mce-responses" className="clear">
-                      <div className="response" id="mce-error-response">&nbsp;</div>
-                      <div className="response" id="mce-success-response">&nbsp;</div>
-                    </div>
-                    <div className="clear">
-                      <input type="submit"
-                             value="Enviar »"
-                             name="subscribe"
-                             id="mc-embedded-subscribe"
-                             className="button" /></div>
-                  </div>
-
-                  <p>Promoción sujeta a las <a href="/static/landings/twin_wash/bases_twinwash.pdf">Bases Concurso LG – CAMPAÑA TWINWASH</a></p>
-
-                  <input type="hidden" name="BOLETA" value={this.state.invoiceUrl}
-                         className="required" id="mce-BOLETA" />
-                </form>
-              </div>
-
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="twinwash__footer text-center">
-        <a href="https://www.lgpremiumcare.cl/">
-          <img src={footerToDisplay} alt="Premium care" className="img-fluid" />
-        </a>
-      </div>
+        <div className="twinwash__footer text-center">
+          <a href="https://www.lgpremiumcare.cl/">
+            <img src={footerToDisplay} alt="Premium care" className="img-fluid" />
+          </a>
+        </div>
 
-      <Modal isOpen={this.state.loadingInvoiceModalOpen}>
-        <ModalHeader>Subiendo archivo</ModalHeader>
-        <ModalBody>
-          Por favor espera un momento mientras cargamos tu boleta
-        </ModalBody>
-      </Modal>
+        <Modal isOpen={this.state.loadingInvoiceModalOpen}>
+          <ModalHeader>Subiendo archivo</ModalHeader>
+          <ModalBody>
+            Por favor espera un momento mientras cargamos tu boleta
+          </ModalBody>
+        </Modal>
+      </div>
     </React.Fragment>
   }
 }

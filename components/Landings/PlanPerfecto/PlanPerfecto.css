@@ -1,0 +1,50 @@
+.planperfecto-form {
+    margin-top: 20px;
+}
+
+.planperfecto-form h1 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
+
+.planperfecto-form #mc_embed_signup {
+    width: 100%;
+    max-width: 960px;
+}
+
+.planperfecto-form label {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.planperfecto-form .imei-question {
+    margin-left: 10px;
+    font-size: 20px;
+    color: #c5053e;
+}
+
+.planperfecto-slider .slick-arrow {
+    color: #c5053e;
+    font-size: 40px;
+    z-index: 2;
+}
+
+.planperfecto-slider .slick-arrow::before {
+    content: none;
+}
+
+
+.planperfecto-slider .slick-next {
+    right: 10px;
+}
+
+.planperfecto-slider .slick-prev {
+    left: -15px;
+}
+
+.planperfecto-slider .slick-arrow img {
+    width: 45px;
+    height: 45px;
+}

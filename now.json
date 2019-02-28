@@ -12,6 +12,41 @@
       "headers": { "cache-control": "s-maxage=14400" }
     },
     {
+      "src": "/did$",
+      "dest": "/landing?landing=did",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/instantpartysummer$",
+      "dest": "/landing?landing=instantpartysummer",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/twinwash$",
+      "dest": "/landing?landing=twinwash",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/oportunidadesdelasemana$",
+      "dest": "/landing?landing=oportunidadesdelasemana",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/instaviewbundle$",
+      "dest": "/landing?landing=instaviewbundle",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/neobundle$",
+      "dest": "/landing?landing=neobundle",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
+      "src": "/planperfecto$",
+      "dest": "/landing?landing=planperfecto",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
       "src": "/(?<section>[^/]+)$",
       "dest": "/browse?section=$section",
       "headers": { "cache-control": "s-maxage=14400" }

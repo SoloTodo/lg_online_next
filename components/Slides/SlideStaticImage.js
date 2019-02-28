@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import Link from 'next/link';
-import { withRouter } from 'next/router'
 import {settings} from "../../settings";
 
 
@@ -15,16 +14,10 @@ class SlideStaticImage extends React.Component {
   };
 
   render() {
-    const linkTo = this.props.isMobile ?
-      {
-        pathname: this.props.mobileHref,
-        state: {
-          referrer: this.props.router.asPath
-        }
-      } :
-      this.props.desktopHref;
+    const linkAs = this.props.isMobile ? this.props.mobileAs : this.props.desktopAs;
+    const linkHref = this.props.isMobile ? this.props.mobileHref : this.props.desktopHref;
 
-    return <Link href={linkTo}>
+    return <Link href={linkHref} as={linkAs}>
       <div onClick={this.handleClick} className="d-flex dynamic-banner flex-row justify-content-center w-100">
         <picture>
           <source media="(max-width: 575px)"
@@ -50,4 +43,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(SlideStaticImage))
+export default connect(mapStateToProps)(SlideStaticImage)

@@ -77,5 +77,5 @@ export function withLgOnlineTracker(WrappedComponent, mapPropsToGAField) {
     window.fbq('track', 'PageView');
   };
 
-  return withTracker(WrappedComponent, trackPageHandler)
+  return withTracker(WrappedComponent, trackPageHandler, true)
 }

@@ -5,6 +5,10 @@ import Did from "../components/Landings/Did/Did";
 import InstantPartySummer
   from "../components/Landings/InstantPartySummer/InstantPartySummer";
 import TwinWash from "../components/Landings/TwinWash/TwinWash";
+import OportunidadesDeLaSemana
+  from "../components/Landings/OportunidadesDeLaSemana/OportunidadesDeLaSemana";
+import NeoChef from "../components/Landings/NeoChef/NeoChef";
+import PlanPerfecto from "../components/Landings/PlanPerfecto/PlanPerfecto";
 
 class Landing extends React.Component {
   static async getInitialProps(ctx) {
@@ -23,6 +27,10 @@ class Landing extends React.Component {
       did: Did,
       instantpartysummer: InstantPartySummer,
       twinwash: TwinWash,
+      oportunidadesdelasemana: OportunidadesDeLaSemana,
+      instaviewbundle: NeoChef,
+      neobundle: NeoChef,
+      planperfecto: PlanPerfecto,
     };
 
     const LandingComponent = landingComponentsDict[this.props.router.query.landing];

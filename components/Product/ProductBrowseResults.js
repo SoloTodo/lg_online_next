@@ -23,6 +23,8 @@ class ProductBrowseResults extends React.Component {
   }
 
   componentDidMount() {
+    this.componentUpdate();
+
     Router.events.on('routeChangeComplete', this.routeChangeHandler);
   }
 

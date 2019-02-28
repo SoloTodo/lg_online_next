@@ -9,14 +9,11 @@ import PrevArrow from "../../Slides/PrevArrow";
 import Slider from "react-slick";
 
 import Head from "next/head";
+import {withRouter} from "next/router";
 import NavBar from "../../NavBar/NavBar";
 
 
 class InstantPartySummer extends React.Component {
-  componentWillReceiveProps(nextProps, nextContext) {
-    console.log('Receiving props')
-  }
-
   render() {
     const productIds = [48266, 48003, 48267, 45942, 45944, 45946];
     const filteredProductEntries = this.props.productEntries.filter(
@@ -43,8 +40,8 @@ class InstantPartySummer extends React.Component {
         id: 'OK99',
         component: <SlideDynamicPrice
           productId={45946}
-          desktopHref="/instantpartysummer?product=45946"
-          mobileHref="/products/45946-lg-ok99"
+          desktopHref="/landing?landing=instantpartysummer&product=45946"
+          desktopAs="/instantpartysummer?product=45946"
           extraSmall={['/static/landings/instant_party_summer/02_350.jpg', '/static/landings/instant_party_summer/02_350_hdpi.jpg']}
           small={['/static/landings/instant_party_summer/02_540.jpg']}
           medium={['/static/landings/instant_party_summer/02_720.jpg']}
@@ -57,8 +54,8 @@ class InstantPartySummer extends React.Component {
         id: 'PK3',
         component: <SlideDynamicPrice
           productId={48266}
-          desktopHref="/instantpartysummer?product=48266"
-          mobileHref="/products/48266-lg-pk3"
+          desktopHref="/landing?landing=instantpartysummer&product=48266"
+          desktopAs="/instantpartysummer?product=48266"
           extraSmall={['/static/landings/instant_party_summer/03_350.jpg', '/static/landings/instant_party_summer/03_350_hdpi.jpg']}
           small={['/static/landings/instant_party_summer/03_540.jpg']}
           medium={['/static/landings/instant_party_summer/03_720.jpg']}
@@ -71,8 +68,8 @@ class InstantPartySummer extends React.Component {
         id: 'PK7',
         component: <SlideDynamicPrice
           productId={48267}
-          desktopHref="/instantpartysummer?product=48267"
-          mobileHref="/products/48267-lg-pk7"
+          desktopHref="/landing?landing=instantpartysummer&product=48267"
+          desktopAs="/instantpartysummer?product=48267"
           extraSmall={['/static/landings/instant_party_summer/04_350.jpg', '/static/landings/instant_party_summer/04_350_hdpi.jpg']}
           small={['/static/landings/instant_party_summer/04_540.jpg']}
           medium={['/static/landings/instant_party_summer/04_720.jpg']}
@@ -85,8 +82,8 @@ class InstantPartySummer extends React.Component {
         id: 'OK99_2',
         component: <SlideDynamicPrice
           productId={45946}
-          desktopHref="/instantpartysummer?product=45946"
-          mobileHref="/products/45946-lg-ok99"
+          desktopHref="/landing?landing=instantpartysummer&product=45946"
+          desktopAs="/instantpartysummer?product=45946"
           extraSmall={['/static/landings/instant_party_summer/05_350.jpg', '/static/landings/instant_party_summer/05_350_hdpi.jpg']}
           small={['/static/landings/instant_party_summer/05_540.jpg']}
           medium={['/static/landings/instant_party_summer/05_720.jpg']}
@@ -99,8 +96,8 @@ class InstantPartySummer extends React.Component {
         id: 'OK99_3',
         component: <SlideDynamicPrice
           productId={45946}
-          desktopHref="/instantpartysummer?product=45946"
-          mobileHref="/products/45946-lg-ok99"
+          desktopHref="/landing?landing=instantpartysummer&product=45946"
+          desktopAs="/instantpartysummer?product=45946"
           extraSmall={['/static/landings/instant_party_summer/06_350.jpg', '/static/landings/instant_party_summer/06_350_hdpi.jpg']}
           small={['/static/landings/instant_party_summer/06_540.jpg']}
           medium={['/static/landings/instant_party_summer/06_720.jpg']}
@@ -126,8 +123,6 @@ class InstantPartySummer extends React.Component {
     return <React.Fragment>
       <Head>
         <title key="title">Promoción LG Instant Party Summer - LG Online</title>
-
-        <link rel="stylesheet" href="/static/landings/instant_party_summer/InstantPartySummer.css" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${settings.domain}/instantpartysummer`} />
@@ -166,4 +161,4 @@ function mapPropsToGAField(props) {
 }
 
 const TrackedInstantPartySummer = withLgOnlineTracker(InstantPartySummer, mapPropsToGAField);
-export default connect(mapStateToProps)(TrackedInstantPartySummer)
+export default withRouter(connect(mapStateToProps)(TrackedInstantPartySummer))
