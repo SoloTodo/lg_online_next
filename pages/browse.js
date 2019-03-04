@@ -2,7 +2,9 @@ import React from 'react';
 import Head from 'next/head';
 import {withRouter} from 'next/router'
 import { connect } from 'react-redux'
-import {lgonlineStateToPropsUtils} from "../redux-utils";
+import {
+  getImportantCategories
+} from "../redux-utils";
 import NavBar from "../components/NavBar/NavBar";
 import SubcategoryMenu from '../components/SubcategoryMenu/SubcategoryMenu'
 import Carousel from "../components/Slides/Carousel";
@@ -10,20 +12,64 @@ import ProductBrowseResults from "../components/Product/ProductBrowseResults";
 import {withLgOnlineTracker} from "../utils";
 import {loadRequiredProducts} from "../redux/actions";
 import {settings} from '../settings'
+import ErrorPage from "./_error";
 
 class Browse extends React.Component {
   static async getInitialProps(ctx) {
     const { req, res, query, reduxStore } = ctx;
-    const productEntries = reduxStore.getState().productEntries;
+    const reduxState = reduxStore.getState();
+    const productEntries = reduxState.productEntries;
 
     if (!productEntries) {
       await reduxStore.dispatch(loadRequiredProducts);
+    }
+
+    const section = query.section;
+    const importantCategories = getImportantCategories(reduxState.apiResourceObjects);
+
+    for (const category of importantCategories) {
+      if (category.slug === section) {
+        return {
+          category,
+          subcategory: null,
+          title: category.name
+        }
+      }
+
+      const subcategories = category.subcategories || [];
+
+      for (const subcategory of subcategories) {
+        if (subcategory.slug === section) {
+          return {
+            category,
+            subcategory,
+            title: subcategory.title
+          }
+        }
+      }
+    }
+
+    // Section didn't match any of the category or subcategory slugs
+    if (section) {
+      if (res) {
+        res.statusCode = 404;
+        res.end('Not found');
+        return
+      } else {
+        return {
+          statusCode: 404
+        }
+      }
     }
 
     return {}
   }
 
   render() {
+    if (this.props.statusCode) {
+      return <ErrorPage statusCode={this.props.statusCode} />
+    }
+
     const category = this.props.category;
     const categoryId = category ? category.id : undefined;
     const subcategory = this.props.subcategory;
@@ -34,12 +80,22 @@ class Browse extends React.Component {
       `Cotiza ${this.props.title} LG al mejor precio` :
       'Encuentra las mejores ofertas para todos tus productos LG';
 
+    let path = '/';
+
+    if (subcategory) {
+      path += subcategory.slug
+    } else if (category) {
+      path += category.slug
+    }
+
     return <React.Fragment>
       <Head>
         <title key="title">{this.props.title} - LG Online</title>
+        <link rel="canonical" href={`${settings.domain}${path}`} />
+        <meta property="og:url" content={`${settings.domain}${path}`} />
         <meta property="og:title" content={this.props.title} />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content={description} />
+        <meta name="description" property="og:description" content={description} />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 
@@ -58,40 +114,22 @@ class Browse extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { section } = ownProps.router.query;
-  const { importantCategories } = lgonlineStateToPropsUtils(state);
+  const { category, subcategory } = ownProps;
 
-  const props = {
-    isMobile: state.browser.lessThan.medium
-  };
-
-  for (const category of importantCategories) {
-    if (category.slug === section) {
-      return {
-        category,
-        subcategory: null,
-        title: category.name,
-        ...props
-      }
-    }
-
-    const subcategories = category.subcategories || [];
-
-    for (const subcategory of subcategories) {
-      if (subcategory.slug === section) {
-        return {
-          category,
-          subcategory,
-          title: subcategory.title,
-          ...props
-        }
-      }
-    }
+  let title = undefined;
+  if (subcategory) {
+    title = subcategory.name
+  } else if (category) {
+    title = category.name
+  } else {
+    title = 'Cotiza todos tus productos LG en un sólo lugar'
   }
 
   return {
-    ...props,
-    title: 'Cotiza todos tus productos LG en un sólo lugar'
+    isMobile: state.browser.lessThan.medium,
+    category,
+    subcategory,
+    title
   }
 }
 

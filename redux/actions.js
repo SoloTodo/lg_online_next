@@ -2,52 +2,6 @@ import {fetchJson} from '../react-utils/utils'
 import {isIe} from "../utils";
 import desiredProducts from "../products";
 import {settings} from '../settings';
-import {apiSettings} from "../react-utils/settings";
-
-export const actionTypes = {
-  TICK: 'TICK',
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-  RESET: 'RESET'
-};
-
-export const serverRenderClock = isServer => dispatch => {
-  return dispatch({ type: actionTypes.TICK, light: !isServer, ts: Date.now() })
-};
-
-export const startClock = dispatch => {
-  return setInterval(() => {
-    // Dispatch `TICK` every 1 second
-    dispatch({ type: actionTypes.TICK, light: true, ts: Date.now() })
-  }, 1000)
-};
-
-export const incrementCount = () => dispatch => {
-  return dispatch({ type: actionTypes.INCREMENT })
-};
-
-export const decrementCount = () => dispatch => {
-  return dispatch({ type: actionTypes.DECREMENT })
-};
-
-export const resetCount = () => dispatch => {
-  return dispatch({ type: actionTypes.RESET })
-};
-
-export const loadRequiredResources = resources => dispatch => {
-  let bundleUrl = `${apiSettings.endpoint}resources/?`;
-
-  for (const requiredResource of resources) {
-    bundleUrl += `names=${requiredResource}&`;
-  }
-
-  return fetchJson(bundleUrl).then(bundle => {
-    dispatch({
-      type: 'addBundle',
-      apiResourceObjects: bundle
-    });
-  });
-};
 
 export const loadRequiredProducts = dispatch => {
   const desiredProductsDict = {};
@@ -58,7 +12,7 @@ export const loadRequiredProducts = dispatch => {
   const promises = [];
 
   for (let i = 0; i < slices; i++) {
-    let endPointUrl = 'products/available_entities/?page_size=300&';
+    let endPointUrl = 'products/available_entities/?serializer=minimal&exclude_with_monthly_payment=1&page_size=300&';
 
     const startIndex = Math.floor(desiredProductsCount * i / slices);
     const endIndex = Math.ceil(desiredProductsCount * (i + 1) / slices);
@@ -80,8 +34,7 @@ export const loadRequiredProducts = dispatch => {
 
     for (const rawProductEntries of values) {
       for (const productEntry of rawProductEntries.results) {
-        const entities = productEntry.entities
-          .filter(entity => entity.active_registry.cell_monthly_payment === null);
+        const entities = productEntry.entities;
         if (!entities.length) {
           continue
         }

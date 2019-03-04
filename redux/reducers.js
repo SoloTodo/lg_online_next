@@ -1,4 +1,4 @@
-export const exampleInitialState = {
+export const initialState = {
   apiResourceObjects: {},
   loadedBundle: false
 };

@@ -169,7 +169,7 @@
     color: white;
 }
 
-.product-detail-mobile__whatsapp-share {
+.product-detail-mobile__whatsapp-share, .product-detail-mobile__whatsapp-share:hover {
     background-color: #a50034;
     color: white;
     padding: 5px;

@@ -71,8 +71,8 @@ class ProductDetailDesktop extends React.Component {
             <ProductDetailPictures product={productEntry.product} />
           </div>
           <div className="col-6 mt-4">
-            <div className="product-detail-desktop__product-title">{productEntry.customFields.customTitle}</div>
-            <div className="product-detail-desktop__product-name">{productEntry.product.name}</div>
+            <h1 className="product-detail-desktop__product-title">{productEntry.customFields.customTitle}</h1>
+            <h2 className="product-detail-desktop__product-name">{productEntry.product.name}</h2>
             <div className="product-detail-desktop__main-specs">
               <ProductSpecEntries productEntry={productEntry} />
             </div>

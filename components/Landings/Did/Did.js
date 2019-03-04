@@ -21,9 +21,10 @@ class Did extends React.Component {
       <Head>
         <title key="title">Promoción LG Door-in-Door - LG Online</title>
         <meta property="og:type" content="website" />
+        <link rel="canonical" href={`${settings.domain}/did`} />
         <meta property="og:url" content={`${settings.domain}/did`} />
         <meta property="og:title" content="Promoción LG Door-in-Door" />
-        <meta property="og:description" content="Encuentra las mejores ofertas en Refrigeradores Door-in-Door LG" />
+        <meta name="description" property="og:description" content="Encuentra las mejores ofertas en Refrigeradores Door-in-Door LG" />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 

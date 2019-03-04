@@ -120,9 +120,10 @@ class TwinWash extends Component {
 
         <title key="title">Promoción LG TWIN Wash - LG Online</title>
         <meta property="og:type" content="website" />
+        <link rel="canonical" href={`${settings.domain}/twinwash`} />
         <meta property="og:url" content={`${settings.domain}/twinwash`} />
         <meta property="og:title" content="Promoción LG TWIN Wash" />
-        <meta property="og:description" content="Promoción LG TWIN Wash" />
+        <meta name="description" property="og:description" content="Promoción LG TWIN Wash" />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 

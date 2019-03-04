@@ -14,8 +14,6 @@ import {
   DropdownItem, Popover, PopoverBody
 } from 'reactstrap';
 
-import './NavBar.css'
-
 import NavBarMobileSearch from "./NavBarMobileSearch";
 
 

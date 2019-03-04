@@ -75,6 +75,7 @@ export function withLgOnlineTracker(WrappedComponent, mapPropsToGAField) {
     window.gtag('config', settings.googleAnalyticsId, analyticsParams);
     window.gtag('config', settings.lgAdWordsConversionId);
     window.fbq('track', 'PageView');
+    window.fbq('track', 'ViewContent');
   };
 
   return withTracker(WrappedComponent, trackPageHandler, true)

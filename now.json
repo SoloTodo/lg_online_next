@@ -2,7 +2,7 @@
   "version": 2,
   "name": "lg_online",
   "alias": [
-    "ssr.lgonline.cl"
+    "www.lgonline.cl"
   ],
   "builds": [{ "src": "package.json", "use": "@now/next" }],
   "routes": [

@@ -45,7 +45,7 @@ class PlanPerfecto extends React.Component {
   };
 
   render() {
-    const settings = {
+    const sliderSettings = {
       dots: true,
       infinite: true,
       speed: 500,
@@ -61,9 +61,10 @@ class PlanPerfecto extends React.Component {
       <Head>
         <title key="title">Promoción LG Plan Perfecto</title>
         <meta property="og:type" content="website" />
+        <link rel="canonical" href={`${settings.domain}/planperfecto`} />
         <meta property="og:url" content={`${settings.domain}/planperfecto`} />
         <meta property="og:title" content="Promoción LG Plan Perfecto" />
-        <meta property="og:description" content="Encuentra las mejores promociones en celulares LG" />
+        <meta name="description" property="og:description" content="Encuentra las mejores promociones en celulares LG" />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
 
         {this.state.validationScript}
@@ -77,7 +78,7 @@ class PlanPerfecto extends React.Component {
           {this.props.isMobile ? <div>
               <img src="/static/landings/plan_perfecto/planperfecto_mobile.jpg" className="img-fluid" alt="Plan Perfecto"/>
               <div className="planperfecto-slider">
-                <Slider {...settings}>
+                <Slider {...sliderSettings}>
                   <img src="/static/landings/plan_perfecto/planperfecto_mobile_1.jpg" alt="LG G7" />
                   <img src="/static/landings/plan_perfecto/planperfecto_mobile_2.jpg" alt="LG Q Stylus+" />
                   <img src="/static/landings/plan_perfecto/planperfecto_mobile_3.jpg" alt="LG Q7+" />

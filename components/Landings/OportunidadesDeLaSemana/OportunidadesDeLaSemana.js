@@ -32,9 +32,10 @@ class OportunidadesDeLaSemana extends React.Component {
       <Head>
         <title key="title">Promoción LG Oportunidades de la Semana</title>
         <meta property="og:type" content="website" />
+        <link rel="canonical" href={`${settings.domain}/oportunidadesdelasemana`} />
         <meta property="og:url" content={`${settings.domain}/oportunidadesdelasemana`} />
         <meta property="og:title" content="Promoción LG Oportunidades de la Semana" />
-        <meta property="og:description" content="Encuentra las mejores oportunidades de la semana LG" />
+        <meta name="description" property="og:description" content="Encuentra las mejores oportunidades de la semana LG" />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 

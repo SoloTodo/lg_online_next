@@ -5,7 +5,7 @@ import {
   createResponsiveStateReducer,
   createResponsiveStoreEnhancer
 } from "redux-responsive";
-import {exampleInitialState, productEntriesReducer} from './reducers'
+import {initialState, productEntriesReducer} from './reducers'
 
 import {
   apiResourceObjectsReducer, loadedBundleReducer
@@ -13,10 +13,7 @@ import {
 
 const scrollbarWidth = 50;
 
-export function initializeStore(initialState=exampleInitialState, isMobile=false) {
-  const defaultInitialMediaType = isMobile ? 'extraSmall' : 'medium';
-  const initialMediaType = initialState.browser ? initialState.browser.mediaType : defaultInitialMediaType;
-
+export function initializeStore(initialState=initialState, isMobile=false) {
   const reducer = combineReducers({
     apiResourceObjects: apiResourceObjectsReducer,
     loadedBundle: loadedBundleReducer,
@@ -31,7 +28,7 @@ export function initializeStore(initialState=exampleInitialState, isMobile=false
       browse3: 350 * 4 + scrollbarWidth - 1,
       browse4: 350 * 5 + scrollbarWidth - 1,
     }, {
-      initialMediaType: isMobile ? 'extraSmall' : 'medium'
+      initialMediaType: isMobile ? 'extraSmall' : 'large'
     })
   });
 

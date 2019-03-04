@@ -29,7 +29,7 @@ class Products extends React.Component {
       const desiredProductEntry = desiredProducts.filter(desiredProduct => desiredProduct.productId === productId)[0];
       if (desiredProductEntry) {
         // Product is valid but pricing information has not been fetched
-        let url = `/products/available_entities/?ids=${productId}`;
+        let url = `products/available_entities/?ids=${productId}`;
 
         for (const storeId of settings.storeIds) {
           url += `&stores=${storeId}`
@@ -105,9 +105,10 @@ class Products extends React.Component {
       <Head>
         <title key="title">{productEntry.product.name} - LG Online</title>
         <meta property="og:type" content="product" />
+        <link rel="canonical" href={`${settings.domain}/products/${productEntry.product.id}-${productEntry.product.slug}`} />
         <meta property="og:url" content={`${settings.domain}/products/${productEntry.product.id}-${productEntry.product.slug}`} />
         <meta property="og:title" content={productEntry.product.name} />
-        <meta property="og:description" content={productEntry.customFields.customDescription || productEntry.customFields.customTitle} />
+        <meta name="description" property="og:description" content={productEntry.customFields.customDescription || productEntry.customFields.customTitle} />
         <meta property="og:image" content={`${endpoint}products/${productEntry.product.id}/picture/?width=1000&height=1000`} />
         <meta property="og:image:width" content="1000" />
         <meta property="og:image:height" content="1000" />

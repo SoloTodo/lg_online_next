@@ -31,12 +31,12 @@ class ProductDetailMobile extends React.Component {
 
     return <div className="product-detail-mobile-container">
       <div className="product-detail-mobile">
-        <div className="product-detail-mobile__product_title">
+        <h1 className="product-detail-mobile__product_title">
           {productEntry.customFields.customTitle}
-        </div>
-        <div className="product-detail-mobile__product_name">
+        </h1>
+        <h2 className="product-detail-mobile__product_name">
           {productEntry.product.name}
-        </div>
+        </h2>
 
         <div className="d-flex flex-row">
           <div className="product-detail-mobile__picture-name-price">

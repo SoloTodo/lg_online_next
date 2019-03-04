@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './ProductPricingTable.css'
 import LeadLink from "../LeadLink.js";
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
 import {listToObject} from "../../react-utils/utils";

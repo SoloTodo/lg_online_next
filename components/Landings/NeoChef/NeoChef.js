@@ -20,9 +20,10 @@ class NeoChef extends React.Component {
       <Head>
         <title key="title">Promoción LG Bundle NeoChef</title>
         <meta property="og:type" content="website" />
+        <link rel="canonical" href={`${settings.domain}/instaviewbundle`} />
         <meta property="og:url" content={`${settings.domain}/instaviewbundle`} />
         <meta property="og:title" content="Promoción LG Bundle NeoChef" />
-        <meta property="og:description" content="Encuentra las mejores ofertas en bundles LG" />
+        <meta name="description" property="og:description" content="Encuentra las mejores ofertas en bundles LG" />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 

@@ -11,6 +11,7 @@ import Slider from "react-slick";
 import Head from "next/head";
 import {withRouter} from "next/router";
 import NavBar from "../../NavBar/NavBar";
+import {settings} from "../../../settings";
 
 
 class InstantPartySummer extends React.Component {
@@ -108,7 +109,7 @@ class InstantPartySummer extends React.Component {
       },
     ];
 
-    const settings = {
+    const sliderSettings = {
       dots: true,
       infinite: true,
       speed: 500,
@@ -125,9 +126,10 @@ class InstantPartySummer extends React.Component {
         <title key="title">Promoción LG Instant Party Summer - LG Online</title>
 
         <meta property="og:type" content="website" />
+        <link rel="canonical" href={`${settings.domain}/instantpartysummer`} />
         <meta property="og:url" content={`${settings.domain}/instantpartysummer`} />
         <meta property="og:title" content="Promoción LG Instant Party Summer" />
-        <meta property="og:description" content="Promoción LG Instant Party Summer" />
+        <meta name="description" property="og:description" content="Promoción LG Instant Party Summer" />
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 
@@ -135,7 +137,7 @@ class InstantPartySummer extends React.Component {
 
       <div id="content">
         <div className="cyber-slider container" id="banner-slider">
-          <Slider {...settings}>
+          <Slider {...sliderSettings}>
             {slides.map(slide => <div key={slide.id} className="cyber-slide">
               {slide.component}
             </div>)}
