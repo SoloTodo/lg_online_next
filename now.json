@@ -47,6 +47,11 @@
       "headers": { "cache-control": "s-maxage=14400" }
     },
     {
+      "src": "/oledn1$",
+      "dest": "/landing?landing=oledn1",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
       "src": "/(?<section>[^/]+)$",
       "dest": "/browse?section=$section",
       "headers": { "cache-control": "s-maxage=14400" }

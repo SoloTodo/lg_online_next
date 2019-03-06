@@ -109,6 +109,9 @@ const landings = [
   },
   {
     slug: 'planperfecto'
+  },
+  {
+    slug: 'oledn1'
   }
 ];
 

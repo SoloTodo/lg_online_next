@@ -9,6 +9,7 @@ import OportunidadesDeLaSemana
   from "../components/Landings/OportunidadesDeLaSemana/OportunidadesDeLaSemana";
 import NeoChef from "../components/Landings/NeoChef/NeoChef";
 import PlanPerfecto from "../components/Landings/PlanPerfecto/PlanPerfecto";
+import OledN1 from "../components/Landings/OledN1/OledN1";
 
 class Landing extends React.Component {
   static async getInitialProps(ctx) {
@@ -31,6 +32,7 @@ class Landing extends React.Component {
       instaviewbundle: NeoChef,
       neobundle: NeoChef,
       planperfecto: PlanPerfecto,
+      oledn1: OledN1
     };
 
     const LandingComponent = landingComponentsDict[this.props.router.query.landing];
