@@ -112,6 +112,9 @@ const landings = [
   },
   {
     slug: 'oledn1'
+  },
+  {
+    slug: 'lgweek'
   }
 ];
 

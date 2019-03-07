@@ -1,0 +1,38 @@
+.lgweek__header {
+    background-color: white;
+    padding-bottom: 40px;
+}
+
+.lgweek__category-selector-desktop {
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #596770;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.lgweek__category-selector-desktop > div {
+    width: 100%;
+    text-align: center;
+}
+
+.lgweek__category-selector-desktop > div:not(:first-child) {
+    border-left: 1px solid #596770;
+}
+
+.lgweek__category-selector-desktop a {
+    color: #596770;
+}
+
+.lgweek__category-selector-desktop a:hover {
+    text-decoration: none;
+}
+
+.lgweek__category-selector-desktop .selected {
+    color: #ff0135;
+}
+
+.lgweek__footer {
+    background-color: #22272b;
+}

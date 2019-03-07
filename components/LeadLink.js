@@ -7,16 +7,17 @@ import {connect} from "react-redux";
 class LeadLink extends React.Component {
   handleClick = () => {
     const entity = this.props.entity;
+    const product = this.props.product;
     const price = parseFloat(entity.active_registry.offer_price);
     const store = this.props.storesDict[entity.store];
-    const category = this.props.categoriesDict[entity.category];
+    const category = this.props.categoriesDict[product.category];
 
     window.gtag('event', 'Follow', {
       send_to: settings.googleAnalyticsId,
-      dimension1: entity.product.name,
+      dimension1: product.name,
       dimension2: category.name,
       dimension3: store.name,
-      dimension4: `${entity.product.name}|${category.name}|${store.name}`,
+      dimension4: `${product.name}|${category.name}|${store.name}`,
       dimension5: entity.active_registry.id,
       dimension6: this.props.origin,
       event_category: 'Leads',
@@ -27,13 +28,13 @@ class LeadLink extends React.Component {
     window.gtag('event', 'generate_lead', {
       send_to: settings.lgAdWordsConversionId,
       event_category: 'Donde Comprar',
-      event_label: entity.product.name,
+      event_label: product.name,
       value: price
     });
 
     window.fbq('track', 'Lead', {
       content_category: category.name,
-      content_name: entity.product.name,
+      content_name: product.name,
       currency: 'CLP',
       value: price
     });

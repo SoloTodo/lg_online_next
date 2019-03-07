@@ -26,7 +26,7 @@ class SlideDynamicPrice extends React.Component {
     }
 
     const priceDisplayEntity = this.props.forcedPriceStoreId ?
-        productEntry.entities.filter(entity => entity.store.id === this.props.forcedPriceStoreId)[0] :
+        productEntry.entities.filter(entity => this.props.storesDict[entity.store].id === this.props.forcedPriceStoreId)[0] :
         productEntry.entities[0];
 
     if (!priceDisplayEntity) {
@@ -76,13 +76,14 @@ class SlideDynamicPrice extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   const matchingProductEntry = state.productEntries.filter(productEntry => productEntry.product.id === ownProps.productId)[0];
-  const { priceFormatter, categories} = lgonlineStateToPropsUtils(state);
+  const { priceFormatter, categories, stores} = lgonlineStateToPropsUtils(state);
 
   return {
     productEntry: matchingProductEntry,
     priceFormatter,
     isMobile: state.browser.lessThan.medium,
-    categoriesDict: listToObject(categories, 'url')
+    categoriesDict: listToObject(categories, 'url'),
+    storesDict: listToObject(stores, 'url')
   }
 }
 

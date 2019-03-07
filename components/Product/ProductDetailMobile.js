@@ -14,16 +14,6 @@ import {settings} from '../../settings';
 class ProductDetailMobile extends React.Component {
   render() {
     const {productEntry, bestPriceFormatted, storesDict} = this.props;
-    // const categoryMetadata = settings.categoriesMetadata[productEntry.product.category.id];
-
-    // let backUrlPath = null;
-    // let backMessage = null;
-
-    // if (categoryMetadata) {
-    //   backUrlPath = `/${categoryMetadata.slug}`;
-    //   backMessage = `VER MÁS ${categoryMetadata.name.toUpperCase()}`;
-    // }
-
     const entitiesToDisplay = this.props.entitiesToDisplay || productEntry.entities;
 
     let whatsAppText = `¡Mira lo que encontré! ${productEntry.product.name} a $${bestPriceFormatted} ${settings.domain}${this.props.router.asPath}`;
@@ -48,17 +38,6 @@ class ProductDetailMobile extends React.Component {
             </div>
           </div>
         </div>
-        {/*{backUrlPath &&*/}
-        {/*<div className="d-flex flex-row justify-content-end align-items-center">*/}
-          {/*<Link to={backUrlPath}*/}
-                {/*className="product-detail-mobile__back-button align-self-end d-flex flex-row">*/}
-            {/*<div className="product-detail-mobile__back-arrow">*/}
-              {/*<i className="fas fa-long-arrow-alt-left">&nbsp;</i>*/}
-            {/*</div>*/}
-            {/*<div className="product-detail-mobile__back-label">{backMessage}</div>*/}
-          {/*</Link>*/}
-        {/*</div>*/}
-        {/*}*/}
       </div>
       <div className="product-detail-mobile__pricing-container">
         {productEntry.entities.length ?
@@ -72,7 +51,7 @@ class ProductDetailMobile extends React.Component {
                 COMPARA, ENAMÓRATE Y ¡LLÉVATELO!
               </div>
               <div className="product-detail-mobile__pricing-table-container">
-                {entitiesToDisplay.map((entity, idx) => <LeadLink href={entity.external_url} entity={entity} target="_blank" rel="noopener noreferrer" key={entity.id} className={classNames('product-detail-mobile__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
+                {entitiesToDisplay.map((entity, idx) => <LeadLink href={entity.external_url} product={productEntry.product} entity={entity} target="_blank" rel="noopener noreferrer" key={entity.external_url} className={classNames('product-detail-mobile__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
                   <div className="product-detail-mobile__pricing-table-row__store">{storesDict[entity.store].name}</div>
                   <div className="product-detail-mobile__pricing-table-row__price">{this.props.priceFormatter(entity.active_registry.offer_price)}</div>
                   <div className="product-detail-mobile__pricing-table-row__buy-button text-center">COMPRAR <i className="fas fa-arrow-circle-right ml-2">&nbsp;</i></div>

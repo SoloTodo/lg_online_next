@@ -87,7 +87,7 @@ class ProductDetailDesktop extends React.Component {
               COMPARA, ENAMÓRATE Y ¡LLÉVATELO!
             </div>
 
-            <ProductPricingTable entities={productEntry.entities} />
+            <ProductPricingTable productEntry={productEntry} entities={this.props.entitiesToDisplay} />
           </div>
         </div>
       </div>

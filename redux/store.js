@@ -9,7 +9,7 @@ import {initialState, productEntriesReducer} from './reducers'
 
 import {
   apiResourceObjectsReducer, loadedBundleReducer
-} from "../react-utils/redux-utils";
+} from "../react-utils/redux/reducers";
 
 const scrollbarWidth = 50;
 

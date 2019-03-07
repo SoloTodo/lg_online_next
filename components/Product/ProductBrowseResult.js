@@ -7,8 +7,6 @@ import Link from 'next/link';
 import { withRouter } from 'next/router'
 import {listToObject} from "../../react-utils/utils";
 
-import './ProductBrowseResultMobile.css'
-import './ProductBrowseResultDesktop.css'
 import ProductSpecEntries from "./ProductSpecEntries";
 
 const MobileView = props => {
@@ -140,7 +138,7 @@ class ProductBrowseResult extends React.Component {
     const selectedProductEntry = this.state.selectedProductEntry;
 
     const priceDisplayEntity = this.props.highlightedStoreId ?
-        selectedProductEntry.entities.filter(entity => entity.store.id === this.props.highlightedStoreId)[0] :
+        selectedProductEntry.entities.filter(entity => this.props.storesDict[entity.store].id === this.props.highlightedStoreId)[0] :
         selectedProductEntry.entities[0];
 
     if (!priceDisplayEntity) {
@@ -159,9 +157,10 @@ class ProductBrowseResult extends React.Component {
     }
 
     const axisLabel = categoryMetadata.axisLabel;
+    const hrefSuffix = this.props.highlightedStoreId ? `highlighted_store=${this.props.highlightedStoreId}` : null;
 
-    const linkAs = `/products/${selectedProductEntry.product.id}-${selectedProductEntry.product.slug}${this.props.hrefSuffix || ''}`;
-    const linkTo = `/products?product=${selectedProductEntry.product.id}&slug=${selectedProductEntry.product.slug}${ this.props.hrefSuffix || ''}`;
+    const linkAs = `/products/${selectedProductEntry.product.id}-${selectedProductEntry.product.slug}${hrefSuffix ? '?' + hrefSuffix : ''}`;
+    const linkTo = `/products?product=${selectedProductEntry.product.id}&slug=${selectedProductEntry.product.slug}${hrefSuffix ? '&' + hrefSuffix : ''}`;
 
     const ViewComponent = this.props.isMobile ? MobileView : DesktopView;
     
@@ -180,12 +179,13 @@ class ProductBrowseResult extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const {priceFormatter, categories} = lgonlineStateToPropsUtils(state);
+  const {priceFormatter, categories, stores} = lgonlineStateToPropsUtils(state);
 
   return {
     priceFormatter,
     isMobile: state.browser.lessThan.medium,
-    categoriesDict: listToObject(categories, 'url')
+    categoriesDict: listToObject(categories, 'url'),
+    storesDict: listToObject(stores, 'url')
   }
 }
 

@@ -83,7 +83,7 @@ class Products extends React.Component {
     const productEntry = this.props.productEntry;
     const RenderComponent = this.props.isMobile ? ProductDetailMobile : ProductDetailDesktop;
 
-    const highlightedStoreId = parseInt(queryString.parse(this.props.router.search).highlightedStore, 10);
+    const highlightedStoreId = parseInt(queryString.parse(this.props.router.asPath.split('?')[1] || '').highlighted_store, 10);
 
     // const entitiesToDisplay = highlightedStoreId ? productEntry.entities.sort((a, b) => {
     //   const aPriority = a.store.id === highlightedStoreId ? 0 : 1;
@@ -92,14 +92,13 @@ class Products extends React.Component {
     // }) : productEntry.entities;
 
     const entitiesToDisplay = highlightedStoreId ? productEntry.entities.filter(entity => (
-      entity.store.id === highlightedStoreId
+      this.props.storesDict[entity.store].id === highlightedStoreId
     )) : productEntry.entities;
 
     const bestPrice = entitiesToDisplay.length && entitiesToDisplay[0].active_registry.offer_price;
     const bestPriceValue = parseInt(bestPrice, 10);
 
     const bestPriceFormatted = bestPrice && this.props.priceFormatter(bestPrice).replace('$ ', '');
-
 
     return <React.Fragment>
       <Head>
@@ -132,11 +131,12 @@ class Products extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  const {priceFormatter, categories} = lgonlineStateToPropsUtils(state);
+  const {priceFormatter, categories, stores} = lgonlineStateToPropsUtils(state);
 
   return {
     priceFormatter,
     categoriesDict: listToObject(categories, 'url'),
+    storesDict: listToObject(stores, 'url'),
     isMobile: state.browser.lessThan.medium,
   }
 }

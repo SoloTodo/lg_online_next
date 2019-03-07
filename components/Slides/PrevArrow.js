@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 
-import './PrevArrow.css'
-
 export default class PrevArrow extends Component {
   render() {
     const {className, onClick} = this.props;

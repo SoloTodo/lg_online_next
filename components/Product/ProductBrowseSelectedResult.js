@@ -2,14 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
 
-import './ProductBrowseSelectedResult.css'
 import ImageGallery from "react-image-gallery";
-import classNames from "classnames";
 import ProductSpecEntries from "./ProductSpecEntries";
 import {fetchJson, listToObject} from "../../react-utils/utils";
 import Link from 'next/link';
 import { withRouter } from 'next/router';
-import LeadLink from "../LeadLink";
 import ProductPricingTable from "./ProductPricingTable";
 
 class ProductBrowseSelectedResult extends React.Component {
@@ -64,21 +61,8 @@ class ProductBrowseSelectedResult extends React.Component {
     const firstLine = productEntry.customFields.customTitle ? productEntry.customFields.customTitle : productEntry.product.name;
     const secondLine = productEntry.customFields.customTitle ? productEntry.product.name : null;
 
-    const linkTo = {
-      pathname: `/products/${productEntry.product.id}-${productEntry.product.slug}`,
-      state: {
-        referrer: this.props.router.asPath
-      }
-    };
-
-    // const entitiesToDisplay = this.props.highlightedStoreId ? productEntry.entities.sort((a, b) => {
-    //   const aPriority = a.store.id === this.props.highlightedStoreId ? 0 : 1;
-    //   const bPriority = b.store.id === this.props.highlightedStoreId ? 0 : 1;
-    //   return aPriority - bPriority;
-    // }) : productEntry.entities;
-
     const entitiesToDisplay = this.props.highlightedStoreId ? productEntry.entities.filter(entity => (
-      entity.store.id === this.props.highlightedStoreId
+      this.props.storesDict[entity.store].id === this.props.highlightedStoreId
     )) : productEntry.entities;
 
     const formattedPrice = this.props.priceFormatter(entitiesToDisplay[0].active_registry.offer_price).replace('$ ', '');
@@ -112,7 +96,7 @@ class ProductBrowseSelectedResult extends React.Component {
             </div>
             <span className="product-browse-selected-result__slogan">COMPARA, ENAMÓRATE Y ¡LLÉVATELO!</span>
 
-            <ProductPricingTable entities={productEntry.entities} />
+            <ProductPricingTable productEntry={productEntry} entities={entitiesToDisplay} />
 
             <div className="d-flex flex-column align-items-center">
               <div className="product-detail-desktop__endbar">&nbsp;</div>

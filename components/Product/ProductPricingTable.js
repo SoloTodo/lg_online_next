@@ -8,11 +8,12 @@ import classNames from "classnames";
 
 class ProductPricingTable extends React.Component {
   render() {
-    const {entities, storesDict, priceFormatter} = this.props;
+    const {productEntry, storesDict, priceFormatter} = this.props;
+    const entities = this.props.entities || productEntry.entities;
 
     return <div className="product-detail-desktop__pricing-table">
       {entities.length ? <div className="product-detail-desktop__pricing-table">
-        {entities.map((entity, idx) => <LeadLink href={entity.external_url} entity={entity} target="_blank" rel="noopener noreferrer" key={entity.id} className={classNames('product-detail-desktop__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
+        {entities.map((entity, idx) => <LeadLink href={entity.external_url} entity={entity} product={productEntry.product} target="_blank" rel="noopener noreferrer" key={entity.external_url} className={classNames('product-detail-desktop__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
           <div className="product-detail-desktop__pricing-table-row__store">{storesDict[entity.store].name}</div>
           <div className="product-detail-desktop__pricing-table-row__price">{priceFormatter(entity.active_registry.offer_price)}</div>
           <div className="product-detail-desktop__pricing-table-row__buy-button">COMPRAR <i

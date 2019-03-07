@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import slides from './slides'
 import NextArrow from '../Slides/NextArrow'
 import PrevArrow from '../Slides/PrevArrow'
-import './Carousel.css'
 
 export default class Carousel extends React.Component {
   render() {

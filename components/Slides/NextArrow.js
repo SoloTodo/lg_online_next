@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 
-import './NextArrow.css'
-
 export default class NextArrow extends Component {
   render() {
     const {className, onClick} = this.props;

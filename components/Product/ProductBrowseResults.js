@@ -4,7 +4,6 @@ import {settings} from '../../settings'
 import ProductBrowseResult from "./ProductBrowseResult";
 import queryString from 'query-string';
 
-import './ProductBrowseResults.css'
 import ProductBrowseSelectedResult from "./ProductBrowseSelectedResult";
 import {listToObject, isServer} from "../../react-utils/utils";
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
@@ -164,7 +163,6 @@ class ProductBrowseResults extends React.Component {
       productEntries={group.productEntries}
       onWtbClick={this.handleWtbClick}
       highlightedStoreId={this.props.highlightedStoreId}
-      hrefSuffix={this.props.hrefSuffix}
     />);
 
     for (let i = 0; i < 0; i++) {

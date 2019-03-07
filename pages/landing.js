@@ -10,6 +10,19 @@ import OportunidadesDeLaSemana
 import NeoChef from "../components/Landings/NeoChef/NeoChef";
 import PlanPerfecto from "../components/Landings/PlanPerfecto/PlanPerfecto";
 import OledN1 from "../components/Landings/OledN1/OledN1";
+import LgWeek from "../components/Landings/LgWeek/LgWeek";
+
+const landingComponentsDict = {
+  did: Did,
+  instantpartysummer: InstantPartySummer,
+  twinwash: TwinWash,
+  oportunidadesdelasemana: OportunidadesDeLaSemana,
+  instaviewbundle: NeoChef,
+  neobundle: NeoChef,
+  planperfecto: PlanPerfecto,
+  oledn1: OledN1,
+  lgweek: LgWeek,
+};
 
 class Landing extends React.Component {
   static async getInitialProps(ctx) {
@@ -20,25 +33,24 @@ class Landing extends React.Component {
       await reduxStore.dispatch(loadRequiredProducts);
     }
 
-    return {}
+    const LandingComponent = landingComponentsDict[ctx.query.landing];
+
+    let landingProps = {};
+
+    if (LandingComponent.getInitialProps) {
+      landingProps = await LandingComponent.getInitialProps(ctx)
+    }
+
+    return {
+      landingProps
+    }
   }
 
   render() {
-    const landingComponentsDict = {
-      did: Did,
-      instantpartysummer: InstantPartySummer,
-      twinwash: TwinWash,
-      oportunidadesdelasemana: OportunidadesDeLaSemana,
-      instaviewbundle: NeoChef,
-      neobundle: NeoChef,
-      planperfecto: PlanPerfecto,
-      oledn1: OledN1
-    };
-
     const LandingComponent = landingComponentsDict[this.props.router.query.landing];
 
     return <React.Fragment>
-      <LandingComponent />
+      <LandingComponent {...this.props.landingProps} />
     </React.Fragment>
   }
 }
