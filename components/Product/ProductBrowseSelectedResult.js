@@ -19,7 +19,12 @@ class ProductBrowseSelectedResult extends React.Component {
   }
 
   componentDidMount() {
-    this.componentUpdate(this.props.productEntry)
+    this.componentUpdate(this.props.productEntry);
+
+    window.fbq('track', 'ViewContent', {
+      content_type: 'product',
+      content_ids: this.props.productEntry.product.id
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -61,11 +66,11 @@ class ProductBrowseSelectedResult extends React.Component {
     const firstLine = productEntry.customFields.customTitle ? productEntry.customFields.customTitle : productEntry.product.name;
     const secondLine = productEntry.customFields.customTitle ? productEntry.product.name : null;
 
-    const entitiesToDisplay = this.props.highlightedStoreId ? productEntry.entities.filter(entity => (
-      this.props.storesDict[entity.store].id === this.props.highlightedStoreId
-    )) : productEntry.entities;
+    const formattedPrice = this.props.priceFormatter(productEntry.entities[0].active_registry.offer_price).replace('$ ', '');
 
-    const formattedPrice = this.props.priceFormatter(entitiesToDisplay[0].active_registry.offer_price).replace('$ ', '');
+    const hrefSuffix = this.props.highlightedStoreId ? `highlighted_store=${this.props.highlightedStoreId}` : null;
+    const linkAs = `/products/${productEntry.product.id}-${productEntry.product.slug}${hrefSuffix ? '?' + hrefSuffix : ''}`;
+    const linkHref = `/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}${hrefSuffix ? '&' + hrefSuffix : ''}`;
 
     return <div className="product-browse-selected-result d-flex flex-column justify-content-center">
       <div className="product-browse-selected-result__inner container">
@@ -96,7 +101,7 @@ class ProductBrowseSelectedResult extends React.Component {
             </div>
             <span className="product-browse-selected-result__slogan">COMPARA, ENAMÓRATE Y ¡LLÉVATELO!</span>
 
-            <ProductPricingTable productEntry={productEntry} entities={entitiesToDisplay} />
+            <ProductPricingTable productEntry={productEntry} />
 
             <div className="d-flex flex-column align-items-center">
               <div className="product-detail-desktop__endbar">&nbsp;</div>
@@ -104,7 +109,7 @@ class ProductBrowseSelectedResult extends React.Component {
 
             <div className="mt-auto">&nbsp;</div>
             <div className="product-detail-desktop__more-information mt-2 mb-2 align-self-end">
-              <Link href={`/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}`} as={`/products/${productEntry.product.id}-${productEntry.product.slug}`}>
+              <Link href={linkHref} as={linkAs}>
                 <a className="d-flex flex-row align-items-center">
                   <span className="product-detail-desktop__more-information-symbol">
                     <i className="fas fa-plus-circle">&nbsp;</i>

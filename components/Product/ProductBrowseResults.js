@@ -19,16 +19,77 @@ class ProductBrowseResults extends React.Component {
     };
 
     this.routeChangeHandler = () => this.componentUpdate();
+
+    this.state = {
+      filteredProductEntries: this.getFilteredProductEntries(props)
+    }
   }
 
   componentDidMount() {
     this.componentUpdate();
 
     Router.events.on('routeChangeComplete', this.routeChangeHandler);
+
+    window.fbq('track', 'ViewContent', {
+      content_type: 'product_group',
+      content_ids: this.state.filteredProductEntries.map(productEntry => productEntry.product.id)
+    });
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (this.props.subcategory !== nextProps.subcategory ||
+      this.props.categoryId !== nextProps.categoryId ||
+      this.props.filteredProductEntries !== nextProps.filteredProductEntries) {
+      const filteredProductEntries = this.getFilteredProductEntries(nextProps);
+
+      this.setState({
+        filteredProductEntries
+      });
+
+      window.fbq('track', 'ViewContent', {
+        content_type: 'product_group',
+        content_ids: filteredProductEntries.map(productEntry => productEntry.product.id)
+      });
+    }
   }
 
   componentWillUnmount() {
     Router.events.off('routeChangeComplete', this.routeChangeHandler);
+  }
+
+  getFilteredProductEntries(props) {
+    let filteredProductEntries = [];
+    const categoriesDict = props.categoriesDict;
+
+    if (props.filteredProductEntries) {
+      filteredProductEntries = props.filteredProductEntries
+    } else {
+      if (props.subcategory) {
+        filteredProductEntries = props.productEntries.filter(productEntry => productEntry.customFields.subcategory === props.subcategory.name)
+      } else if (props.categoryId) {
+        filteredProductEntries = props.productEntries.filter(productEntry => categoriesDict[productEntry.product.category].id === props.categoryId)
+      } else {
+        filteredProductEntries = props.productEntries.filter(productEntry => productEntry.customFields.frontpageOrdering)
+      }
+
+      const orderingField = props.subcategory || props.categoryId ? 'categoryOrdering' : 'frontpageOrdering';
+
+      filteredProductEntries.sort((a, b) => {
+        const aOrdering = a.customFields[orderingField] || 10000;
+        const bOrdering = b.customFields[orderingField] || 10000;
+
+        return aOrdering - bOrdering;
+      });
+    }
+
+    if (props.highlightedStoreId) {
+      filteredProductEntries = filteredProductEntries.map(filteredProductEntry => ({
+        ...filteredProductEntry,
+        entities: filteredProductEntry.entities.filter(entity => this.props.storesDict[entity.store].id === this.props.highlightedStoreId)
+      })).filter(filteredProductEntry => filteredProductEntry.entities.length > 0);
+    }
+
+    return filteredProductEntries;
   }
 
   componentUpdate() {
@@ -48,20 +109,20 @@ class ProductBrowseResults extends React.Component {
     if (!matchingEntry) {
       return
     }
-      setTimeout(() => {
-        this.setState({
-          selectedProductEntry: matchingEntry
-        }, () => {
-          if (process.browser) {
-            const scrollToComponent = require("react-scroll-to-component");
+    setTimeout(() => {
+      this.setState({
+        selectedProductEntry: matchingEntry
+      }, () => {
+        if (process.browser) {
+          const scrollToComponent = require("react-scroll-to-component");
 
-            scrollToComponent(this.SelectedResultContainer, {
-              offset: -80,
-              align: 'top'
-            });
-          }
-        });
-      }, 1000)
+          scrollToComponent(this.SelectedResultContainer, {
+            offset: -80,
+            align: 'top'
+          });
+        }
+      });
+    }, 1000)
   }
 
   handleWtbClick = (evt, productEntry) => {
@@ -112,34 +173,10 @@ class ProductBrowseResults extends React.Component {
   };
 
   render() {
-    let filteredProductEntries = [];
-
+    const groupedProductEntries = [];
     const categoriesDict = this.props.categoriesDict;
 
-    if (this.props.filteredProductEntries) {
-      filteredProductEntries = this.props.filteredProductEntries
-    } else {
-      if (this.props.subcategory) {
-        filteredProductEntries = this.props.productEntries.filter(productEntry => productEntry.customFields.subcategory === this.props.subcategory.name)
-      } else if (this.props.categoryId) {
-        filteredProductEntries = this.props.productEntries.filter(productEntry => categoriesDict[productEntry.product.category].id === this.props.categoryId)
-      } else {
-        filteredProductEntries = this.props.productEntries.filter(productEntry => productEntry.customFields.frontpageOrdering)
-      }
-
-      const orderingField = this.props.subcategory || this.props.categoryId ? 'categoryOrdering' : 'frontpageOrdering';
-
-      filteredProductEntries.sort((a, b) => {
-        const aOrdering = a.customFields[orderingField] || 10000;
-        const bOrdering = b.customFields[orderingField] || 10000;
-
-        return aOrdering - bOrdering;
-      });
-    }
-
-    const groupedProductEntries = [];
-
-    for (const productEntry of filteredProductEntries) {
+    for (const productEntry of this.state.filteredProductEntries) {
       let groupingField = null;
       if (!this.props.disableGrouping) {
         const category = categoriesDict[productEntry.product.category];
@@ -191,8 +228,8 @@ class ProductBrowseResults extends React.Component {
         const selectedResult = <ProductBrowseSelectedResult
           key="selected_result"
           productEntry={selectedProductEntry}
-          onDismiss={this.closeCard}
           highlightedStoreId={this.props.highlightedStoreId}
+          onDismiss={this.closeCard}
           ref={(div) => {this.SelectedResultContainer = div;}}
         />;
 
@@ -207,13 +244,14 @@ class ProductBrowseResults extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { categories} = lgonlineStateToPropsUtils(state);
+  const { categories, stores } = lgonlineStateToPropsUtils(state);
 
   return {
     productEntries: state.productEntries,
     mediaType: state.browser.mediaType,
     isMobile: state.browser.lessThan.medium,
-    categoriesDict: listToObject(categories, 'url')
+    categoriesDict: listToObject(categories, 'url'),
+    storesDict: listToObject(stores, 'url'),
   }
 }
 

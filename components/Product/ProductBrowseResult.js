@@ -136,10 +136,7 @@ class ProductBrowseResult extends React.Component {
 
   render() {
     const selectedProductEntry = this.state.selectedProductEntry;
-
-    const priceDisplayEntity = this.props.highlightedStoreId ?
-        selectedProductEntry.entities.filter(entity => this.props.storesDict[entity.store].id === this.props.highlightedStoreId)[0] :
-        selectedProductEntry.entities[0];
+    const priceDisplayEntity = selectedProductEntry.entities[0];
 
     if (!priceDisplayEntity) {
       return null

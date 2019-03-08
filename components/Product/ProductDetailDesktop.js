@@ -19,18 +19,6 @@ class ProductDetailDesktop extends React.Component {
 
     let backComponent = null;
 
-    // if (referrer) {
-    //   backComponent = <div className="d-flex flex-row justify-content-end align-items-center">
-    //     <Link to={referrer}
-    //           className="product-detail-desktop__back-button align-self-end d-flex flex-row">
-    //       <div className="product-detail-desktop__back-arrow">
-    //         <i className="fas fa-long-arrow-alt-left">&nbsp;</i>
-    //       </div>
-    //       <div className="product-detail-desktop__back-label">VOLVER</div>
-    //     </Link>
-    //   </div>
-    // }
-
     const category = this.props.categoriesDict[productEntry.product.category];
     const categoryMetadata = settings.categoriesMetadata[category.id];
     const subcategories = categoryMetadata.subcategories || [];

@@ -79,6 +79,13 @@ class Products extends React.Component {
     };
   }
 
+  componentDidMount() {
+    window.fbq('track', 'ViewContent', {
+      content_type: 'product',
+      content_ids: this.props.productEntry.product.id
+    });
+  }
+
   render() {
     const productEntry = this.props.productEntry;
     const RenderComponent = this.props.isMobile ? ProductDetailMobile : ProductDetailDesktop;
@@ -115,6 +122,8 @@ class Products extends React.Component {
         {bestPriceValue && <meta property="product:price:amount" content={bestPriceValue} />}
         <meta property="product:availability" content={bestPriceValue ? 'instock' : 'oos'} />
         <meta property="product:brand" content="LG" />
+        <meta property="product:condition" content="new" />
+        <meta property="product:retailer_item_id" content={productEntry.product.id} />
       </Head>
 
       <NavBar />

@@ -48,6 +48,7 @@ export default class LgOnlineHead extends React.Component {
 
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0" />
       <meta name="theme-color" content="#a50034" />
+      <meta property="fb:app_id" content={settings.facebookId}/>
 
       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
       <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" />
