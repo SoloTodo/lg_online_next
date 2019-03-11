@@ -13,6 +13,7 @@ import queryString from "query-string";
 import NavBar from "../components/NavBar/NavBar";
 import desiredProducts from '../products'
 import { settings } from '../settings'
+import ErrorPage from "./_error";
 
 class Products extends React.Component {
   static async getInitialProps(ctx) {
@@ -71,7 +72,11 @@ class Products extends React.Component {
         }
       }
     } else {
-
+      // The product is not currenty in the catalog
+      if (res) {
+        res.writeHead(404);
+        res.end()
+      }
     }
 
     return {
@@ -80,6 +85,10 @@ class Products extends React.Component {
   }
 
   componentDidMount() {
+    if (!this.props.productEntry) {
+      return
+    }
+
     window.fbq('track', 'ViewContent', {
       content_type: 'product',
       content_ids: this.props.productEntry.product.id
@@ -88,6 +97,11 @@ class Products extends React.Component {
 
   render() {
     const productEntry = this.props.productEntry;
+
+    if (!productEntry) {
+      return <ErrorPage statusCode={404} />
+    }
+
     const RenderComponent = this.props.isMobile ? ProductDetailMobile : ProductDetailDesktop;
 
     const highlightedStoreId = parseInt(queryString.parse(this.props.router.asPath.split('?')[1] || '').highlighted_store, 10);
@@ -124,6 +138,14 @@ class Products extends React.Component {
         <meta property="product:brand" content="LG" />
         <meta property="product:condition" content="new" />
         <meta property="product:retailer_item_id" content={productEntry.product.id} />
+
+        {productEntry.customFields.flixmediaMpn &&
+        <script type="text/javascript" src="https://media.flixfacts.com/js/loader.js"
+                data-flix-distributor="14021"
+                data-flix-language="cl"
+                data-flix-mpn={productEntry.customFields.flixmediaMpn}
+                data-flix-inpage="flix-inpage">
+        </script>}
       </Head>
 
       <NavBar />
@@ -134,6 +156,14 @@ class Products extends React.Component {
           bestPriceFormatted={bestPriceFormatted}
           entitiesToDisplay={entitiesToDisplay}
         />
+
+        <div className="container product-detail-desktop">
+          <div className="row">
+            <div className="mt-4">
+              <div id="flix-inpage"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   }
@@ -153,12 +183,15 @@ function mapStateToProps(state, ownProps) {
 function mapPropsToGAField(props) {
   const productEntry = props.productEntry;
 
+  if (!productEntry) {
+    return {}
+  }
+
   return {
     product: productEntry.product.name,
     category: props.categoriesDict[productEntry.product.category].name,
     subcategory: productEntry.customFields.subcategory || 'N/A',
     pageTitle: productEntry.product.name,
-    value: parseFloat(productEntry.entities[0].active_registry.offer_price)
   }
 }
 

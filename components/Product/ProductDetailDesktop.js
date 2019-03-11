@@ -25,16 +25,6 @@ class ProductDetailDesktop extends React.Component {
     const matchingSubcategory = subcategories.filter(subcategory => subcategory.name === productEntry.customFields.subcategory)[0];
 
     return <div className="product-detail-desktop container">
-      {productEntry.customFields.flixmediaMpn &&
-      <Head>
-        <script type="text/javascript" src="https://media.flixfacts.com/js/loader.js"
-                data-flix-distributor="14021"
-                data-flix-language="cl"
-                data-flix-mpn={productEntry.customFields.flixmediaMpn}
-                data-flix-inpage="flix-inpage">
-        </script>
-      </Head>}
-
       <div className="row">
         <div className="col-12 mt-3">
           <nav aria-label="breadcrumb">
@@ -65,11 +55,12 @@ class ProductDetailDesktop extends React.Component {
               <ProductSpecEntries productEntry={productEntry} />
             </div>
 
+            {this.props.entitiesToDisplay.length ?
             <div className="product-detail-desktop__pricing-from d-flex flex-row align-items-end">
               <div className="product-detail-desktop__pricing-from__label">DESDE</div>
               <div className="product-detail-desktop__pricing-from__symbol">$</div>
               <div className="product-detail-desktop__pricing-from__value">{bestPriceFormatted}</div>
-            </div>
+            </div> : null}
 
             <div className="product-detail-desktop__slogan">
               COMPARA, ENAMÓRATE Y ¡LLÉVATELO!
@@ -77,12 +68,6 @@ class ProductDetailDesktop extends React.Component {
 
             <ProductPricingTable productEntry={productEntry} entities={this.props.entitiesToDisplay} />
           </div>
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="col-12 mt-4">
-          <div id="flix-inpage"></div>
         </div>
       </div>
     </div>
