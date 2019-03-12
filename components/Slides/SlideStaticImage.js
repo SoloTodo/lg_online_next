@@ -18,7 +18,7 @@ class SlideStaticImage extends React.Component {
     const linkHref = this.props.isMobile ? this.props.mobileHref : this.props.desktopHref;
 
     return <Link href={linkHref} as={linkAs}>
-      <div onClick={this.handleClick} className="d-flex dynamic-banner flex-row justify-content-center w-100">
+      <a onClick={this.handleClick} className="d-flex dynamic-banner flex-row justify-content-center w-100">
         <picture>
           <source media="(max-width: 575px)"
                   srcSet={`${this.props.extraSmall[0]}, ${this.props.extraSmall[1]} 2x`} />
@@ -32,7 +32,7 @@ class SlideStaticImage extends React.Component {
                   srcSet={`${this.props.infinity[0]}`} />
           <img src={this.props.extraSmall[0]} />
         </picture>
-      </div>
+      </a>
     </Link>
   }
 }
