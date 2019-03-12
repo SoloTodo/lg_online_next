@@ -3,8 +3,9 @@ import {settings} from "../settings";
 import {lgonlineStateToPropsUtils} from "../redux-utils";
 import {listToObject} from "../react-utils/utils";
 import {connect} from "react-redux";
+import LeadLink from "../react-utils/components/LeadLink";
 
-class LeadLink extends React.Component {
+class LgOnlineLeadLink extends React.Component {
   handleClick = () => {
     const entity = this.props.entity;
     const product = this.props.product;
@@ -41,11 +42,17 @@ class LeadLink extends React.Component {
   };
 
   render() {
-    const {href, className, target, rel } = this.props;
+    const { entity, className } = this.props;
 
-    return <a href={href} className={className} target={target} rel={rel} onClick={this.handleClick}>
+    return <LeadLink
+      entity={entity}
+      className={className}
+      websiteId={settings.websiteId}
+      soicosPrefix="LO_"
+      callback={this.handleClick}
+    >
       {this.props.children}
-    </a>
+    </LeadLink>
   }
 }
 
@@ -58,4 +65,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(LeadLink)
+export default connect(mapStateToProps)(LgOnlineLeadLink)

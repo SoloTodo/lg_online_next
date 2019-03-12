@@ -3504,20 +3504,20 @@ export default [
         "customTitle": "MONITOR TV 24\""
     },
     {
-        "secondaryPicturesId": "1MUVX3G1Cd-sXSLksH6fVhjYogZkUU1Tz",
-        "custom_2": "Generaci\u00f3n 2016",
-        "custom_1": "Tecnolog\u00eda HD",
-        "categoryId": 11,
-        "lgUrl": "https://www.lg.com/cl/monitores/lg-24MT49S-PS",
-        "productId": 40859,
-        "flixmediaMpn": "24MT49S-PS",
+        "secondaryPicturesId": "1LEz0beo1Yi6iVv8g3hyKU66aUSy4iYsu",
+        "custom_2": "",
+        "custom_1": "",
+        "categoryId": 6,
+        "lgUrl": "https://www.lg.com/cl/celular/lg-LMQ850EA",
+        "productId": 57939,
+        "flixmediaMpn": "LMQ850EA",
         "customDescription": "",
         "frontpageOrdering": null,
-        "subcategory": "Monitor TV",
+        "subcategory": "Smartphone",
         "custom_3": "",
-        "categoryOrdering": 55,
-        "mainPictureId": "1kbslV3GuG_JnKRzZVqQ5dkB3_mdq3pio",
-        "customTitle": "MONITOR TV 24\" IPS HD"
+        "categoryOrdering": null,
+        "mainPictureId": "1Mfc7ifok9Rjrn4GSW7hItxYKg5m7ll0q",
+        "customTitle": "Smartphone FullVision 6,1\" QHD+"
     },
     {
         "secondaryPicturesId": null,
@@ -3536,19 +3536,19 @@ export default [
         "customTitle": "MONITOR TV 24\""
     },
     {
-        "secondaryPicturesId": "1LEz0beo1Yi6iVv8g3hyKU66aUSy4iYsu",
-        "custom_2": "",
-        "custom_1": "",
-        "categoryId": 6,
-        "lgUrl": "https://www.lg.com/cl/celular/lg-LMQ850EA",
-        "productId": 57939,
-        "flixmediaMpn": "LMQ850EA",
+        "secondaryPicturesId": "1MUVX3G1Cd-sXSLksH6fVhjYogZkUU1Tz",
+        "custom_2": "Generaci\u00f3n 2016",
+        "custom_1": "Tecnolog\u00eda HD",
+        "categoryId": 11,
+        "lgUrl": "https://www.lg.com/cl/monitores/lg-24MT49S-PS",
+        "productId": 40859,
+        "flixmediaMpn": "24MT49S-PS",
         "customDescription": "",
         "frontpageOrdering": null,
-        "subcategory": "Smartphone",
+        "subcategory": "Monitor TV",
         "custom_3": "",
-        "categoryOrdering": null,
-        "mainPictureId": "1Mfc7ifok9Rjrn4GSW7hItxYKg5m7ll0q",
-        "customTitle": "Smartphone FullVision 6,1\" QHD+"
+        "categoryOrdering": 55,
+        "mainPictureId": "1kbslV3GuG_JnKRzZVqQ5dkB3_mdq3pio",
+        "customTitle": "MONITOR TV 24\" IPS HD"
     }
 ]

@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 import './ProductDetailMobile.css'
 import ProductSpecEntries from "./ProductSpecEntries";
-import LeadLink from "../LeadLink";
+import LgOnlineLeadLink from "../LgOnlineLeadLink";
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
 import {listToObject} from "../../react-utils/utils";
 import {settings} from '../../settings';
@@ -51,11 +51,11 @@ class ProductDetailMobile extends React.Component {
                 COMPARA, ENAMÓRATE Y ¡LLÉVATELO!
               </div>
               <div className="product-detail-mobile__pricing-table-container">
-                {entitiesToDisplay.map((entity, idx) => <LeadLink href={entity.external_url} product={productEntry.product} entity={entity} target="_blank" rel="noopener noreferrer" key={entity.external_url} className={classNames('product-detail-mobile__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
+                {entitiesToDisplay.map((entity, idx) => <LgOnlineLeadLink product={productEntry.product} entity={entity} target="_blank" rel="noopener noreferrer" key={entity.external_url} className={classNames('product-detail-mobile__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
                   <div className="product-detail-mobile__pricing-table-row__store">{storesDict[entity.store].name}</div>
                   <div className="product-detail-mobile__pricing-table-row__price">{this.props.priceFormatter(entity.active_registry.offer_price)}</div>
                   <div className="product-detail-mobile__pricing-table-row__buy-button text-center">COMPRAR <i className="fas fa-arrow-circle-right ml-2">&nbsp;</i></div>
-                </LeadLink>)}
+                </LgOnlineLeadLink>)}
               </div>
               <a href={`https://api.whatsapp.com/send?text=${whatsAppText}`} className="product-detail-mobile__whatsapp-share d-flex flex-row justify-content-center align-items-center">
                 <div className="product-detail-mobile__whatsapp-share-icon"><i className="fab fa-whatsapp">&nbsp;</i></div>

@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Link from "next/link";
-import Head from 'next/head';
 
 import './ProductDetailDesktop.css'
 import {settings} from "../../settings";

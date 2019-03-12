@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LeadLink from "../LeadLink.js";
+import LgOnlineLeadLink from "../LgOnlineLeadLink.js";
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
 import {listToObject} from "../../react-utils/utils";
 import {connect} from "react-redux";
@@ -13,15 +13,14 @@ class ProductPricingTable extends React.Component {
 
     return <div className="product-detail-desktop__pricing-table">
       {entities.length ? <div className="product-detail-desktop__pricing-table">
-        {entities.map((entity, idx) => <LeadLink href={entity.external_url} entity={entity} product={productEntry.product} target="_blank" rel="noopener noreferrer" key={entity.external_url} className={classNames('product-detail-desktop__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
+        {entities.map((entity, idx) => <LgOnlineLeadLink entity={entity} product={productEntry.product} key={entity.external_url} className={classNames('product-detail-desktop__pricing-table-row d-flex flex-row align-items-center', {'first': idx === 0})}>
           <div className="product-detail-desktop__pricing-table-row__store">{storesDict[entity.store].name}</div>
           <div className="product-detail-desktop__pricing-table-row__price">{priceFormatter(entity.active_registry.offer_price)}</div>
           <div className="product-detail-desktop__pricing-table-row__buy-button">COMPRAR <i
             className="fas fa-arrow-circle-right ml-2">&nbsp;</i></div>
-        </LeadLink>)}
+        </LgOnlineLeadLink>)}
       </div> : 'No disponible'}
     </div>
-
   }
 }
 
