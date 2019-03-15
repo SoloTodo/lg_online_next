@@ -15,7 +15,7 @@ const MobileView = props => {
       <div className="browse-result-mobile__picture-name-price">
         <Link href={props.linkTo} as={props.linkAs}>
           <a>
-            <img src={`${props.selectedProductEntry.product.url}picture/?width=660&height=660`} className="img-fluid" alt={props.selectedProductEntry.product.name} />
+            <img src={`${props.selectedProductEntry.product.url}picture/?image_format=JPEG&quality=80&width=300&height=300`} className="img-fluid" alt={props.selectedProductEntry.product.name} />
           </a>
         </Link>
       </div>
@@ -66,7 +66,7 @@ const DesktopView = props => {
       <div className="browse-result-desktop__picture text-center">
         <Link href={props.linkTo} as={props.linkAs}>
           <a>
-          <img src={`${props.selectedProductEntry.product.url}picture/?width=270&height=270`} className="img-fluid" alt={props.selectedProductEntry.product.name} onClick={evt => props.onWtbClick(evt, props.selectedProductEntry)} />
+          <img src={`${props.selectedProductEntry.product.url}picture/?image_format=JPEG&quality=80&width=270&height=270`} className="img-fluid" alt={props.selectedProductEntry.product.name} onClick={evt => props.onWtbClick(evt, props.selectedProductEntry)} />
           </a>
         </Link>
       </div>

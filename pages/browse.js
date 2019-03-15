@@ -16,7 +16,7 @@ import ErrorPage from "./_error";
 
 class Browse extends React.Component {
   static async getInitialProps(ctx) {
-    const { req, res, query, reduxStore } = ctx;
+    const { res, query, reduxStore } = ctx;
     const reduxState = reduxStore.getState();
     const productEntries = reduxState.productEntries;
 

@@ -40,14 +40,14 @@ class ProductDetailPictures extends React.Component {
     const height = this.props.isMobile ? 660 : 570;
 
     const images = [{
-      original: `${this.props.product.url}picture/?width=${width}&height=${height}`,
-      thumbnail: `${this.props.product.url}picture/?width=${width}&height=${height}`,
+      original: `${this.props.product.url}picture/?image_format=JPEG&quality=80&width=${width}&height=${height}`,
+      thumbnail: `${this.props.product.url}picture/?image_format=JPEG&quality=80&width=${width}&height=${height}`,
     }];
 
     for (const additionalPicture of this.state.additionalPictures) {
       images.push({
-        original: `${additionalPicture.url}thumbnail/?width=${width}&height=${height}`,
-        thumbnail: `${additionalPicture.url}thumbnail/?width=${width}&height=${height}`,
+        original: `${additionalPicture.url}thumbnail/?image_format=JPEG&quality=80&width=${width}&height=${height}`,
+        thumbnail: `${additionalPicture.url}thumbnail/?image_format=JPEG&quality=80&width=${width}&height=${height}`,
       })
     }
 

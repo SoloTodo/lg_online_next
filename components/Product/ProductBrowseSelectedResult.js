@@ -52,14 +52,14 @@ class ProductBrowseSelectedResult extends React.Component {
     const productEntry = this.props.productEntry;
 
     const images = [{
-      original: `${productEntry.product.url}picture/?width=500&height=450`,
-      thumbnail: `${productEntry.product.url}picture/?width=500&height=450`,
+      original: `${productEntry.product.url}picture/?image_format=JPEG&quality=80&width=635&height=580`,
+      thumbnail: `${productEntry.product.url}picture/?image_format=JPEG&quality=80&width=635&height=580`,
     }];
 
     for (const additionalPicture of this.state.additionalPictures) {
       images.push({
-        original: `${additionalPicture.url}thumbnail/?width=500&height=450`,
-        thumbnail: `${additionalPicture.url}thumbnail/?width=500&height=450`,
+        original: `${additionalPicture.url}thumbnail/?image_format=JPEG&quality=80&width=635&height=580`,
+        thumbnail: `${additionalPicture.url}thumbnail/?image_format=JPEG&quality=80&width=635&height=580`,
       })
     }
 

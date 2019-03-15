@@ -129,7 +129,7 @@ class Products extends React.Component {
         <meta property="og:url" content={`${settings.domain}/products/${productEntry.product.id}-${productEntry.product.slug}`} />
         <meta property="og:title" content={productEntry.product.name} />
         <meta name="description" property="og:description" content={productEntry.customFields.customDescription || productEntry.customFields.customTitle} />
-        <meta property="og:image" content={`${endpoint}products/${productEntry.product.id}/picture/?width=1000&height=1000`} />
+        <meta property="og:image" content={`${endpoint}products/${productEntry.product.id}/picture/?image_format=JPEG&quality=80&width=1000&height=1000`} />
         <meta property="og:image:width" content="1000" />
         <meta property="og:image:height" content="1000" />
         <meta property="product:price:currency" content="CLP" />

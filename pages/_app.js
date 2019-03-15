@@ -6,6 +6,7 @@ import withReduxStore from '../lib/with-redux-store'
 import LgOnlineHead from "../components/LgOnlineHead";
 import {loadRequiredResources} from '../react-utils/redux/actions'
 
+// Import theme here because ajax-loader.gif import breaks otherwise
 import 'slick-carousel/slick/slick-theme.scss';
 import "../styles.scss"
 import "../fonts.scss"

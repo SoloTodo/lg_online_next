@@ -48,8 +48,6 @@ export function withLgOnlineTracker(WrappedComponent, mapPropsToGAField) {
   const trackPageHandler = props => {
     const analyticsParams = {
       page_title : 'LG Online',
-      page_path: window.location.pathname + window.location.search,
-      page_location: window.location.href
     };
 
     if (mapPropsToGAField) {
