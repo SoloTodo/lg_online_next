@@ -1,10 +1,15 @@
 import React from 'react'
 import { Provider } from 'react-redux'
+import uuidv4 from "uuid/v4"
 import App, { Container } from 'next/app'
 import {calculateResponsiveState} from 'redux-responsive'
+
+import {loadRequiredResources} from '../react-utils/redux/actions'
+import AppContext from '../react-utils/components/Context'
+
 import withReduxStore from '../lib/with-redux-store'
 import LgOnlineHead from "../components/LgOnlineHead";
-import {loadRequiredResources} from '../react-utils/redux/actions'
+
 
 // Import theme here because ajax-loader.gif import breaks otherwise
 import 'slick-carousel/slick/slick-theme.scss';
@@ -28,8 +33,11 @@ class MyApp extends App {
       pageProps = await appContext.Component.getInitialProps(appContext.ctx)
     }
 
+    const namespace = uuidv4();
+
     return {
-      pageProps
+      pageProps,
+      namespace
     }
   }
 
@@ -49,7 +57,9 @@ class MyApp extends App {
         <ToastContainer />
 
         <Provider store={reduxStore}>
-          <Component {...pageProps} />
+          <AppContext.Provider value={{namespace: this.props.namespace}}>
+            <Component {...pageProps} />
+          </AppContext.Provider>
         </Provider>
       </Container>
     )

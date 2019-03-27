@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import LeadLink from "../react-utils/components/LeadLink";
 
 class LgOnlineLeadLink extends React.Component {
-  handleClick = () => {
+  handleClick = uuid => {
     const {entity, product, store, category} = this.props;
     const price = parseFloat(entity.active_registry.offer_price);
 
@@ -17,7 +17,7 @@ class LgOnlineLeadLink extends React.Component {
       dimension5: entity.active_registry.id,
       dimension6: this.props.origin,
       event_category: 'Leads',
-      event_label: entity.active_registry.id,
+      event_label: uuid,
       value: price
     });
 
