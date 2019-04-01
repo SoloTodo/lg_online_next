@@ -5,23 +5,6 @@ import SlideStaticImage from "./SlideStaticImage";
 
 export default [
   {
-    id: 'OLEDMoneyBack',
-    categoryId: 11,
-    subcategory: 'OLED 4K',
-    frontpageOrdering: 1,
-    component: <SlideStaticImage
-        desktopHref="https://www.lgmoneyback.cl/"
-        desktopAs="https://www.lgmoneyback.cl/"
-        mobileHref="https://www.lgmoneyback.cl/"
-        mobileAs="https://www.lgmoneyback.cl/"
-        extraSmall={['/static/img/slides/moneyback_350.jpg', '/static/img/slides/moneyback_350_hdpi.jpg']}
-        small={['/static/img/slides/moneyback_540.jpg']}
-        medium={['/static/img/slides/moneyback_720.jpg']}
-        large={['/static/img/slides/moneyback_960.jpg']}
-        infinity={['/static/img/slides/moneyback_1140.jpg']}
-    />
-  },
-  {
     id: '43UK6200',
     categoryId: 11,
     subcategory: 'UHD 4K',
