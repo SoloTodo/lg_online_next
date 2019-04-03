@@ -1,9 +1,16 @@
 .dynamic-banner {
-    position: relative;
     cursor: pointer;
     height: 400px;
     font-family: 'Montserrat', sans-serif;
 }
+
+.dynamic-banner > div {
+    position: relative;
+}
+
+/*.dynamic-banner img {*/
+/*    display: inline !important;*/
+/*}*/
 
 .dynamic-banner__price {
     position: absolute;

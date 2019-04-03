@@ -5,6 +5,20 @@ import SlideStaticImage from "./SlideStaticImage";
 
 export default [
   {
+    id: 'OLED_GOT_Dynamic',
+    categoryId: 11,
+    subcategory: 'OLED 4K',
+    frontpageOrdering: 1,
+    component: <SlideDynamicPrice
+        productId={50129}
+        extraSmall={['/static/img/slides/OLED_GOT_350.jpg', '/static/img/slides/OLED_GOT_350_hdpi.jpg']}
+        small={['/static/img/slides/OLED_GOT_540.jpg']}
+        medium={['/static/img/slides/OLED_GOT_720.jpg']}
+        large={['/static/img/slides/OLED_GOT_960.jpg']}
+        infinity={['/static/img/slides/OLED_GOT_1140.jpg']}
+    />
+  },
+  {
     id: 'OLED_GOT',
     categoryId: 11,
     subcategory: 'OLED 4K',

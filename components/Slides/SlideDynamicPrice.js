@@ -40,34 +40,36 @@ class SlideDynamicPrice extends React.Component {
     const categoryMetadata = settings.categoriesMetadata[category.id];
 
     const linkAs = this.props.isMobile ?
-      this.props.mobileAs || `/products/${productEntry.product.id}-${productEntry.product.slug}` :
-      this.props.desktopAs || `/${categoryMetadata.slug}?product=${productEntry.product.id}`
+        this.props.mobileAs || `/products/${productEntry.product.id}-${productEntry.product.slug}` :
+        this.props.desktopAs || `/${categoryMetadata.slug}?product=${productEntry.product.id}`
     ;
 
     const linkHref = this.props.isMobile ?
-      this.props.mobileHref || `/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}` :
-      this.props.desktopHref || `/browse?section=${categoryMetadata.slug}&product=${productEntry.product.id}`
+        this.props.mobileHref || `/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}` :
+        this.props.desktopHref || `/browse?section=${categoryMetadata.slug}&product=${productEntry.product.id}`
     ;
 
     return <Link href={linkHref} as={linkAs}>
-      <a className={`dynamic-banner ${this.props.className} d-flex flex-row justify-content-center w-100`} onClick={evt => this.handleClick(productEntry)}>
-        <picture>
-          <source media="(max-width: 575px)"
-                  srcSet={`${this.props.extraSmall[0]}, ${this.props.extraSmall[1]} 2x`} />
-          <source media="(max-width: 767px)"
-                  srcSet={`${this.props.small[0]}`} />
-          <source media="(max-width: 991px)"
-                  srcSet={`${this.props.medium[0]}`} />
-          <source media="(max-width: 1199px)"
-                  srcSet={`${this.props.large[0]}`} />
-          <source media="(max-width: 10000px)"
-                  srcSet={`${this.props.infinity[0]}`} />
-          <img src={this.props.extraSmall[0]} />
-        </picture>
-        <div className="dynamic-banner__price"><span className="dynamic-banner__price-sign">$</span>{formattedPrice}</div>
-        <div className="dynamic-banner__buy-button d-flex flex-row align-items-center justify-content-center">
-          <span>Comprar</span>
-          <i className="fas fa-arrow-circle-right dynamic-banner__buy-button__label">&nbsp;</i>
+      <a className={`dynamic-banner ${this.props.className || ''} text-center d-flex flex-row justify-content-center`} onClick={evt => this.handleClick(productEntry)}>
+        <div>
+          <picture>
+            <source media="(max-width: 575px)"
+                    srcSet={`${this.props.extraSmall[0]}, ${this.props.extraSmall[1]} 2x`} />
+            <source media="(max-width: 767px)"
+                    srcSet={`${this.props.small[0]}`} />
+            <source media="(max-width: 991px)"
+                    srcSet={`${this.props.medium[0]}`} />
+            <source media="(max-width: 1199px)"
+                    srcSet={`${this.props.large[0]}`} />
+            <source media="(max-width: 10000px)"
+                    srcSet={`${this.props.infinity[0]}`} />
+            <img src={this.props.extraSmall[0]} />
+          </picture>
+          <div className="dynamic-banner__price"><span className="dynamic-banner__price-sign">$</span>{formattedPrice}</div>
+          <div className="dynamic-banner__buy-button d-flex flex-row align-items-center justify-content-center">
+            <span>Comprar</span>
+            <i className="fas fa-arrow-circle-right dynamic-banner__buy-button__label">&nbsp;</i>
+          </div>
         </div>
       </a>
     </Link>
