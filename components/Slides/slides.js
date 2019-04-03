@@ -5,6 +5,23 @@ import SlideStaticImage from "./SlideStaticImage";
 
 export default [
   {
+    id: 'OLED_GOT',
+    categoryId: 11,
+    subcategory: 'OLED 4K',
+    frontpageOrdering: 1,
+    component: <SlideStaticImage
+        desktopHref="/browse?section=televisores_oled_4k"
+        desktopAs="/televisores_oled_4k"
+        mobileHref="/browse?section=televisores_oled_4k"
+        mobileAs="/televisores_oled_4k"
+        extraSmall={['/static/img/slides/OLED_GOT_350.jpg', '/static/img/slides/OLED_GOT_350_hdpi.jpg']}
+        small={['/static/img/slides/OLED_GOT_540.jpg']}
+        medium={['/static/img/slides/OLED_GOT_720.jpg']}
+        large={['/static/img/slides/OLED_GOT_960.jpg']}
+        infinity={['/static/img/slides/OLED_GOT_1140.jpg']}
+    />
+  },
+  {
     id: '43UK6200',
     categoryId: 11,
     subcategory: 'UHD 4K',
@@ -32,56 +49,21 @@ export default [
         infinity={['/static/img/slides/tv_55UK6550_1140.jpg']}
     />
   },
-  {
-    id: 4,
-    categoryId: 11,
-    subcategory: 'OLED 4K',
-    frontpageOrdering: 2,
-    component: <SlideDynamicPrice
-        productId={50129}
-        extraSmall={['/static/img/slides/tv_OLED55B8_350.jpg', '/static/img/slides/tv_OLED55B8_350_hdpi.jpg']}
-        small={['/static/img/slides/tv_OLED55B8_540.jpg']}
-        medium={['/static/img/slides/tv_OLED55B8_720.jpg']}
-        large={['/static/img/slides/tv_OLED55B8_960.jpg']}
-        infinity={['/static/img/slides/tv_OLED55B8_1140.jpg']}
-    />
-  },
-  {
-    id: 'OK99',
-    categoryId: 25,
-    subcategory: null,
-    frontpageOrdering: null,
-    component: <SlideDynamicPrice
-        productId={45946}
-        label="OK99_2"
-        desktopHref="/landing?landing=instantpartysummer&product=45946"
-        desktopAs="/instantpartysummer?product=45946"
-        extraSmall={['/static/landings/instant_party_summer/05_350.jpg', '/static/landings/instant_party_summer/05_350_hdpi.jpg']}
-        small={['/static/landings/instant_party_summer/05_540.jpg']}
-        medium={['/static/landings/instant_party_summer/05_720.jpg']}
-        large={['/static/landings/instant_party_summer/05_960.jpg']}
-        infinity={['/static/landings/instant_party_summer/05_1140.jpg']}
-        className="instantpartysummer__dynamic-banner"
-    />
-  },
-  {
-    id: 'InstaView NeoChef Bundle',
-    categoryId: 15,
-    subcategory: 'Door-in-Door',
-    frontpageOrdering: null,
-    component: <SlideStaticImage
-        desktopHref="/landing?landing=instaviewbundle"
-        desktopAs="/instaviewbundle"
-        mobileHref="/landing?landing=instaviewbundle"
-        mobileAs="/instaviewbundle"
-        extraSmall={['/static/img/slides/neochef_350.jpg', '/static/img/slides/neochef_350_hdpi.jpg']}
-        small={['/static/img/slides/neochef_540.jpg']}
-        medium={['/static/img/slides/neochef_720.jpg']}
-        large={['/static/img/slides/neochef_960.jpg']}
-        infinity={['/static/img/slides/neochef_1140.jpg']}
-    />
-  },
-
+  // Guardar hasta despues de campaña GOT OLED
+  // {
+  //   id: 4,
+  //   categoryId: 11,
+  //   subcategory: 'OLED 4K',
+  //   frontpageOrdering: null,
+  //   component: <SlideDynamicPrice
+  //       productId={50129}
+  //       extraSmall={['/static/img/slides/tv_OLED55B8_350.jpg', '/static/img/slides/tv_OLED55B8_350_hdpi.jpg']}
+  //       small={['/static/img/slides/tv_OLED55B8_540.jpg']}
+  //       medium={['/static/img/slides/tv_OLED55B8_720.jpg']}
+  //       large={['/static/img/slides/tv_OLED55B8_960.jpg']}
+  //       infinity={['/static/img/slides/tv_OLED55B8_1140.jpg']}
+  //   />
+  // },
   {
     id: 'PH30JG',
     categoryId: 31,
@@ -114,7 +96,7 @@ export default [
     id: 'WT16DSB',
     categoryId: 19,
     subcategory: 'Lavadora carga superior',
-    frontpageOrdering: null,
+    frontpageOrdering: 2,
     component: <SlideDynamicPrice
         productId={37995}
         extraSmall={['/static/img/slides/wm_WT16DSB_350.jpg', '/static/img/slides/wm_WT16DSB_350_hdpi.jpg']}
@@ -156,7 +138,7 @@ export default [
     id: 'Q Stylus',
     categoryId: 6,
     subcategory: null,
-    frontpageOrdering: null,
+    frontpageOrdering: 4,
     component: <SlideDynamicPrice
         productId={48277}
         extraSmall={['/static/img/slides/mc_Q_STYLUS_350.jpg', '/static/img/slides/mc_Q_STYLUS_350_hdpi.jpg']}
@@ -198,7 +180,7 @@ export default [
     id: 'OK55',
     categoryId: 25,
     subcategory: 'Minicomponente',
-    frontpageOrdering: null,
+    frontpageOrdering: 3,
     component: <SlideDynamicPrice
         productId={45942}
         extraSmall={['/static/img/slides/audio_OK55_350.jpg', '/static/img/slides/audio_OK55_350_hdpi.jpg']}
