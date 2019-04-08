@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "node server.js",
-    "deploy": "now && now alias"
+    "deploy": "now --target production"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.2",

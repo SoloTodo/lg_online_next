@@ -11,30 +11,30 @@ export default [
     frontpageOrdering: 1,
     component: <SlideDynamicPrice
         productId={50129}
-        extraSmall={['/static/img/slides/OLED_GOT_350.jpg', '/static/img/slides/OLED_GOT_350_hdpi.jpg']}
-        small={['/static/img/slides/OLED_GOT_540.jpg']}
-        medium={['/static/img/slides/OLED_GOT_720.jpg']}
-        large={['/static/img/slides/OLED_GOT_960.jpg']}
-        infinity={['/static/img/slides/OLED_GOT_1140.jpg']}
+        extraSmall={['/static/img/slides/OLED_GOT_350.jpg?v=2', '/static/img/slides/OLED_GOT_350_hdpi.jpg?v=2']}
+        small={['/static/img/slides/OLED_GOT_540.jpg?v=2']}
+        medium={['/static/img/slides/OLED_GOT_720.jpg?v=2']}
+        large={['/static/img/slides/OLED_GOT_960.jpg?v=2']}
+        infinity={['/static/img/slides/OLED_GOT_1140.jpg?v=2']}
     />
   },
-  {
-    id: 'OLED_GOT',
-    categoryId: 11,
-    subcategory: 'OLED 4K',
-    frontpageOrdering: 1,
-    component: <SlideStaticImage
-        desktopHref="/browse?section=televisores_oled_4k"
-        desktopAs="/televisores_oled_4k"
-        mobileHref="/browse?section=televisores_oled_4k"
-        mobileAs="/televisores_oled_4k"
-        extraSmall={['/static/img/slides/OLED_GOT_350.jpg', '/static/img/slides/OLED_GOT_350_hdpi.jpg']}
-        small={['/static/img/slides/OLED_GOT_540.jpg']}
-        medium={['/static/img/slides/OLED_GOT_720.jpg']}
-        large={['/static/img/slides/OLED_GOT_960.jpg']}
-        infinity={['/static/img/slides/OLED_GOT_1140.jpg']}
-    />
-  },
+  // {
+  //   id: 'OLED_GOT',
+  //   categoryId: 11,
+  //   subcategory: 'OLED 4K',
+  //   frontpageOrdering: 1,
+  //   component: <SlideStaticImage
+  //       desktopHref="/browse?section=televisores_oled_4k"
+  //       desktopAs="/televisores_oled_4k"
+  //       mobileHref="/browse?section=televisores_oled_4k"
+  //       mobileAs="/televisores_oled_4k"
+  //       extraSmall={['/static/img/slides/OLED_GOT_350.jpg', '/static/img/slides/OLED_GOT_350_hdpi.jpg']}
+  //       small={['/static/img/slides/OLED_GOT_540.jpg']}
+  //       medium={['/static/img/slides/OLED_GOT_720.jpg']}
+  //       large={['/static/img/slides/OLED_GOT_960.jpg']}
+  //       infinity={['/static/img/slides/OLED_GOT_1140.jpg']}
+  //   />
+  // },
   {
     id: '43UK6200',
     categoryId: 11,
