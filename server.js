@@ -115,6 +115,9 @@ const landings = [
   },
   {
     slug: 'lgweek'
+  },
+  {
+    slug: 'modernizate'
   }
 ];
 

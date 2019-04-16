@@ -19,14 +19,14 @@ class SlideDynamicPrice extends React.Component {
   };
 
   render() {
-    const productEntry = this.props.productEntry;
+    const {productEntry, forcedPriceStoreId} = this.props;
 
     if (!productEntry || !productEntry.entities.length) {
       return null
     }
 
-    const priceDisplayEntity = this.props.forcedPriceStoreId ?
-        productEntry.entities.filter(entity => this.props.storesDict[entity.store].id === this.props.forcedPriceStoreId)[0] :
+    const priceDisplayEntity = forcedPriceStoreId ?
+        productEntry.entities.filter(entity => this.props.storesDict[entity.store].id === forcedPriceStoreId)[0] :
         productEntry.entities[0];
 
     if (!priceDisplayEntity) {
@@ -40,12 +40,12 @@ class SlideDynamicPrice extends React.Component {
     const categoryMetadata = settings.categoriesMetadata[category.id];
 
     const linkAs = this.props.isMobile ?
-        this.props.mobileAs || `/products/${productEntry.product.id}-${productEntry.product.slug}` :
+        this.props.mobileAs || `/products/${productEntry.product.id}-${productEntry.product.slug}${forcedPriceStoreId ? '?highlighted_store=' + forcedPriceStoreId : ''}` :
         this.props.desktopAs || `/${categoryMetadata.slug}?product=${productEntry.product.id}`
     ;
 
     const linkHref = this.props.isMobile ?
-        this.props.mobileHref || `/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}` :
+        this.props.mobileHref || `/products?product=${productEntry.product.id}&slug=${productEntry.product.slug}${forcedPriceStoreId ? '&highlighted_store=' + forcedPriceStoreId : ''}` :
         this.props.desktopHref || `/browse?section=${categoryMetadata.slug}&product=${productEntry.product.id}`
     ;
 

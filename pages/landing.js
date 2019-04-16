@@ -11,6 +11,7 @@ import NeoChef from "../components/Landings/NeoChef/NeoChef";
 import PlanPerfecto from "../components/Landings/PlanPerfecto/PlanPerfecto";
 import OledN1 from "../components/Landings/OledN1/OledN1";
 import LgWeek from "../components/Landings/LgWeek/LgWeek";
+import Modernizate from "../components/Landings/Modernizate/Modernizate";
 
 const landingComponentsDict = {
   did: Did,
@@ -22,6 +23,7 @@ const landingComponentsDict = {
   planperfecto: PlanPerfecto,
   oledn1: OledN1,
   lgweek: LgWeek,
+  modernizate: Modernizate
 };
 
 class Landing extends React.Component {

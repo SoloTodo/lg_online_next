@@ -1,0 +1,38 @@
+.modernizate__header {
+    background-color: white;
+    padding-bottom: 40px;
+}
+
+.modernizate__category-selector-desktop {
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #596770;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.modernizate__category-selector-desktop > div {
+    width: 100%;
+    text-align: center;
+}
+
+.modernizate__category-selector-desktop > div:not(:first-child) {
+    border-left: 1px solid #596770;
+}
+
+.modernizate__category-selector-desktop a {
+    color: #596770;
+}
+
+.modernizate__category-selector-desktop a:hover {
+    text-decoration: none;
+}
+
+.modernizate__category-selector-desktop .selected {
+    color: #ff0135;
+}
+
+.modernizate__footer {
+    background-color: #22272b;
+}
