@@ -18,21 +18,21 @@ const sections = [
     categoryId: 11,
     label: 'Televisión',
     prefix: 'tv',
-    productId: 50129
+    productId: 45884
   },
   {
     slug: 'audio',
     categoryId: 25,
     label: 'Audio',
     prefix: 'audio',
-    productId: 45946
+    productId: 25905
   },
   {
     slug: 'celulares',
     categoryId: 6,
     label: 'Celulares',
     prefix: 'mc',
-    productId: 48285
+    productId: 48286
   },
   // REF (id 15) y WM (id 19)
   {
@@ -40,7 +40,7 @@ const sections = [
     categoryId: 15,
     label: 'Línea Blanca',
     prefix: 'ref',
-    productId: 37995
+    productId: 28125
   }
 ];
 
