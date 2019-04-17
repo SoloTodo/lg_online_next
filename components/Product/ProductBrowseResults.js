@@ -104,7 +104,7 @@ class ProductBrowseResults extends React.Component {
     }
 
     const productId = parseInt(parameters.product, 10);
-    const matchingEntry = this.props.productEntries.filter(productEntry => productEntry.product.id === productId)[0];
+    const matchingEntry = this.state.filteredProductEntries.filter(productEntry => productEntry.product.id === productId)[0];
 
     if (!matchingEntry) {
       return
