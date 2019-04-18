@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import React from 'react'
 import { Provider } from 'react-redux'
 import uuidv4 from "uuid/v4"
