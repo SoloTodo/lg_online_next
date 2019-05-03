@@ -118,6 +118,9 @@ const landings = [
   },
   {
     slug: 'modernizate'
+  },
+  {
+    slug: 'especial_lavado'
   }
 ];
 

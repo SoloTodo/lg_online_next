@@ -62,6 +62,11 @@
       "headers": { "cache-control": "s-maxage=14400" }
     },
     {
+      "src": "/especial_lavado$",
+      "dest": "/landing?landing=especial_lavado",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
       "src": "/(?<section>[^/]+)$",
       "dest": "/browse?section=$section",
       "headers": { "cache-control": "s-maxage=14400" }
