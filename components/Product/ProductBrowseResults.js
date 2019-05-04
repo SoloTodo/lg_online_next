@@ -75,8 +75,8 @@ class ProductBrowseResults extends React.Component {
       const orderingField = props.subcategory || props.categoryId ? 'categoryOrdering' : 'frontpageOrdering';
 
       filteredProductEntries.sort((a, b) => {
-        const aOrdering = a.customFields[orderingField] || 10000;
-        const bOrdering = b.customFields[orderingField] || 10000;
+        const aOrdering = a.customFields[orderingField] || 10000 + a.product.id;
+        const bOrdering = b.customFields[orderingField] || 10000 + b.product.id;
 
         return aOrdering - bOrdering;
       });
