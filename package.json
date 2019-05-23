@@ -27,6 +27,7 @@
     "react-redux": "^5.0.1",
     "react-retina-image": "^2.0.5",
     "react-scroll-to-component": "^1.0.2",
+    "react-select": "^2.4.3",
     "react-slick": "^0.23.2",
     "react-toastify": "^4.5.2",
     "reactstrap": "^7.1.0",

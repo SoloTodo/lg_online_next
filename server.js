@@ -82,7 +82,7 @@ const routes = [{
   }, {
     "slug": "televisores_ultra_hd_4k"
   }, {
-    "slug": "televisores_super_uhd_4k"
+    "slug": "televisores_nano_cell_4k"
   }, {
     "slug": "televisores_oled_4k"
   }],
@@ -121,6 +121,9 @@ const landings = [
   },
   {
     slug: 'especial_lavado'
+  },
+  {
+    slug: 'saltatelafila'
   }
 ];
 

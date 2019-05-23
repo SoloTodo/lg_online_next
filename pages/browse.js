@@ -13,6 +13,7 @@ import {withLgOnlineTracker} from "../utils";
 import {loadRequiredProducts} from "../redux/actions";
 import {settings} from '../settings'
 import ErrorPage from "./_error";
+import OrderingDropdown from "../components/OrderingDropdown/OrderingDropdown";
 
 class Browse extends React.Component {
   static async getInitialProps(ctx) {
@@ -107,6 +108,13 @@ class Browse extends React.Component {
         {!this.props.isMobile && <div className="d-flex flex-row justify-content-center">
           {subcategoryMenu}
         </div>}
+
+        <div className="container-fluid">
+          <div className="d-flex justify-content-end">
+            <OrderingDropdown />
+          </div>
+        </div>
+
         <ProductBrowseResults categoryId={categoryId} subcategory={subcategory} />
       </div>
     </React.Fragment>

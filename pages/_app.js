@@ -62,6 +62,8 @@ class MyApp extends App {
             <Component {...pageProps} />
           </AppContext.Provider>
         </Provider>
+
+        <script type="text/javascript" src="/static/js/livechat.js"></script>
       </Container>
     )
   }

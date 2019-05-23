@@ -38,10 +38,10 @@ export const settings = {
           slug: 'televisores_ultra_hd_4k'
         },
         {
-          name: 'SUPER UHD 4K',
-          label: 'SUPER UHD 4K',
-          title: 'Televisores SUPER UHD 4K',
-          slug: 'televisores_super_uhd_4k'
+          name: 'NANOCELL 4K',
+          label: 'NanoCell 4K',
+          title: 'Televisores NanoCell 4K',
+          slug: 'televisores_nano_cell_4k'
         },
         {
           name: 'OLED 4K',

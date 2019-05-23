@@ -7,7 +7,7 @@ import queryString from 'query-string';
 import ProductBrowseSelectedResult from "./ProductBrowseSelectedResult";
 import {listToObject, isServer} from "../../react-utils/utils";
 import {lgonlineStateToPropsUtils} from "../../redux-utils";
-import Router from "next/router";
+import Router, {withRouter} from "next/router";
 
 
 class ProductBrowseResults extends React.Component {
@@ -39,7 +39,8 @@ class ProductBrowseResults extends React.Component {
   componentWillReceiveProps(nextProps, nextContext) {
     if (this.props.subcategory !== nextProps.subcategory ||
       this.props.categoryId !== nextProps.categoryId ||
-      this.props.filteredProductEntries !== nextProps.filteredProductEntries) {
+      this.props.filteredProductEntries !== nextProps.filteredProductEntries ||
+      this.props.router.query.ordering !== nextProps.router.query.ordering) {
       const filteredProductEntries = this.getFilteredProductEntries(nextProps);
 
       this.setState({
@@ -72,11 +73,21 @@ class ProductBrowseResults extends React.Component {
         filteredProductEntries = props.productEntries.filter(productEntry => productEntry.customFields.frontpageOrdering)
       }
 
+      const ordering = props.router.query.ordering;
       const orderingField = props.subcategory || props.categoryId ? 'categoryOrdering' : 'frontpageOrdering';
+      let orderingValueFn = null;
+
+      if (ordering === 'price') {
+        orderingValueFn = entry => entry.entities[0].active_registry.offer_price
+      } else if (ordering === '-price') {
+        orderingValueFn = entry => -entry.entities[0].active_registry.offer_price
+      } else {
+        orderingValueFn = entry => entry.customFields[orderingField] || 10000 + entry.product.id
+      }
 
       filteredProductEntries.sort((a, b) => {
-        const aOrdering = a.customFields[orderingField] || 10000 + a.product.id;
-        const bOrdering = b.customFields[orderingField] || 10000 + b.product.id;
+        const aOrdering = orderingValueFn(a);
+        const bOrdering = orderingValueFn(b);
 
         return aOrdering - bOrdering;
       });
@@ -109,6 +120,7 @@ class ProductBrowseResults extends React.Component {
     if (!matchingEntry) {
       return
     }
+
     setTimeout(() => {
       this.setState({
         selectedProductEntry: matchingEntry
@@ -255,4 +267,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(ProductBrowseResults)
+export default withRouter(connect(mapStateToProps)(ProductBrowseResults))

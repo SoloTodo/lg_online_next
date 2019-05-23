@@ -2928,11 +2928,11 @@ export default [
         "productId": 46388
     },
     {
-        "customTitle": "SMART TV LED 55\" Super UHD",
-        "subcategory": "SUPER UHD 4K",
+        "customTitle": "SMART TV LED 55\" NanoCell",
+        "subcategory": "NANOCELL 4K",
         "secondaryPicturesId": "1CsAZCZ9os9603xNAwn4yRfc1Rrzrmvcl",
         "mainPictureId": "1_FaWh6AZMPnXKdfr2qLfzQibvoUALgYp",
-        "custom_1": "Tecnolog\u00eda SUPER UHD y Nano Cell",
+        "custom_1": "Tecnolog\u00eda NanoCell",
         "custom_2": "Generaci\u00f3n 2018",
         "custom_3": "Incluye Magic Remote",
         "categoryOrdering": 20,
@@ -2944,11 +2944,11 @@ export default [
         "productId": 45936
     },
     {
-        "customTitle": "SMART TV LED 65\" Super UHD",
-        "subcategory": "SUPER UHD 4K",
+        "customTitle": "SMART TV LED 65\" NanoCell",
+        "subcategory": "NANOCELL 4K",
         "secondaryPicturesId": "1CsAZCZ9os9603xNAwn4yRfc1Rrzrmvcl",
         "mainPictureId": "1_FaWh6AZMPnXKdfr2qLfzQibvoUALgYp",
-        "custom_1": "Tecnolog\u00eda SUPER UHD y Nano Cell",
+        "custom_1": "Tecnolog\u00eda NanoCell",
         "custom_2": "Generaci\u00f3n 2018",
         "custom_3": "Incluye Magic Remote",
         "categoryOrdering": 21,
@@ -2960,11 +2960,11 @@ export default [
         "productId": 47674
     },
     {
-        "customTitle": "SMART TV LED 75\" Super UHD",
-        "subcategory": "SUPER UHD 4K",
+        "customTitle": "SMART TV LED 75\" NanoCell",
+        "subcategory": "NANOCELL 4K",
         "secondaryPicturesId": "1AHEOyipWz2d8tE-ti3Vbds8ZNnKxVFCK",
         "mainPictureId": "13QDRkfkaWTz3iNWa7uEQA2Ra7hi_F2Gy",
-        "custom_1": "Tecnolog\u00eda SUPER UHD y Nano Cell",
+        "custom_1": "Tecnolog\u00eda NanoCell",
         "custom_2": "Generaci\u00f3n 2018",
         "custom_3": "Incluye Magic Remote",
         "categoryOrdering": 22,
@@ -2976,11 +2976,11 @@ export default [
         "productId": 45938
     },
     {
-        "customTitle": "SMART TV LED 55\" Super UHD",
-        "subcategory": "SUPER UHD 4K",
+        "customTitle": "SMART TV LED 55\" NanoCell",
+        "subcategory": "NANOCELL 4K",
         "secondaryPicturesId": "11GFRZ8US5xYoY0rE2JCbQ-7cMqjIHHGq",
         "mainPictureId": "1s0GPcYInubFfu0aW2SrNAY-7Q7itcsjM",
-        "custom_1": "Tecnolog\u00eda SUPER UHD y Nano Cell",
+        "custom_1": "Tecnolog\u00eda NanoCell",
         "custom_2": "Generaci\u00f3n 2018",
         "custom_3": "Incluye Magic Remote",
         "categoryOrdering": 23,
@@ -2992,11 +2992,11 @@ export default [
         "productId": 46723
     },
     {
-        "customTitle": "SMART TV LED 55\" Super UHD",
-        "subcategory": "SUPER UHD 4K",
+        "customTitle": "SMART TV LED 55\" NanoCell",
+        "subcategory": "NANOCELL 4K",
         "secondaryPicturesId": "11GFRZ8US5xYoY0rE2JCbQ-7cMqjIHHGq",
         "mainPictureId": "1s0GPcYInubFfu0aW2SrNAY-7Q7itcsjM",
-        "custom_1": "Tecnolog\u00eda SUPER UHD y Nano Cell",
+        "custom_1": "Tecnolog\u00eda NanoCell",
         "custom_2": "Generaci\u00f3n 2018",
         "custom_3": "Incluye Magic Remote",
         "categoryOrdering": 24,

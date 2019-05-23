@@ -14,6 +14,7 @@ import LgWeek from "../components/Landings/LgWeek/LgWeek";
 import Modernizate from "../components/Landings/Modernizate/Modernizate";
 import EspecialLavado
   from "../components/Landings/EspecialLavado/EspecialLavado";
+import SaltateLaFila from "../components/Landings/SaltateLaFila/SaltateLaFila";
 
 const landingComponentsDict = {
   did: Did,
@@ -27,6 +28,7 @@ const landingComponentsDict = {
   lgweek: LgWeek,
   modernizate: Modernizate,
   especial_lavado: EspecialLavado,
+  saltatelafila: SaltateLaFila,
 };
 
 class Landing extends React.Component {
