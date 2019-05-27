@@ -40,7 +40,8 @@ class ProductBrowseResults extends React.Component {
     if (this.props.subcategory !== nextProps.subcategory ||
       this.props.categoryId !== nextProps.categoryId ||
       this.props.filteredProductEntries !== nextProps.filteredProductEntries ||
-      this.props.router.query.ordering !== nextProps.router.query.ordering) {
+      this.props.router.asPath !== nextProps.router.asPath) {
+
       const filteredProductEntries = this.getFilteredProductEntries(nextProps);
 
       this.setState({
@@ -72,19 +73,23 @@ class ProductBrowseResults extends React.Component {
       } else {
         filteredProductEntries = props.productEntries.filter(productEntry => productEntry.customFields.frontpageOrdering)
       }
+    }
 
-      const ordering = props.router.query.ordering;
-      const orderingField = props.subcategory || props.categoryId ? 'categoryOrdering' : 'frontpageOrdering';
-      let orderingValueFn = null;
+    const parameters = queryString.parse(props.router.asPath.split('?')[1]);
+    const ordering = parameters.ordering;
+    // const orderingField = props.subcategory || props.categoryId ? 'categoryOrdering' : 'frontpageOrdering';
+    let orderingValueFn = null;
 
-      if (ordering === 'price') {
-        orderingValueFn = entry => entry.entities[0].active_registry.offer_price
-      } else if (ordering === '-price') {
-        orderingValueFn = entry => -entry.entities[0].active_registry.offer_price
-      } else {
-        orderingValueFn = entry => entry.customFields[orderingField] || 10000 + entry.product.id
-      }
+    if (ordering === 'price') {
+      orderingValueFn = entry => entry.entities[0].active_registry.offer_price
+    } else if (ordering === '-price') {
+      orderingValueFn = entry => -entry.entities[0].active_registry.offer_price
+    }
+    // } else {
+    //   orderingValueFn = entry => entry.customFields[orderingField] || 10000 + entry.product.id
+    // }
 
+    if (orderingValueFn) {
       filteredProductEntries.sort((a, b) => {
         const aOrdering = orderingValueFn(a);
         const bOrdering = orderingValueFn(b);
@@ -92,6 +97,7 @@ class ProductBrowseResults extends React.Component {
         return aOrdering - bOrdering;
       });
     }
+
 
     if (props.highlightedStoreId) {
       filteredProductEntries = filteredProductEntries.map(filteredProductEntry => ({

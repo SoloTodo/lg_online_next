@@ -44,16 +44,12 @@ class OrderingDropdown extends React.Component {
 
   handleOptionChange = newValue => {
     this.props.router.push(
-      `/browse?section=${this.props.router.query.section}&ordering=${newValue.value}`,
-      `/${this.props.router.query.section}?ordering=${newValue.value}`
+      `${this.props.baseRouteHref}ordering=${newValue.value}`,
+      `${this.props.baseRouteAs}ordering=${newValue.value}`
     )
   };
 
   render() {
-    if (!this.props.router.query.section) {
-      return null
-    }
-
     return <div className="d-flex flex-row align-items-center">
       <span className="mr-2">Ordenar por</span>
       <Select

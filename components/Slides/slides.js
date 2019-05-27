@@ -5,10 +5,112 @@ import SlideStaticImage from "./SlideStaticImage";
 
 export default [
   {
+    id: 'Cyber_gen',
+    categoryId: null,
+    subcategory: null,
+    frontpageOrdering: 1,
+    component: <SlideStaticImage
+        desktopHref="/landing?landing=saltatelafila"
+        desktopAs="/saltatelafila"
+        mobileHref="/landing?landing=saltatelafila"
+        mobileAs="/saltatelafila"
+        extraSmall={['/static/landings/saltate_la_fila/banners/gen_350.jpg', '/static/landings/saltate_la_fila/banners/gen_350_hdpi.jpg']}
+        small={['/static/landings/saltate_la_fila/banners/gen_540.jpg']}
+        medium={['/static/landings/saltate_la_fila/banners/gen_720.jpg']}
+        large={['/static/landings/saltate_la_fila/banners/gen_960.jpg']}
+        infinity={['/static/landings/saltate_la_fila/banners/gen_1140.jpg']}
+    />
+  },
+  {
+    id: 'Cyber_audio',
+    categoryId: 25,
+    subcategory: null,
+    frontpageOrdering: null,
+    component: <SlideStaticImage
+        desktopHref="/landing?landing=saltatelafila"
+        desktopAs="/saltatelafila"
+        mobileHref="/landing?landing=saltatelafila"
+        mobileAs="/saltatelafila"
+        extraSmall={['/static/landings/saltate_la_fila/banners/audio_350.jpg', '/static/landings/saltate_la_fila/banners/audio_350_hdpi.jpg']}
+        small={['/static/landings/saltate_la_fila/banners/audio_540.jpg']}
+        medium={['/static/landings/saltate_la_fila/banners/audio_720.jpg']}
+        large={['/static/landings/saltate_la_fila/banners/audio_960.jpg']}
+        infinity={['/static/landings/saltate_la_fila/banners/audio_1140.jpg']}
+    />
+  },
+  {
+    id: 'Cyber_mc',
+    categoryId: 6,
+    subcategory: null,
+    frontpageOrdering: null,
+    component: <SlideStaticImage
+        desktopHref="/landing?landing=saltatelafila"
+        desktopAs="/saltatelafila"
+        mobileHref="/landing?landing=saltatelafila"
+        mobileAs="/saltatelafila"
+        extraSmall={['/static/landings/saltate_la_fila/banners/mc_350.jpg', '/static/landings/saltate_la_fila/banners/mc_350_hdpi.jpg']}
+        small={['/static/landings/saltate_la_fila/banners/mc_540.jpg']}
+        medium={['/static/landings/saltate_la_fila/banners/mc_720.jpg']}
+        large={['/static/landings/saltate_la_fila/banners/mc_960.jpg']}
+        infinity={['/static/landings/saltate_la_fila/banners/mc_1140.jpg']}
+    />
+  },
+  {
+    id: 'Cyber_ref',
+    categoryId: 15,
+    subcategory: null,
+    frontpageOrdering: null,
+    component: <SlideStaticImage
+        desktopHref="/landing?landing=saltatelafila"
+        desktopAs="/saltatelafila"
+        mobileHref="/landing?landing=saltatelafila"
+        mobileAs="/saltatelafila"
+        extraSmall={['/static/landings/saltate_la_fila/banners/ref_350.jpg', '/static/landings/saltate_la_fila/banners/ref_350_hdpi.jpg']}
+        small={['/static/landings/saltate_la_fila/banners/ref_540.jpg']}
+        medium={['/static/landings/saltate_la_fila/banners/ref_720.jpg']}
+        large={['/static/landings/saltate_la_fila/banners/ref_960.jpg']}
+        infinity={['/static/landings/saltate_la_fila/banners/ref_1140.jpg']}
+    />
+  },
+  {
+    id: 'Cyber_tv',
+    categoryId: 11,
+    subcategory: null,
+    frontpageOrdering: null,
+    component: <SlideStaticImage
+        desktopHref="/landing?landing=saltatelafila"
+        desktopAs="/saltatelafila"
+        mobileHref="/landing?landing=saltatelafila"
+        mobileAs="/saltatelafila"
+        extraSmall={['/static/landings/saltate_la_fila/banners/tv_350.jpg', '/static/landings/saltate_la_fila/banners/tv_350_hdpi.jpg']}
+        small={['/static/landings/saltate_la_fila/banners/tv_540.jpg']}
+        medium={['/static/landings/saltate_la_fila/banners/tv_720.jpg']}
+        large={['/static/landings/saltate_la_fila/banners/tv_960.jpg']}
+        infinity={['/static/landings/saltate_la_fila/banners/tv_1140.jpg']}
+    />
+  },
+  {
+    id: 'Cyber_wm',
+    categoryId: 19,
+    subcategory: null,
+    frontpageOrdering: null,
+    component: <SlideStaticImage
+        desktopHref="/landing?landing=saltatelafila"
+        desktopAs="/saltatelafila"
+        mobileHref="/landing?landing=saltatelafila"
+        mobileAs="/saltatelafila"
+        extraSmall={['/static/landings/saltate_la_fila/banners/wm_350.jpg', '/static/landings/saltate_la_fila/banners/wm_350_hdpi.jpg']}
+        small={['/static/landings/saltate_la_fila/banners/wm_540.jpg']}
+        medium={['/static/landings/saltate_la_fila/banners/wm_720.jpg']}
+        large={['/static/landings/saltate_la_fila/banners/wm_960.jpg']}
+        infinity={['/static/landings/saltate_la_fila/banners/wm_1140.jpg']}
+    />
+  },
+  {
     id: 'OLED_GOT_Dynamic',
     categoryId: 11,
     subcategory: 'OLED 4K',
-    frontpageOrdering: 1,
+    frontpageOrdering: 2,
     component: <SlideDynamicPrice
         productId={50129}
         extraSmall={['/static/img/slides/OLED_GOT_350.jpg?v=2', '/static/img/slides/OLED_GOT_350_hdpi.jpg?v=2']}
@@ -18,23 +120,6 @@ export default [
         infinity={['/static/img/slides/OLED_GOT_1140.jpg?v=2']}
     />
   },
-  // {
-  //   id: 'OLED_GOT',
-  //   categoryId: 11,
-  //   subcategory: 'OLED 4K',
-  //   frontpageOrdering: 1,
-  //   component: <SlideStaticImage
-  //       desktopHref="/browse?section=televisores_oled_4k"
-  //       desktopAs="/televisores_oled_4k"
-  //       mobileHref="/browse?section=televisores_oled_4k"
-  //       mobileAs="/televisores_oled_4k"
-  //       extraSmall={['/static/img/slides/OLED_GOT_350.jpg', '/static/img/slides/OLED_GOT_350_hdpi.jpg']}
-  //       small={['/static/img/slides/OLED_GOT_540.jpg']}
-  //       medium={['/static/img/slides/OLED_GOT_720.jpg']}
-  //       large={['/static/img/slides/OLED_GOT_960.jpg']}
-  //       infinity={['/static/img/slides/OLED_GOT_1140.jpg']}
-  //   />
-  // },
   {
     id: '43UK6200',
     categoryId: 11,
@@ -110,7 +195,7 @@ export default [
     id: 'WT16DSB',
     categoryId: 19,
     subcategory: 'Lavadora carga superior',
-    frontpageOrdering: 2,
+    frontpageOrdering: 3,
     component: <SlideDynamicPrice
         productId={37995}
         extraSmall={['/static/img/slides/wm_WT16DSB_350.jpg', '/static/img/slides/wm_WT16DSB_350_hdpi.jpg']}
@@ -152,7 +237,7 @@ export default [
     id: 'Q Stylus',
     categoryId: 6,
     subcategory: null,
-    frontpageOrdering: 4,
+    frontpageOrdering: 5,
     component: <SlideDynamicPrice
         productId={48277}
         extraSmall={['/static/img/slides/mc_Q_STYLUS_350.jpg', '/static/img/slides/mc_Q_STYLUS_350_hdpi.jpg']}
@@ -194,7 +279,7 @@ export default [
     id: 'OK55',
     categoryId: 25,
     subcategory: 'Minicomponente',
-    frontpageOrdering: 3,
+    frontpageOrdering: 4,
     component: <SlideDynamicPrice
         productId={45942}
         extraSmall={['/static/img/slides/audio_OK55_350.jpg', '/static/img/slides/audio_OK55_350_hdpi.jpg']}

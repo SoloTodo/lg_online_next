@@ -124,6 +124,9 @@ const landings = [
   },
   {
     slug: 'saltatelafila'
+  },
+  {
+    slug: 'saltatelafilalanding'
   }
 ];
 

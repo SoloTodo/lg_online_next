@@ -14,8 +14,7 @@ class Did extends React.Component {
     const productIds = [52895, 52892, 52934, 52896, 39205, 50059, 39206, 39883];
     const filteredProductEntries = this.props.productEntries.filter(
       productEntry => productIds.includes(productEntry.product.id)
-    ).sort((a, b) => productIds.indexOf(a.product.id) - productIds.indexOf(b.product.id)
-    );
+    ).sort((a, b) => productIds.indexOf(a.product.id) - productIds.indexOf(b.product.id));
 
     return <React.Fragment>
       <Head>

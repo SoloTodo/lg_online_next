@@ -1,11 +1,19 @@
 import React from 'react'
 
-import './SaltateLaFila.css'
 import Link from "next/link";
 import Head from 'next/head'
 import {Navbar} from "reactstrap";
+import {withLgOnlineTracker} from "../../../utils";
 
 class SaltateLaFila extends React.Component {
+  handleSubmit = evt => {
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-806531637/WCZ0CP_E6J8BELXkyoAD',
+    });
+
+    window.fbq('track', 'CompleteRegistration');
+  };
+
   render() {
     return <div id="saltate-la-fila">
       <Head>
@@ -39,7 +47,7 @@ class SaltateLaFila extends React.Component {
                   action="https://www.us18.list-manage.com/subscribe/post?u=66aa9e160932049f84283045a&amp;id=ecbc334101"
                   method="post" id="mc-embedded-subscribe-form"
                   name="mc-embedded-subscribe-form" className="validate"
-                  target="_blank" noValidate>
+                  target="_blank" noValidate onSubmit={this.handleSubmit}>
                   <div id="mc_embed_signup_scroll">
                     <div className="mc-field-group">
                       <label htmlFor="mce-FNAME" className="name-email-label">NOMBRE</label>
@@ -60,7 +68,7 @@ class SaltateLaFila extends React.Component {
                           Televisores
                           <input type="checkbox" value="1"
                                  name="group[4691][1]"
-                                 id="mce-group[4691]-4691-0" />
+                                 id="mce-group[4691]-4691-0" defaultChecked={true} />
                           <div className="control_indicator"></div>
                         </label>
                         </li>
@@ -69,7 +77,7 @@ class SaltateLaFila extends React.Component {
                             Refrigeradores
                             <input type="checkbox" value="2"
                                    name="group[4691][2]"
-                                   id="mce-group[4691]-4691-1" />
+                                   id="mce-group[4691]-4691-1" defaultChecked={true} />
                             <div className="control_indicator"></div>
                           </label>
                         </li>
@@ -79,7 +87,7 @@ class SaltateLaFila extends React.Component {
                             Lavadoras
                             <input type="checkbox" value="4"
                                    name="group[4691][4]"
-                                   id="mce-group[4691]-4691-2" />
+                                   id="mce-group[4691]-4691-2" defaultChecked={true} />
                             <div className="control_indicator"></div>
                           </label>
                         </li>
@@ -88,7 +96,7 @@ class SaltateLaFila extends React.Component {
                             Audio
                             <input type="checkbox" value="8"
                                    name="group[4691][8]"
-                                   id="mce-group[4691]-4691-3" />
+                                   id="mce-group[4691]-4691-3" defaultChecked={true} />
                             <div className="control_indicator"></div>
                           </label></li>
                         <li>
@@ -96,17 +104,10 @@ class SaltateLaFila extends React.Component {
                             Celulares
                             <input type="checkbox" value="16"
                                    name="group[4691][16]"
-                                   id="mce-group[4691]-4691-4" />
+                                   id="mce-group[4691]-4691-4" defaultChecked={true} />
                             <div className="control_indicator"></div>
                           </label>
                         </li>
-                        <li><label htmlFor="mce-group[4691]-4691-5" className="control control-checkbox">
-                          Monitores
-                          <input type="checkbox" value="32"
-                                 name="group[4691][32]"
-                                 id="mce-group[4691]-4691-5" />
-                          <div className="control_indicator"></div>
-                        </label></li>
                       </ul>
                     </div>
                     <div id="mce-responses" className="clear">
@@ -138,4 +139,4 @@ class SaltateLaFila extends React.Component {
   }
 }
 
-export default SaltateLaFila;
+export default withLgOnlineTracker(SaltateLaFila);

@@ -3550,5 +3550,37 @@ export default [
         "lgUrl": "https://www.lg.com/cl/celular/lg-LMQ850EA",
         "categoryId": 6,
         "productId": 57939
+    },
+    {
+        "customTitle": "Lavadora Secadora con capacidad total de 9/5 Kilos",
+        "subcategory": "Lavadora y secadora",
+        "secondaryPicturesId": "1LEz0beo1Yi6iVv8g3hyKU66aUSy4iYsu",
+        "mainPictureId": "1Mfc7ifok9Rjrn4GSW7hItxYKg5m7ll0q",
+        "custom_1": "",
+        "custom_2": "",
+        "custom_3": "",
+        "categoryOrdering": null,
+        "frontpageOrdering": null,
+        "customDescription": "",
+        "flixmediaMpn": "WD9WE6",
+        "lgUrl": "https://www.lg.com/cl/celular/lg-WD9WE6",
+        "categoryId": 19,
+        "productId": 61240
+    },
+    {
+        "customTitle": "Lavadora Carga Superior de 17 Kilos",
+        "subcategory": "Lavadora carga superior",
+        "secondaryPicturesId": "1LEz0beo1Yi6iVv8g3hyKU66aUSy4iYsu",
+        "mainPictureId": "1Mfc7ifok9Rjrn4GSW7hItxYKg5m7ll0q",
+        "custom_1": "",
+        "custom_2": "",
+        "custom_3": "",
+        "categoryOrdering": null,
+        "frontpageOrdering": null,
+        "customDescription": "",
+        "flixmediaMpn": "WT17DSB",
+        "lgUrl": "https://www.lg.com/cl/lavadoras/lg-WT17DSB",
+        "categoryId": 19,
+        "productId": 45803
     }
 ]

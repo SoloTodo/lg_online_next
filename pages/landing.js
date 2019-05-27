@@ -15,6 +15,8 @@ import Modernizate from "../components/Landings/Modernizate/Modernizate";
 import EspecialLavado
   from "../components/Landings/EspecialLavado/EspecialLavado";
 import SaltateLaFila from "../components/Landings/SaltateLaFila/SaltateLaFila";
+import SaltateLaFilaProducts
+  from "../components/Landings/SaltateLaFila/SaltateLaFilaProducts";
 
 const landingComponentsDict = {
   did: Did,
@@ -28,7 +30,8 @@ const landingComponentsDict = {
   lgweek: LgWeek,
   modernizate: Modernizate,
   especial_lavado: EspecialLavado,
-  saltatelafila: SaltateLaFila,
+  saltatelafila: SaltateLaFilaProducts,
+  saltatelafilalanding: SaltateLaFilaProducts,
 };
 
 class Landing extends React.Component {

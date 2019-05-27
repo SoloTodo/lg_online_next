@@ -82,11 +82,14 @@ class Browse extends React.Component {
       'Encuentra las mejores ofertas para todos tus productos LG';
 
     let path = '/';
+    let section = null;
 
     if (subcategory) {
-      path += subcategory.slug
+      path += subcategory.slug;
+      section = subcategory.slug;
     } else if (category) {
-      path += category.slug
+      path += category.slug;
+      section = category.slug
     }
 
     return <React.Fragment>
@@ -111,7 +114,10 @@ class Browse extends React.Component {
 
         <div className="container-fluid">
           <div className="d-flex justify-content-end">
-            <OrderingDropdown />
+            <OrderingDropdown
+              baseRouteHref={ section ? `/browse?section=${section}&` : `/browse?`}
+              baseRouteAs={ section ? `/${section}?` : `/?`}
+            />
           </div>
         </div>
 
