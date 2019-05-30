@@ -122,12 +122,12 @@ const landings = [
   {
     slug: 'especial_lavado'
   },
-  {
-    slug: 'saltatelafila'
-  },
-  {
-    slug: 'saltatelafilalanding'
-  }
+  // {
+  //   slug: 'saltatelafila'
+  // },
+  // {
+  //   slug: 'saltatelafilalanding'
+  // }
 ];
 
 app.prepare()

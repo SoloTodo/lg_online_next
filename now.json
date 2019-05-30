@@ -67,16 +67,6 @@
       "headers": { "cache-control": "s-maxage=14400" }
     },
     {
-      "src": "/saltatelafila$",
-      "dest": "/landing?landing=saltatelafila",
-      "headers": { "cache-control": "s-maxage=14400" }
-    },
-    {
-      "src": "/saltatelafilalanding$",
-      "dest": "/landing?landing=saltatelafilalanding",
-      "headers": { "cache-control": "s-maxage=14400" }
-    },
-    {
       "src": "/(?<section>[^/]+)$",
       "dest": "/browse?section=$section",
       "headers": { "cache-control": "s-maxage=14400" }
