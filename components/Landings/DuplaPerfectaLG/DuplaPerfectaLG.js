@@ -7,7 +7,9 @@ import {withLgOnlineTracker} from '../../../utils';
 import {settings} from "../../../settings";
 import ProductBrowseResults from "../../Product/ProductBrowseResults";
 
-import NavBar from "../../NavBar/NavBar";
+import SlideStaticImage from "../../Slides/SlideStaticImage";
+import {Navbar} from "reactstrap";
+import Link from "next/link";
 
 class DuplaPerfectaLG extends Component {
   componentDidMount() {
@@ -32,17 +34,28 @@ class DuplaPerfectaLG extends Component {
   }
 
   render() {
-    const productIds = [47838, 41627, 47541, 41629, 41628];
+    const productIds = [
+      46663,  // 65UK6350PSC
+      47174,  // 65UK6550PSB
+      46388,  // 65UK7500PSA
+      47674,  // 65SK8000PSA
+      46891,  // 65SK8500PSA
+      48263,  // OLED65C8PSA
+      48264,  // OLED65E8PSA
+      45898,  // OLED65W8PSA
+      45937,  // 70UK6550PSA
+      48610,  // 75UK6570PSA
+      45938,  // 75SK8000PSA
+      45939,  // 86UK6570PSA
+      48004,  // SK1
+      39255,  // SJ2
+      47017,  // SK5
+      54111,  // SK5R
+      46690,  // SK8
+    ];
     const filteredProductEntries = this.props.productEntries.filter(
       productEntry => productIds.includes(productEntry.product.id)
     ).sort((a, b) => productIds.indexOf(a.product.id) - productIds.indexOf(b.product.id));
-
-    const imageToDisplay = this.props.isMobile ?
-      '/static/landings/twin_wash/TwinWash-mobile.jpg' :
-      '/static/landings/twin_wash/TwinWash-desktop.jpg';
-    const sloganToDisplay = this.props.isMobile ?
-      '/static/landings/twin_wash/slogan-mobile.jpg' :
-      '/static/landings/twin_wash/slogan-desktop.jpg';
 
     return <React.Fragment>
       <Head>
@@ -56,16 +69,28 @@ class DuplaPerfectaLG extends Component {
         <meta property="og:image" content={`${settings.domain}/static/img/og_image.png`} />
       </Head>
 
-      <NavBar />
+      <Navbar id="navbar" color="dark" dark expand="md" fixed="top">
+        <Link href="/browse" as="/">
+          <a className="navbar__brand">
+            <img src="/static/img/logo.png" alt="LG Logo" width="80" height="35" />
+          </a>
+        </Link>
+      </Navbar>
 
       <div id="content">
 
         <div className="content text-center">
-          <a href="#mc_embed_signup"><img src={imageToDisplay} alt="Promoción Dupla Perfecta LG" className="img-fluid" /></a>
-        </div>
-
-        <div className="content text-center">
-          <img src={sloganToDisplay} alt="Slogan" className="img-fluid" />
+          <SlideStaticImage
+            extraSmall={['/static/landings/dupla_perfecta_lg/banner_350.jpg', '/static/landings/dupla_perfecta_lg/banner_350_hdpi.jpg']}
+            small={['/static/landings/dupla_perfecta_lg/banner_540.jpg']}
+            medium={['/static/landings/dupla_perfecta_lg/banner_720.jpg']}
+            large={['/static/landings/dupla_perfecta_lg/banner_960.jpg']}
+            infinity={['/static/landings/dupla_perfecta_lg/banner_1140.jpg']}
+            desktopHref="/landing?landing=DuplaPerfectaLG"
+            desktopAs="/DuplaPerfectaLG"
+            mobileHref="/landing?landing=DuplaPerfectaLG"
+            mobileAs="/DuplaPerfectaLG"
+          />
         </div>
 
         <ProductBrowseResults location={this.props.location} filteredProductEntries={filteredProductEntries} />
@@ -226,7 +251,7 @@ class DuplaPerfectaLG extends Component {
                       <div aria-hidden="true"><input type="text"
                                                      name="b_66aa9e160932049f84283045a_4d681f5e57"
                                                      tabIndex="-1"
-                      id="custom-messages"/>
+                                                     id="custom-messages"/>
                       </div>
                       <div className="clear"><input type="submit"
                                                     value="Enviar"
@@ -249,7 +274,6 @@ class DuplaPerfectaLG extends Component {
 
 function mapStateToProps(state) {
   return {
-    isMobile: state.browser.lessThan.medium,
     productEntries: state.productEntries
   }
 }
