@@ -39,8 +39,9 @@ body {
 @import './components/Landings/PlanPerfecto/PlanPerfecto.css';
 @import './components/Landings/LgWeek/LgWeek.css';
 @import './components/Landings/Modernizate/Modernizate.css';
-@import './components/Landings/SaltateLaFila/SaltateLaFila.css';
-@import './components/Landings/SaltateLaFila/SaltateLaFilaProducts.css';
+//@import './components/Landings/SaltateLaFila/SaltateLaFila.css';
+//@import './components/Landings/SaltateLaFila/SaltateLaFilaProducts.css';
+@import './components/Landings/DuplaPerfectaLG/DuplaPerfectaLG.css';
 @import './components/NavBar/NavBar.css';
 @import './components/NavBar/NavBarMobileSearch.css';
 @import './components/Product/ProductBrowseResultDesktop.css';
@@ -56,3 +57,16 @@ body {
 @import './components/Slides/PrevArrow.css';
 @import './components/Slides/SlideDynamicPrice.css';
 @import './components/SubcategoryMenu/SubcategoryMenu.css';
+
+#mc_embed_signup #mce-error-response {
+    display: none;
+}
+
+#mc_embed_signup #mce-success-response {
+    display: none;
+}
+
+#mc_embed_signup #custom-messages {
+    position: absolute;
+    left: -5000px;
+}

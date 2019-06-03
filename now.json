@@ -85,7 +85,6 @@
       "src": "/products/(?<product>[^/]+?)$",
       "dest": "/products?product=$product",
       "headers": { "cache-control": "s-maxage=14400" }
-    },
-
+    }
   ]
 }
