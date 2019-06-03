@@ -103,6 +103,20 @@ export default [
     />
   },
   {
+    id: 'K40',
+    categoryId: 6,
+    subcategory: null,
+    frontpageOrdering: 5,
+    component: <SlideDynamicPrice
+        productId={61367}
+        extraSmall={['/static/img/slides/mc_K40_350.png', '/static/img/slides/mc_K40_350_hdpi.png']}
+        small={['/static/img/slides/mc_K40_540.png']}
+        medium={['/static/img/slides/mc_K40_720.png']}
+        large={['/static/img/slides/mc_K40_960.png']}
+        infinity={['/static/img/slides/mc_K40_1140.png']}
+    />
+  },
+  {
     id: 'G7',
     categoryId: 6,
     subcategory: null,
