@@ -67,6 +67,11 @@
       "headers": { "cache-control": "s-maxage=14400" }
     },
     {
+      "src": "/DuplaPerfectaLG$",
+      "dest": "/landing?landing=DuplaPerfectaLG",
+      "headers": { "cache-control": "s-maxage=14400" }
+    },
+    {
       "src": "/(?<section>[^/]+)$",
       "dest": "/browse?section=$section",
       "headers": { "cache-control": "s-maxage=14400" }

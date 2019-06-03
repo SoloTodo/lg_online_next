@@ -14,9 +14,10 @@ import LgWeek from "../components/Landings/LgWeek/LgWeek";
 import Modernizate from "../components/Landings/Modernizate/Modernizate";
 import EspecialLavado
   from "../components/Landings/EspecialLavado/EspecialLavado";
-import SaltateLaFila from "../components/Landings/SaltateLaFila/SaltateLaFila";
 import SaltateLaFilaProducts
   from "../components/Landings/SaltateLaFila/SaltateLaFilaProducts";
+import DuplaPerfectaLG
+  from "../components/Landings/DuplaPerfectaLG/DuplaPerfectaLG";
 
 const landingComponentsDict = {
   did: Did,
@@ -32,6 +33,7 @@ const landingComponentsDict = {
   especial_lavado: EspecialLavado,
   saltatelafila: SaltateLaFilaProducts,
   saltatelafilalanding: SaltateLaFilaProducts,
+  DuplaPerfectaLG: DuplaPerfectaLG,
 };
 
 class Landing extends React.Component {
