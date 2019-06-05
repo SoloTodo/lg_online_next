@@ -1,6 +1,6 @@
 .duplaperfectalg-body {
     background-color: white;
-    padding: 30px 0 0 0;
+    padding: 10px 0 0 0;
     color: #5d5d5d;
 }
 
@@ -17,6 +17,9 @@
 
 .duplaperfectalg-body input[type=text], .duplaperfectalg-body input[type=email], .duplaperfectalg-body input[type=number] {
     color: #5d5d5d;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
 }
 
 .duplaperfectalg-body input[type=submit] {
@@ -39,5 +42,18 @@
 }
 
 .duplaperfectalg-body select {
-    border: 1px solid #ABB0B2
+    border: 1px solid #ABB0B2;
+}
+
+.duplaperfectalg-body .mc-field-group {
+    min-height: 0 !important;
+}
+
+.duplaperfectalg-cta {
+    background-color: #a61637;
+}
+
+.duplaperfectalg-body .mce_inline_error {
+    background-color: white !important;
+    color: red !important;
 }

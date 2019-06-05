@@ -109,11 +109,11 @@ export default [
     frontpageOrdering: 5,
     component: <SlideDynamicPrice
         productId={61367}
-        extraSmall={['/static/img/slides/mc_K40_350.png', '/static/img/slides/mc_K40_350_hdpi.png']}
-        small={['/static/img/slides/mc_K40_540.png']}
-        medium={['/static/img/slides/mc_K40_720.png']}
-        large={['/static/img/slides/mc_K40_960.png']}
-        infinity={['/static/img/slides/mc_K40_1140.png']}
+        extraSmall={['/static/img/slides/mc_K40_350.jpg', '/static/img/slides/mc_K40_350_hdpi.jpg']}
+        small={['/static/img/slides/mc_K40_540.jpg']}
+        medium={['/static/img/slides/mc_K40_720.jpg']}
+        large={['/static/img/slides/mc_K40_960.jpg']}
+        infinity={['/static/img/slides/mc_K40_1140.jpg']}
     />
   },
   {
