@@ -41,6 +41,7 @@ export const trackPage = params => {
 
   window.gtag('config', settings.googleAnalyticsId, analyticsParams);
   window.gtag('config', settings.lgAdWordsConversionId);
+  window.gtag('config', 'AW-806531637');
   window.fbq('track', 'PageView');
 };
 

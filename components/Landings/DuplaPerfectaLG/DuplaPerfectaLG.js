@@ -33,6 +33,10 @@ class DuplaPerfectaLG extends Component {
     window.ftypes[6]='number';
   }
 
+  handleSubmit = () => {
+    window.gtag('event', 'conversion', {'send_to': 'AW-806531637/GQWDCKSXgqIBELXkyoAD'});
+  };
+
   render() {
     const productIds = [
       46663,  // 65UK6350PSC
@@ -99,7 +103,9 @@ class DuplaPerfectaLG extends Component {
             action="https://www.us18.list-manage.com/subscribe/post?u=66aa9e160932049f84283045a&amp;id=4d681f5e57"
             method="post" id="mc-embedded-subscribe-form"
             name="mc-embedded-subscribe-form" className="validate"
-            target="_blank" noValidate>
+            target="_blank" noValidate
+            onSubmit={this.handleSubmit}
+          >
             <div className="container duplaperfectalg-body" id="mc_embed_signup">
               <div className="row">
                 <div className="col-7">
