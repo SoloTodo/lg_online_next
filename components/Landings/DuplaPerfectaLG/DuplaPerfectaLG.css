@@ -12,7 +12,7 @@
 .duplaperfectalg-body a {
     font-weight: bold;
     text-decoration: underline;
-    color: #ff0135;
+    color: #a61637;
 }
 
 .duplaperfectalg-body input[type=text], .duplaperfectalg-body input[type=email], .duplaperfectalg-body input[type=number] {
@@ -24,7 +24,7 @@
 
 .duplaperfectalg-body input[type=submit] {
     margin-right: 20px !important;
-    background-color: #ff0135 !important;
+    background-color: #a61637 !important;
     width: 150px !important;
     height: 40px !important;
     font-size: 20px !important;
@@ -56,4 +56,40 @@
 .duplaperfectalg-body .mce_inline_error {
     background-color: white !important;
     color: red !important;
+}
+
+.duplaperfectalg-cta {
+    color: white;
+    font-weight: 200;
+    padding: 10px 0;
+}
+
+.duplaperfectalg-cta strong {
+    font-weight: 700;
+}
+
+.duplaperfectalg-cta__left {
+    border-right: 1px solid white;
+}
+
+.duplaperfectalg__links {
+    margin-top: 10px;
+}
+
+.duplaperfectalg__links a, .duplaperfectalg__links a:hover {
+    text-decoration: none;
+}
+
+.duplaperfectalg__links > div {
+    border: 1px solid #a61637;
+    padding: 5px 0;
+}
+
+.duplaperfectalg__links > div.active {
+    background-color: #a61637;
+    font-weight: bold;
+}
+
+.duplaperfectalg__links > div.active a {
+    color: white !important;
 }

@@ -10,8 +10,33 @@ import ProductBrowseResults from "../../Product/ProductBrowseResults";
 import SlideStaticImage from "../../Slides/SlideStaticImage";
 import {Navbar} from "reactstrap";
 import Link from "next/link";
+import queryString from "query-string";
+import {convertIdToUrl} from "../../../react-utils/utils";
+
+
+const sections = [
+  {
+    slug: 'televisores',
+    categoryId: 11,
+    label: 'Televisores'
+  },
+  {
+    slug: 'soundbars',
+    categoryId: 25,
+    label: 'Soundbars',
+  }
+];
+
 
 class DuplaPerfectaLG extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      section: sections[0]
+    }
+  }
+
   componentDidMount() {
     window.fnames = new Array();
     window.ftypes = new Array();
@@ -32,6 +57,13 @@ class DuplaPerfectaLG extends Component {
     window.fnames[6]='MMERGE6';
     window.ftypes[6]='number';
   }
+
+  handleSectionClick = (evt, idx) => {
+    evt.preventDefault();
+    this.setState({
+      section: sections[idx]
+    })
+  };
 
   handleSubmit = () => {
     window.gtag('event', 'conversion', {'send_to': 'AW-806531637/GQWDCKSXgqIBELXkyoAD'});
@@ -57,13 +89,16 @@ class DuplaPerfectaLG extends Component {
       54111,  // SK5R
       46690,  // SK8
     ];
+
+    const categoryId = this.state.section.categoryId;
+    const categoryUrl = convertIdToUrl(categoryId, 'categories');
+
     const filteredProductEntries = this.props.productEntries.filter(
-      productEntry => productIds.includes(productEntry.product.id)
+      productEntry => productIds.includes(productEntry.product.id) && productEntry.product.category === categoryUrl
     ).sort((a, b) => productIds.indexOf(a.product.id) - productIds.indexOf(b.product.id));
 
     return <React.Fragment>
       <Head>
-        <link rel="stylesheet" href="/static/landings/twin_wash/TwinWash.css" />
         <title key="title">Promoción Dupla Perfecta LG - LG Online</title>
         <meta property="og:type" content="website" />
         <link rel="canonical" href={`${settings.domain}/DuplaPerfectaLG`} />
@@ -95,8 +130,17 @@ class DuplaPerfectaLG extends Component {
             mobileAs="/DuplaPerfectaLG"
           />
 
-          <div className="container duplaperfectalg-cta text-center">
-            <img src="/static/landings/dupla_perfecta_lg/cta.jpg" alt="Call to action" className="img-fluid" />
+          <div className="container duplaperfectalg-cta">
+            <div className="row">
+              <div className="col-6 text-right duplaperfectalg-cta__left">
+                <strong>COMPRA CUALQUIER BARRA DE SONIDO LG SOUNDBAR </strong>
+                Y PODRÁS GANAR UN <strong>TV OLED 55C8.</strong>
+              </div>
+              <div className="col-6 text-left duplaperfectalg-cta__right">
+                <strong>COMPRA UN TV LG IGUAL O SUPERIOR A 65 PULGADAS </strong>
+                Y PODRÁS GANAR UN <strong>SOUNDBAR SK8.</strong>
+              </div>
+            </div>
           </div>
 
           <form
@@ -259,6 +303,17 @@ class DuplaPerfectaLG extends Component {
               </div>
             </div>
           </form>
+        </div>
+
+        <div className="container" id="duplaperfectalg__products">
+          <div className="row text-center duplaperfectalg__links">
+            <div className={`col-6 ${categoryId === 11 ? 'active' : ''}`}>
+              <a href="." className="d-block" onClick={evt => this.handleSectionClick(evt, 0)}>Televisores</a>
+            </div>
+            <div className={`col-6 ${categoryId === 25 ? 'active' : ''}`}>
+                <a href="." className="d-block" onClick={evt => this.handleSectionClick(evt, 1)}>Soundbars</a>
+            </div>
+          </div>
         </div>
 
         <ProductBrowseResults location={this.props.location} filteredProductEntries={filteredProductEntries} />
