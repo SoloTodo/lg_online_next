@@ -67,6 +67,7 @@ class DuplaPerfectaLG extends Component {
 
   handleSubmit = () => {
     window.gtag('event', 'conversion', {'send_to': 'AW-806531637/GQWDCKSXgqIBELXkyoAD'});
+    window.fbq('track', 'CompleteRegistration');
   };
 
   render() {
