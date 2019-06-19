@@ -56,6 +56,8 @@ class DuplaPerfectaLG extends Component {
     window.ftypes[7]='dropdown';
     window.fnames[6]='MMERGE6';
     window.ftypes[6]='number';
+
+    window.gtag('config', 'UA-11469429-2');
   }
 
   handleSectionClick = (evt, idx) => {
