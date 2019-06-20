@@ -8,7 +8,7 @@ export const settings = {
   googleAnalyticsId: 'UA-11970222-13',
   lgAdWordsConversionId: 'AW-3270351152',
   facebookId: '1014408442058543',
-  storeIds: [9, 18, 11, 5, 30, 60, 67, 37, 38, 61, 12, 85, 43, 23, 97, 87, 167, 86, 181, 195, 197],
+  storeIds: [9, 18, 11, 5, 30, 60, 67, 37, 38, 61, 12, 85, 43, 23, 97, 87, 167, 86, 181, 195, 197, 224],
   domain: 'https://www.lgonline.cl',
   // domain: 'http://localhost:3000',
   categoriesMetadata: {
