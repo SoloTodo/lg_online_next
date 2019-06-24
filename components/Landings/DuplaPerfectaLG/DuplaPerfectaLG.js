@@ -145,7 +145,22 @@ class DuplaPerfectaLG extends Component {
               </div>
             </div>
           </div>
+        </div>
 
+        <div className="container" id="duplaperfectalg__products">
+          <div className="row text-center duplaperfectalg__links">
+            <div className={`col-6 ${categoryId === 11 ? 'active' : ''}`}>
+              <a href="." className="d-block" onClick={evt => this.handleSectionClick(evt, 0)}>Televisores</a>
+            </div>
+            <div className={`col-6 ${categoryId === 25 ? 'active' : ''}`}>
+                <a href="." className="d-block" onClick={evt => this.handleSectionClick(evt, 1)}>Soundbars</a>
+            </div>
+          </div>
+        </div>
+
+        <ProductBrowseResults location={this.props.location} filteredProductEntries={filteredProductEntries} />
+
+        <div className="container">
           <form
             action="https://www.us18.list-manage.com/subscribe/post?u=66aa9e160932049f84283045a&amp;id=4d681f5e57"
             method="post" id="mc-embedded-subscribe-form"
@@ -166,7 +181,7 @@ class DuplaPerfectaLG extends Component {
               </div>
 
               <div className="row">
-                <div className="col-6">
+                <div className="col-12 col-sm-6">
                   <div id="mc_embed_signup_scroll">
                     <div className="mc-field-group">
                       <input type="text" name="FNAME"
@@ -189,7 +204,7 @@ class DuplaPerfectaLG extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-6">
+                <div className="col-12 col-sm-6">
                   <div className="mc-field-group">
                     <select name="MMERGE3" className="required"
                             id="mce-MMERGE3">
@@ -307,19 +322,6 @@ class DuplaPerfectaLG extends Component {
             </div>
           </form>
         </div>
-
-        <div className="container" id="duplaperfectalg__products">
-          <div className="row text-center duplaperfectalg__links">
-            <div className={`col-6 ${categoryId === 11 ? 'active' : ''}`}>
-              <a href="." className="d-block" onClick={evt => this.handleSectionClick(evt, 0)}>Televisores</a>
-            </div>
-            <div className={`col-6 ${categoryId === 25 ? 'active' : ''}`}>
-                <a href="." className="d-block" onClick={evt => this.handleSectionClick(evt, 1)}>Soundbars</a>
-            </div>
-          </div>
-        </div>
-
-        <ProductBrowseResults location={this.props.location} filteredProductEntries={filteredProductEntries} />
       </div>
 
       <script type='text/javascript' src='/static/js/mc-validate.js'></script>
