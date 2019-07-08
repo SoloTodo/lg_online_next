@@ -206,7 +206,7 @@ export default [
     subcategory: null,
     frontpageOrdering: 3,
     component: <SlideDynamicPrice
-      productId={40738}
+      productId={61410}
       extraSmall={['/static/img/slides/oven_MH8236GIR_350.jpg', '/static/img/slides/oven_MH8236GIR_350_hdpi.jpg']}
       small={['/static/img/slides/oven_MH8236GIR_540.jpg']}
       medium={['/static/img/slides/oven_MH8236GIR_720.jpg']}
