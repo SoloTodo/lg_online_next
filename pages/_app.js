@@ -1,12 +1,10 @@
 import "@babel/polyfill";
 import React from 'react'
 import { Provider } from 'react-redux'
-import uuidv4 from "uuid/v4"
 import App, { Container } from 'next/app'
 import {calculateResponsiveState} from 'redux-responsive'
 
 import {loadRequiredResources} from '../react-utils/redux/actions'
-import AppContext from '../react-utils/components/Context'
 
 import withReduxStore from '../lib/with-redux-store'
 import LgOnlineHead from "../components/LgOnlineHead";
@@ -34,11 +32,9 @@ class MyApp extends App {
       pageProps = await appContext.Component.getInitialProps(appContext.ctx)
     }
 
-    const namespace = uuidv4();
 
     return {
-      pageProps,
-      namespace
+      pageProps
     }
   }
 
@@ -58,9 +54,7 @@ class MyApp extends App {
         <ToastContainer />
 
         <Provider store={reduxStore}>
-          <AppContext.Provider value={{namespace: this.props.namespace}}>
-            <Component {...pageProps} />
-          </AppContext.Provider>
+          <Component {...pageProps} />
         </Provider>
 
         <script type="text/javascript" src="/static/js/livechat.js"></script>
